@@ -1,81 +1,118 @@
 "use client";
 
-// Assurez-vous que 'links' est bien typé dans 'lib/types'
-import React from "react";
+import React, { useState, memo } from "react";
 import NextLink from "next/link";
 import clsx from "clsx";
 import { useActiveSectionContext } from "@/containers/active-section";
+import { motion, AnimatePresence } from "framer-motion";
+import { Sling as Hamburger } from "hamburger-react"; // Bibliothèque pour le menu burger
 
-//Animation
-import { motion } from "framer-motion";
-
-// Typage des liens
-type Link = {
-    nameEng: string;
-    hash: string;
-};
-
-// Typage des props pour le composant Header
+type Link = { nameEng: string; hash: string };
 type HeaderProps = { links: Link[] };
 
+const MemoizedLink = memo(({ link, isActive, onClick }: { link: Link; isActive: boolean; onClick: () => void }) => (
+  <motion.li className="relative">
+    <NextLink
+      aria-current={isActive ? "page" : undefined}
+      className={clsx(
+        "inline-flex items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300",
+        { "text-gray-950 dark:text-gray-200": isActive }
+      )}
+      href={link.hash}
+      onClick={onClick}
+    >
+      {link.nameEng}
+      {isActive && (
+        <motion.span
+          layoutId="activeSection"
+          className="bg-gray-100 rounded-full absolute inset-0 -z-10 dark:bg-gray-800"
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        />
+      )}
+    </NextLink>
+  </motion.li>
+));
+
 export default function Header({ links }: HeaderProps) {
-    const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const [isBurgerOpen, setIsBurgerOpen] = useState(false); // État pour le menu burger
+  const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
-    return (
-        <header className="hidden md:flex items-center justify-center
-        border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03]
-        backdrop-blur-[0.5rem] sm:rounded-full dark:bg-gray-950
-        dark:border-black/40 dark:bg-opacity-75 fixed top-10 w-full">
-            <motion.div 
-            initial={{y:-100, opacity: 0}}
-            animate={{y: 0, opacity: 1}}
-            className="flex p-1 rounded-none border border-white 
-            border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03]
-            backdrop-blur-[0.5rem] sm:rounded-full dark:bg-gray-950 dark:border-black/40
-            dark:bg-opacity-75">
+  const handleLinkClick = (hash: string) => {
+    setActiveSection(hash);
+    setTimeOfLastClick(Date.now());
+    setIsBurgerOpen(false); // Ferme le menu burger après le clic
+  };
 
-                <ul className="inline-flex items-center justify-center
-                gap-y-1 text-[0.9rem] font-medium text-gray-500">
-                    {links.map((link) => (
-                        <motion.li
-                            className="relative"
-                            key={link.hash}  // Utilisation de 'key' pour chaque lien
-                            initial={{y:-100, opacity: 0}}
-                            animate={{y: 0, opacity: 1}}
-                        >
-                            <NextLink
-                                className={clsx(
-                                    "inline-flex items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300",
-                                    {
-                                        "text-gray-950 dark:text-gray-200":
-                                        activeSection === link.hash,  // Vérification de la section active
-                                    }
-                                )}
-                                href={link.hash}
-                                onClick={() => {
-                                    setActiveSection(link.hash);  // Mettre à jour la section active
-                                    setTimeOfLastClick(Date.now());  // Mettre à jour l'heure du dernier clic
-                                }}
-                            >
-                                {link.nameEng}  
-                                {link.hash === activeSection && (
-                                    <motion.span
-                                    transition={{
-                                        type: "spring",
-                                        stiffness: 300,
-                                        damping: 30,
-                                    }}
-                                    layoutId="activeSection"
-                                    className="bg-gray-100 rounded-full absolute
-                                    inset-0 -z-10 dark:bg-gray-800"
-                                    >
-                                    </motion.span>
-                                )}
-                            </NextLink>
-                        </motion.li>
-                    ))}
-                </ul>
-            </motion.div>
-        </header>
-    );
+  return (
+    <>
+      {/* Header Desktop */}
+      <header className="hidden md:flex items-center justify-center fixed top-10 w-full custom-header-class">
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className="flex p-1 custom-header-inner-class"
+        >
+          <motion.ul
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delayChildren: 0.2, staggerChildren: 0.1 }}
+            className="inline-flex items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500"
+          >
+            {links.map((link) => (
+              <MemoizedLink
+                key={link.hash}
+                link={link}
+                isActive={activeSection === link.hash}
+                onClick={() => handleLinkClick(link.hash)}
+              />
+            ))}
+          </motion.ul>
+        </motion.div>
+      </header>
+
+      {/* Header Mobile - Menu Burger */}
+      <header className="flex md:hidden items-center justify-between px-4 py-3 fixed top-0 w-full bg-white dark:bg-gray-950 shadow-lg z-50">
+        <NextLink href="/" className="text-lg font-bold text-gray-800 dark:text-gray-200">
+          Logo
+        </NextLink>
+
+        <Hamburger toggled={isBurgerOpen} toggle={setIsBurgerOpen} size={24} color="#4B5563" /> {/* Menu burger */}
+
+        <AnimatePresence>
+          {isBurgerOpen && (
+            <motion.nav
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="fixed top-0 right-0 h-screen w-4/5 bg-white dark:bg-gray-900 shadow-lg z-50 flex flex-col items-center justify-center gap-6"
+            >
+              <ul className="text-lg font-medium text-gray-700 dark:text-gray-200 space-y-4">
+                {links.map((link) => (
+                  <motion.li
+                    key={link.hash}
+                    className="relative"
+                    initial={{ x: 100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    <NextLink
+                      className={clsx(
+                        "hover:text-gray-950 transition dark:hover:text-gray-300",
+                        { "text-gray-950 dark:text-gray-200": activeSection === link.hash }
+                      )}
+                      href={link.hash}
+                      onClick={() => handleLinkClick(link.hash)}
+                    >
+                      {link.nameEng}
+                    </NextLink>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.nav>
+          )}
+        </AnimatePresence>
+      </header>
+    </>
+  );
 }
