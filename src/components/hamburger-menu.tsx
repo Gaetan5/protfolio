@@ -1,34 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import NextLink from "next/link";
-import Hamburger from "hamburger-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useActiveSectionContext } from "@/containers/active-section";
+import Hamburger from "hamburger-react";
 import clsx from "clsx";
+import { useActiveSectionContext } from "@/containers/active-section";
 
 // Typage des liens
 type Link = { nameEng: string; hash: string };
-
-// Composant MenuItem
-const MenuItem: React.FC<{ link: Link; isActive: boolean; index: number; onClick: () => void }> = ({ link, isActive, index, onClick }) => (
-  <motion.div {...animationVariants.menuItem(index)}>
-    <NextLink
-      href={link.hash}
-      className={clsx(
-        "flex w-full items-center justify-center py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300 cursor-pointer",
-        {
-          "text-gray-950 bg-slate-200 dark:text-gray-200 dark:bg-gray-700 rounded": isActive,
-          "rounded-t-xl": index === 0,
-          "rounded-b-xl": index === links.length - 1,
-        }
-      )}
-      onClick={onClick}
-    >
-      {link.nameEng}
-    </NextLink>
-  </motion.div>
-);
+type HeaderProps = { links: Link[] };
 
 // Variantes d'animation
 const animationVariants = {
@@ -41,14 +22,73 @@ const animationVariants = {
   }),
 };
 
-// Composant principal
-const HamburgerMenu: React.FC<{ links: Link[] }> = ({ links }) => {
+// Composant pour les items du menu (burger et desktop)
+const MemoizedLink = memo(({ link, isActive, onClick }: { link: Link; isActive: boolean; onClick: () => void }) => (
+  <motion.li className="relative">
+    <NextLink
+      aria-current={isActive ? "page" : undefined}
+      className={clsx(
+        "inline-flex items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300",
+        { "text-gray-950 dark:text-gray-200": isActive }
+      )}
+      href={link.hash}
+      onClick={onClick}
+    >
+      {link.nameEng}
+      {isActive && (
+        <motion.span
+          layoutId="activeSection"
+          className="bg-gray-100 rounded-full absolute inset-0 -z-10 dark:bg-gray-800"
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        />
+      )}
+    </NextLink>
+  </motion.li>
+));
+
+// Header Desktop
+const DesktopHeader: React.FC<HeaderProps> = ({ links }) => {
+  const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+
+  return (
+    <header className="hidden md:flex items-center justify-center fixed top-10 w-full custom-header-class">
+      <motion.div
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className="flex p-1 custom-header-inner-class"
+      >
+        <motion.ul
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delayChildren: 0.2, staggerChildren: 0.1 }}
+          className="inline-flex items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500"
+        >
+          {links.map((link) => (
+            <MemoizedLink
+              key={link.hash}
+              link={link}
+              isActive={activeSection === link.hash}
+              onClick={() => {
+                setActiveSection(link.hash);
+                setTimeOfLastClick(Date.now());
+              }}
+            />
+          ))}
+        </motion.ul>
+      </motion.div>
+    </header>
+  );
+};
+
+// Menu Burger Responsive
+const HamburgerMenu: React.FC<HeaderProps> = ({ links }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   const handleMenuClick = (hash: string) => {
     setActiveSection(hash);
     setTimeOfLastClick(Date.now());
+    setIsOpen(false);
   };
 
   return (
@@ -76,13 +116,22 @@ const HamburgerMenu: React.FC<{ links: Link[] }> = ({ links }) => {
             className="w-full bg-white drop-shadow border border-slate-400 dark:border-white border-opacity-60 shadow-2xl flex flex-col items-center justify-center dark:bg-gray-950 p-1 mt-2"
           >
             {links.map((link, index) => (
-              <MenuItem
-                key={link.hash}
-                link={link}
-                isActive={activeSection === link.hash}
-                index={index}
-                onClick={() => handleMenuClick(link.hash)}
-              />
+              <motion.div {...animationVariants.menuItem(index)} key={link.hash}>
+                <NextLink
+                  href={link.hash}
+                  className={clsx(
+                    "flex w-full items-center justify-center py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300 cursor-pointer",
+                    {
+                      "text-gray-950 bg-slate-200 dark:text-gray-200 dark:bg-gray-700 rounded": activeSection === link.hash,
+                      "rounded-t-xl": index === 0,
+                      "rounded-b-xl": index === links.length - 1,
+                    }
+                  )}
+                  onClick={() => handleMenuClick(link.hash)}
+                >
+                  {link.nameEng}
+                </NextLink>
+              </motion.div>
             ))}
           </motion.div>
         )}
@@ -91,4 +140,14 @@ const HamburgerMenu: React.FC<{ links: Link[] }> = ({ links }) => {
   );
 };
 
-export default HamburgerMenu;
+// Composant combiné
+const Header: React.FC<HeaderProps> = ({ links }) => {
+  return (
+    <>
+      <DesktopHeader links={links} />
+      <HamburgerMenu links={links} />
+    </>
+  );
+};
+
+export default Header;
