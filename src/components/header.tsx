@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, memo } from "react";
+import React, { useState, memo, useEffect } from "react";
 import NextLink from "next/link";
 import clsx from "clsx";
 import { useActiveSectionContext } from "@/containers/active-section";
@@ -50,6 +50,20 @@ export default function Header({ links }: HeaderProps) {
     setTimeOfLastClick(Date.now()); // Enregistre l'heure du clic
     setIsBurgerOpen(false); // Ferme le menu burger après un clic
   };
+
+  useEffect(() => {
+    if (isBurgerOpen) {
+      const handleOutsideClick = (event: MouseEvent) => {
+        if (!(event.target as HTMLElement).closest(".hamburger-react")) {
+          setIsBurgerOpen(false);
+        }
+      };
+      document.addEventListener("click", handleOutsideClick);
+      return () => {
+        document.removeEventListener("click", handleOutsideClick);
+      };
+    }
+  }, [isBurgerOpen]);
 
   return (
     <>
