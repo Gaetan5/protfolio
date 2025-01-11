@@ -40,6 +40,7 @@ const MemoizedLink = memo(({ link, isActive, onClick }: { link: Link; isActive: 
 // Ajout de la propriété displayName pour résoudre l'erreur ESLint
 MemoizedLink.displayName = "MemoizedLink";
 
+MemoizedLink.displayName = "MemoizedLink";
 export default function Header({ links }: HeaderProps) {
   const [isBurgerOpen, setIsBurgerOpen] = useState(false); // État pour gérer l'ouverture/fermeture du menu burger
   const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext(); // Gestion des sections actives
