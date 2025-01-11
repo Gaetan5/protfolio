@@ -3,7 +3,7 @@
 import React, { useState, useEffect, memo } from "react";
 import NextLink from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import Hamburger from "hamburger-react";
+import { Sling as Hamburger } from "hamburger-react";
 import clsx from "clsx";
 import { useActiveSectionContext } from "@/containers/active-section";
 
