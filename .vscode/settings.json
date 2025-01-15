@@ -10,5 +10,6 @@
         "Typage",
         "Variantes",
         "vous"
-    ]
+    ],
+    "remote.autoForwardPortsFallback": 0
 }

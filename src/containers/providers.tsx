@@ -1,11 +1,11 @@
 import ActiveSectionContextProvider from "./active-section";
-//import React, { ProviderProps } from "react";
+import React from "react";
 
-type ProviderProps = {
+type ProvidersProps = {
     children: React.ReactNode;
 };
 
-export default function Provider({children}: ProviderProps) {
+export default function Provider({children}: ProvidersProps) {
     return(
         <ActiveSectionContextProvider>
             {children}
