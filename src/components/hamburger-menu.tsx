@@ -25,58 +25,41 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
     const handleLinkClick = (hash: string) => {
         setActiveSection(hash);
         setTimeOfLastClick(Date.now());
-        setIsOpen(false); // Ferme le menu après le clic
+        setIsOpen(false);
     };
 
-    useEffect(() => {
-        if (isOpen) {
-            const handleOutsideClick = (event: MouseEvent) => {
-                if (!(event.target as HTMLElement).closest(".hamburger-react")) {
-                    setIsOpen(false);
-                }
-            };
-            document.addEventListener("click", handleOutsideClick);
-            return () => {
-                document.removeEventListener("click", handleOutsideClick);
-            };
-        }
-    }, [isOpen]);
-
     return (
-        <div>
-            <Hamburger toggled={isOpen} toggle={setIsOpen} size={24} color="#4B5563" />
+        <div className="relative">
+            <Hamburger toggled={isOpen} toggle={setIsOpen} />
             <AnimatePresence>
                 {isOpen && (
-                    <motion.nav
-                        initial={{ x: "100%" }}
-                        animate={{ x: 0 }}
-                        exit={{ x: "100%" }}
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        className="fixed top-0 right-0 h-screen w-4/5 bg-white dark:bg-gray-900 shadow-lg z-50 flex flex-col items-center justify-center gap-6"
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="absolute top-0 left-0 w-auto h-auto p-4 bg-white bg-opacity-90 shadow-lg rounded-lg"
                     >
-                        <ul className="text-lg font-medium text-gray-700 dark:text-gray-200 space-y-4">
+                        <ul className="flex flex-col space-y-4">
                             {links.map((link) => (
-                                <motion.li
-                                    key={link.hash}
-                                    className="relative"
-                                    initial={{ x: 100, opacity: 0 }}
-                                    animate={{ x: 0, opacity: 1 }}
-                                    transition={{ delay: 0.1 }}
-                                >
-                                    <NextLink
-                                        className={clsx(
-                                            "hover:text-gray-950 transition dark:hover:text-gray-300",
-                                            { "text-gray-950 dark:text-gray-200": activeSection === link.hash }
-                                        )}
-                                        href={link.hash}
-                                        onClick={() => handleLinkClick(link.hash)}
-                                    >
-                                        {link.nameEng}
+                                <li key={link.hash}>
+                                    <NextLink href={link.hash}>
+                                        <a
+                                            className={clsx(
+                                                "text-lg font-medium",
+                                                {
+                                                    "text-blue-500": activeSection === link.hash,
+                                                    "text-gray-700": activeSection !== link.hash,
+                                                }
+                                            )}
+                                            onClick={() => handleLinkClick(link.hash)}
+                                        >
+                                            {link.nameEng}
+                                        </a>
                                     </NextLink>
-                                </motion.li>
+                                </li>
                             ))}
                         </ul>
-                    </motion.nav>
+                    </motion.div>
                 )}
             </AnimatePresence>
         </div>
