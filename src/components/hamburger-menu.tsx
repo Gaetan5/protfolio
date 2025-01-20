@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, memo } from "react";
+import React, { useState, memo } from "react";
 import NextLink from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sling as Hamburger } from "hamburger-react";
