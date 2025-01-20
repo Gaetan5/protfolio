@@ -1,15 +1,11 @@
-import { create } from 'zustand'
+import React from 'react'
 
-const useStore = create((set) => ({
-  bears: 0,
-  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-  removeAllBears: () => set({ bears: 0 }),
-  updateBears: (newBears) => set({ bears: newBears }),
-}))
-
-export const test = () => {
-    
+const test = () => {
   return (
-    <div>test</div>
+    <div>
+      test
+    </div>
   )
 }
+
+export default test

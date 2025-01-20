@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { useActiveSectionContext } from "@/containers/active-section";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sling as Hamburger } from "hamburger-react"; // Bibliothèque pour le menu burger
+import useMouveStore from "@/lib/store";
 
 // Typage des liens
 type Link = { nameEng: string; hash: string };
@@ -41,7 +42,16 @@ const MemoizedLink = memo(({ link, isActive, onClick }: { link: Link; isActive: 
 MemoizedLink.displayName = "MemoizedLink";
 
 MemoizedLink.displayName = "MemoizedLink";
+
+// Composant de l'en-tête
 export default function Header({ links }: HeaderProps) {
+
+  const setActive = useMouveStore((state) => state.setActiveSection);
+
+  const handleSectionChange = (newSection: string) => {
+    setActive(newSection); // Met à jour activeSection
+  };
+
   const [isBurgerOpen, setIsBurgerOpen] = useState(false); // État pour gérer l'ouverture/fermeture du menu burger
   const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext(); // Gestion des sections actives
 
@@ -123,6 +133,7 @@ export default function Header({ links }: HeaderProps) {
                     initial={{ x: 100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.1 }}
+                    onClick={() => handleSectionChange(link.nameEng)}
                   >
                     <NextLink
                       className={clsx(

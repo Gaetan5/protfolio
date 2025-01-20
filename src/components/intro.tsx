@@ -10,11 +10,9 @@ import { Mail } from "lucide-react";
 import { Fade } from "react-awesome-reveal";
 import { motion } from "framer-motion";
 import { useSectionInview } from "@/lib/userView";
-import { useActiveSectionContext } from "@/containers/active-section"; // Chemin mis à jour
 
 export default function Intro() {
     const { ref } = useSectionInview("#home", 0.5);
-    const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
     return (
         <Section
             ref={ref}

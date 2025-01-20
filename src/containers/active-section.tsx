@@ -1,7 +1,8 @@
 "use client";
 
 import { SectionName } from "@/lib/types";  // Assurez-vous que SectionName est bien typé comme une chaîne de caractères
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, createContext, useContext, useEffect } from "react";
+import useMouveStore from '@/lib/store';
 
 type ActiveSectionContextProviderProps = {
     children: React.ReactNode;
@@ -53,3 +54,30 @@ export function useActiveSectionContext() {
 
     return context;
 }
+
+
+
+export const ActiveSectionText = () => {
+    const setActiveSection = useMouveStore((state) => state.setActiveSection);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        const sections = document.querySelectorAll('section');
+        let active = 'home';
+  
+        sections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom > 100) {
+            active = section.id; // Id de la section (par ex., "about")
+          }
+        });
+  
+        setActiveSection(active);
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, [setActiveSection]);
+  
+    return null; // Ce composant ne rend rien
+  };

@@ -1,11 +1,16 @@
-
+"use client";
 
 import React from 'react';
+import useMouveStore from '@/lib/store';
 
-export default function Switch(): JSX.Element {
+const Switch = () => {
+  const { theme, toggleTheme } = useMouveStore();
+
   return (
-	<div>
-	  {/* Switch component implementation */}
-	</div>
+    <button onClick={toggleTheme}>
+      {theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
+    </button>
   );
-}
+};
+
+export default Switch;
