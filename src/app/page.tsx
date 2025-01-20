@@ -3,18 +3,14 @@
 import About from "@/components/about";
 import Intro from "@/components/intro";
 import Navbar from "@/components/navbar";
-import Switch from "@/components/switch";
 import { ActiveSectionText } from "@/containers/active-section";
 import useMouveStore from "@/lib/store";
 
 export default function Home() {
-  const theme = useMouveStore((state) => state.theme);
   const activeSection = useMouveStore((state) => state.activeSection);
   const activeMenuItem = useMouveStore((state) => state.activeMenuItem);
 
   console.log(
-    "theme",
-    theme,
     "activeSection",
     activeSection,
     "activeMenuItem",
@@ -29,9 +25,11 @@ export default function Home() {
         className="flex flex-col items-center 
       justify-center min-h-screen pt-20 md:pt-28 px-4"
       >
-        <Switch />
-        <Intro />
-        <About />
+        {activeSection === "home" && <Intro />}
+        {activeSection === "about" && <About />}
+        {/* {activeSection === "projects" && <Projects  />}
+        {activeSection === "skills" && <Skills  />}
+        {activeSection === "contact" && <Contact />} */}
         <ActiveSectionText />
       </div>
     </main>

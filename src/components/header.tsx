@@ -13,30 +13,40 @@ type Link = { nameEng: string; hash: string };
 type HeaderProps = { links: Link[] };
 
 // Composant optimisé pour chaque lien du menu
-const MemoizedLink = memo(({ link, isActive, onClick }: { link: Link; isActive: boolean; onClick: () => void }) => (
-  <motion.li className="relative">
-    {/* Lien individuel */}
-    <NextLink
-      aria-current={isActive ? "page" : undefined} // Définit si le lien est actuellement actif
-      className={clsx(
-        "inline-flex items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300",
-        { "text-gray-950 dark:text-gray-200": isActive } // Applique des styles spécifiques au lien actif
-      )}
-      href={link.hash} // URL cible
-      onClick={onClick} // Gère le clic sur le lien
-    >
-      {link.nameEng}
-      {/* Indicateur visuel pour le lien actif */}
-      {isActive && (
-        <motion.span
-          layoutId="activeSection"
-          className="bg-gray-100 rounded-full absolute inset-0 -z-10 dark:bg-gray-800"
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        />
-      )}
-    </NextLink>
-  </motion.li>
-));
+const MemoizedLink = memo(
+  ({
+    link,
+    isActive,
+    onClick,
+  }: {
+    link: Link;
+    isActive: boolean;
+    onClick: () => void;
+  }) => (
+    <motion.li className="relative">
+      {/* Lien individuel */}
+      <NextLink
+        aria-current={isActive ? "page" : undefined} // Définit si le lien est actuellement actif
+        className={clsx(
+          "inline-flex items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300",
+          { "text-gray-950 dark:text-gray-200": isActive } // Applique des styles spécifiques au lien actif
+        )}
+        href={link.hash} // URL cible
+        onClick={onClick} // Gère le clic sur le lien
+      >
+        {link.nameEng}
+        {/* Indicateur visuel pour le lien actif */}
+        {isActive && (
+          <motion.span
+            layoutId="activeSection"
+            className="bg-gray-100 rounded-full absolute inset-0 -z-10 dark:bg-gray-800"
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          />
+        )}
+      </NextLink>
+    </motion.li>
+  )
+);
 
 // Ajout de la propriété displayName pour résoudre l'erreur ESLint
 MemoizedLink.displayName = "MemoizedLink";
@@ -45,7 +55,6 @@ MemoizedLink.displayName = "MemoizedLink";
 
 // Composant de l'en-tête
 export default function Header({ links }: HeaderProps) {
-
   const setActive = useMouveStore((state) => state.setActiveSection);
 
   const handleSectionChange = (newSection: string) => {
@@ -53,7 +62,8 @@ export default function Header({ links }: HeaderProps) {
   };
 
   const [isBurgerOpen, setIsBurgerOpen] = useState(false); // État pour gérer l'ouverture/fermeture du menu burger
-  const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext(); // Gestion des sections actives
+  const { activeSection, setActiveSection, setTimeOfLastClick } =
+    useActiveSectionContext(); // Gestion des sections actives
 
   // Fonction pour gérer le clic sur un lien
   const handleLinkClick = (hash: string) => {
@@ -97,7 +107,10 @@ export default function Header({ links }: HeaderProps) {
                 key={link.hash}
                 link={link}
                 isActive={activeSection === link.hash}
-                onClick={() => handleLinkClick(link.hash)}
+                onClick={() => {
+                  handleLinkClick(link.hash);
+                  handleSectionChange(link.nameEng.toLocaleLowerCase());
+                }}
               />
             ))}
           </motion.ul>
@@ -107,12 +120,20 @@ export default function Header({ links }: HeaderProps) {
       {/* Header Mobile - Menu Burger */}
       <header className="flex md:hidden items-center justify-between px-4 py-3 fixed top-0 w-full bg-white dark:bg-gray-950 shadow-lg z-50">
         {/* Logo ou titre du site */}
-        <NextLink href="/" className="text-lg font-bold text-gray-800 dark:text-gray-200">
+        <NextLink
+          href="/"
+          className="text-lg font-bold text-gray-800 dark:text-gray-200"
+        >
           Logo
         </NextLink>
 
         {/* Composant de menu burger */}
-        <Hamburger toggled={isBurgerOpen} toggle={setIsBurgerOpen} size={24} color="#4B5563" />
+        <Hamburger
+          toggled={isBurgerOpen}
+          toggle={setIsBurgerOpen}
+          size={24}
+          color="#4B5563"
+        />
 
         {/* Navigation affichée lorsque le menu burger est ouvert */}
         <AnimatePresence>
@@ -133,15 +154,19 @@ export default function Header({ links }: HeaderProps) {
                     initial={{ x: 100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.1 }}
-                    onClick={() => handleSectionChange(link.nameEng)}
                   >
                     <NextLink
                       className={clsx(
                         "hover:text-gray-950 transition dark:hover:text-gray-300",
-                        { "text-gray-950 dark:text-gray-200": activeSection === link.hash }
+                        {
+                          "text-gray-950 dark:text-gray-200":
+                            activeSection === link.hash,
+                        }
                       )}
                       href={link.hash}
-                      onClick={() => handleLinkClick(link.hash)}
+                      onClick={() => {
+                        handleLinkClick(link.hash); // Appel de la deuxième fonction
+                      }}
                     >
                       {link.nameEng}
                     </NextLink>
