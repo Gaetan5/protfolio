@@ -166,6 +166,7 @@ export default function Header({ links }: HeaderProps) {
                       href={link.hash}
                       onClick={() => {
                         handleLinkClick(link.hash); // Appel de la deuxième fonction
+                        handleSectionChange(link.nameEng.toLocaleLowerCase());
                       }}
                     >
                       {link.nameEng}
