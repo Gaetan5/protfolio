@@ -11,13 +11,14 @@ import { Fade } from "react-awesome-reveal";
 import { motion } from "framer-motion";
 import { useSectionInview } from "@/lib/userView";
 
+// Intro component displaying the introduction section
 export default function Intro() {
     const { ref } = useSectionInview("#home", 0.5);
     return (
         <Section
             ref={ref}
             id="home"
-            className="mb-20 max-w-[75rem] text-center sm:mb-0"
+            className="mb-20 max-w-[75rem] text-center sm:mb-0 sm:mt-20"
         >
             <div className="flex items-center justify-center">
                 <div className="relative">
