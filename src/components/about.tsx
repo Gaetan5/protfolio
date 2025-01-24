@@ -1,10 +1,26 @@
-import React from 'react';
-import Image from 'next/image';
+"use client";
 
-// About component displaying the about section
-const About = () => {
+import React from "react";
+import { motion } from "framer-motion";
+import SectionHeading from "./section-heading";
+import { useSectionInView } from "@/lib/useInView";
+import Section from "./Section"; // Adjust the path as necessary
+
+// Composant About
+export default function About() {
+  // Utilisation du hook pour détecter si la section est en vue
+  const { ref } = useSectionInView("#about");
+
   return (
-    <section id="about" className="px-10 py-10 bg-gray-50 text-gray-800 mt-auto">
+    <motion.section
+      className="max-w-[45rem] text-center mt-32 leading-8 mb-28 sm:mb-40 scroll-mt-28"
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.175 }}
+      ref={ref}
+      id="about"
+    >
+      {/* En-tête de la section */}
       <header className="text-center mb-6 mt-10">
         <p className="mt-2 text-lg">
           👋 Hi, I&apos;m <strong>Gaetan X Ekoro (Gaetan5)</strong>
@@ -14,7 +30,9 @@ const About = () => {
         </p>
       </header>
 
+      {/* Contenu principal de la section */}
       <article className="max-w-3xl mx-auto space-y-6">
+        {/* Section Présentation */}
         <Section title="🎯 Presentation">
           <p>
             I am a passionate designer and developer with over <strong>5 years of experience</strong> in web and mobile application development. I specialize in robust back-end solutions, intuitive UI design, and embedded systems development. Additionally, I hold a <strong>Bachelor&apos;s Degree in Electrical Engineering and Industrial Information Technology</strong>, with <strong>3 years&apos; experience as an electrotechnician</strong>, allowing me to bridge the gap between software and hardware.
@@ -31,6 +49,7 @@ const About = () => {
           </ul>
         </Section>
 
+        {/* Section Ce que je fais */}
         <Section title="✨ What I Do">
           <ul className="list-disc list-inside">
             <li>💻 Back-End Development: Building high-performance, secure, and scalable web applications.</li>
@@ -40,6 +59,7 @@ const About = () => {
           </ul>
         </Section>
 
+        {/* Section Projets en vedette */}
         <Section title="📂 Featured Projects">
           <ul className="list-disc list-inside">
             <li><a href="#">🌐 My Portfolio Website</a>: Showcasing my skills, achievements, and professional journey.</li>
@@ -48,6 +68,7 @@ const About = () => {
           </ul>
         </Section>
 
+        {/* Section Statistiques GitHub */}
         <Section title="📈 GitHub Stats">
           <div className="flex flex-col items-center">
             <a href="https://github.com/Gaetan5/github-readme-stats#gh-dark-mode-only">
@@ -65,6 +86,7 @@ const About = () => {
           </div>
         </Section>
 
+        {/* Section Contact */}
         <Section title="📫 Get in Touch">
           <ul className="list-disc list-inside">
             <li><strong>LinkedIn</strong>: <a href="https://linkedin.com/in/gaetan-ekoro">Gaetan Ekoro</a></li>
@@ -73,16 +95,6 @@ const About = () => {
           </ul>
         </Section>
       </article>
-    </section>
+    </motion.section>
   );
-};
-
-// Section component for reusable section structure
-const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
-  <section>
-    <h3 className="text-2xl font-semibold">{title}</h3>
-    {children}
-  </section>
-);
-
-export default About;
+}
