@@ -3,7 +3,6 @@ import { Sora } from "next/font/google";
 import "./globals.css";
 import Providers from "@/containers/providers";
 import Footer from "@/components/footer";
-import ThemeSwitch from "@/components/theme-switch";
 import Navbar from "@/components/navbar";
 
 const sora = Sora({ 
@@ -33,7 +32,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
-          <ThemeSwitch />
+          <switch />
         </Providers>
       </body>
     </html>
