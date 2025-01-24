@@ -33,15 +33,15 @@ export default function Intro() {
             }}
           >
             <Image
-              src="/boy.png"
-              width="480"
-              height="480"
+              src="/Profile1.png"
+              width="400"
+              height="400"
               alt="portrait"
               quality="100"
               priority={true}
               className="rounded-full object-cover shadow-xl"
             />
-          </motion.div> 
+          </motion.div>
 
           <motion.span
             className="text-6xl absolute bottom-8 right-12"
@@ -60,15 +60,18 @@ export default function Intro() {
       </div>
 
       <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce={true}>
-      <h1 className="mb-10 mt-4 px-4 text-2xl sm:text-4xl">
-        <span className="font-medium !leading-[1.5] ">Grow your business with a new website.</span>{" "}
-        <p className="text-[14px]">
-        Resonance is a full-service creative studio creating beautiful digital experiences and products.
-        </p>
-      </h1>
+        <h1 className="mb-10 mt-4 px-4 text-2xl sm:text-4xl">
+          <span className="font-medium !leading-[1.5] ">
+            Boost your business with innovative solutions,
+            tailored to your needs thanks to my expertise.
+          </span>{" "}
+          <p className="text-[14px]">
+            Resonance is a full-service creative studio creating beautiful digital experiences and products.
+          </p>
+        </h1>
       </Fade>
 
-      
+
 
       <motion.div
         className="flex sm:flex-row items-center justify-center gap-4 px-4 text-lg font-medium"

@@ -12,8 +12,8 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Frontend | Advance",
-  description: "Frontend Advance Personal portfolio",
+  title: "Gaetan X Ekoro | PortFolio",
+  description: "Personal portfolio",
 };
 
 export default function RootLayout({

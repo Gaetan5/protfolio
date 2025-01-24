@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import SectionHeading from "./section-heading";
 import { useSectionInView } from "@/lib/useInView";
 import Section from "./Section"; // Adjust the path as necessary
+import Image from "next/image";
 
 // Composant About
 export default function About() {
@@ -23,10 +24,22 @@ export default function About() {
       {/* En-tête de la section */}
       <header className="text-center mb-6 mt-10">
         <p className="mt-2 text-lg">
-          👋 Hi, I&apos;m <strong>Gaetan X Ekoro (Gaetan5)</strong>
+          👋 Hi, I&apos;m <br />
+          <strong>
+            Gaetan X Ekoro (Gaetan X)
+          </strong>
+          <Image
+            src="/profile1.png"
+            width="280"
+            height="280"
+            alt="portrait"
+            quality="100"
+            priority={true}
+            className="rounded-full object-cover shadow-xl"
+          />
         </p>
         <p className="text-sm text-gray-600">
-          🚀 Back-End Developer | 🖌 Logo Designer | 🌍 Embedded Systems Innovator
+          🚀 Back-End Developer | 🖌 Logo Designer | 🌍 Embedded Systems Innovator| 🌍 Data Analytic
         </p>
       </header>
 
