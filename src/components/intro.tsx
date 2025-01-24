@@ -79,7 +79,7 @@ export default function Intro() {
         }}
       >
         <Link
-          href="#contact"
+          href="mailto:ekorogaetan5@gmail.com"
           className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 dark:bg-white/10 active:scale-105 transition"
           onClick={() => {
             setActiveSection("#contact");
@@ -91,7 +91,7 @@ export default function Intro() {
 
         <a
           className="bg-gray-900 p-4 text-white flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-          href="https://www.linkedin.com/in/mohamed-rhanmi/"
+          href="https://www.linkedin.com/in/gaetan-x-ekoro-56z/"
           target="_blank"
         >
           <BsLinkedin />
@@ -99,7 +99,7 @@ export default function Intro() {
 
         <a
           className="bg-gray-900 p-4 text-white flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-          href=""
+          href="https://github.com/Gaetan5"
           target="_blank"
         >
           <FaGithubSquare />
