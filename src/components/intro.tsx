@@ -18,7 +18,7 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-[75rem] text-center sm:mb-0 scroll-mt-[100rem]"
+      className=" text-center sm:mb-0 h-screen flex flex-col justify-center"
     >
       <div className="flex items-center justify-center">
         <div className="relative">
@@ -32,19 +32,21 @@ export default function Intro() {
               duration: 0.2,
             }}
           >
+            <div className="relative w-60 h-60 sm:w-80 sm:h-80 rounded-full overflow-hidden">
             <Image
               src="/Profile1.png"
-              width="400"
-              height="400"
+              width={"400"}
+              height={"400"}
               alt="portrait"
               quality="100"
               priority={true}
-              className="rounded-full object-cover shadow-xl"
+              className="object-cover shadow-xl"
             />
+            </div>
           </motion.div>
 
           <motion.span
-            className="text-6xl absolute bottom-8 right-12"
+            className="text-6xl absolute bottom-2 right-12"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
