@@ -48,10 +48,29 @@ export default function About() {
         {/* Section Présentation */}
         <Section title="🎯 Presentation">
           <p>
-            I am a passionate designer and developer with over <strong>5 years of experience</strong> in web and mobile application development. I specialize in robust back-end solutions, intuitive UI design, and embedded systems development. Additionally, I hold a <strong>Bachelor&apos;s Degree in Electrical Engineering and Industrial Information Technology</strong>, with <strong>3 years&apos; experience as an electrotechnician</strong>, allowing me to bridge the gap between software and hardware.
+            I am a passionate designer and developer with over 
+            <strong>
+              5 years of experience
+            </strong> 
+            in web and mobile application development. I specialize in robust back-end solutions, intuitive UI design, and embedded systems development. 
+            Additionally, I hold a 
+            <strong>
+              Bachelor&apos;s ESG-TI, Degree in Electrical Engineering and Industrial Information 
+            </strong>, 
+            with 
+            <strong>
+              3 years&apos; experience as an electrotechnician
+            </strong>, allowing me to bridge the gap between software and hardware.
           </p>
           <p>
-            My love for technology and my dream of revolutionizing the tech world led me to work on several impactful projects, including <strong>geolocation and security systems for medicalized electric cars</strong> and <strong>online ticket payment platforms</strong>.
+            My love for technology and my dream of revolutionizing the tech world led me to work on several impactful projects, including 
+            <strong>
+              geolocation and security systems for medicalized electric cars
+            </strong> 
+            and 
+            <strong>
+              online ticket payment platforms
+            </strong>.
           </p>
           <p>When I&apos;m not coding, you can find me:</p>
           <ul className="list-disc list-inside">
