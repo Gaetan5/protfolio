@@ -90,12 +90,6 @@ export default function About() {
             <a href="https://github.com/Gaetan5/github-readme-stats#gh-dark-mode-only">
               <img className="w-1/3" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Gaetan5&layout=compact&theme=github_dark#gh-dark-mode-only" alt="Top Languages Dark Mode" />
             </a>
-            <a href="https://github.com/Gaetan5/github-readme-stats#gh-light-mode-only">
-              <img className="w-1/2" src="https://github-readme-stats.vercel.app/api?username=Gaetan5&show_icons=true&theme=default#gh-light-mode-only" alt="GitHub Stats Light Mode" />
-            </a>
-            <a href="https://github.com/Gaetan5/github-readme-stats#gh-light-mode-only">
-              <img className="w-1/3" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Gaetan5&layout=compact&theme=default#gh-light-mode-only" alt="Top Languages Light Mode" />
-            </a>
           </div>
         </Section>
 

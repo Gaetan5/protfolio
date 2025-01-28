@@ -2,17 +2,16 @@ import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import "./globals.css";
 import Providers from "@/containers/providers";
-import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 
-const sora = Sora({ 
+const sora = Sora({
   subsets: ["latin"],
   variable: '--font-sora',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800'], 
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
 });
 
 export const metadata: Metadata = {
-  title: "Gaetan X Ekoro | PortFolio",
+  title: "Gaetan X Ekoro",
   description: "Personal portfolio",
 };
 
@@ -23,6 +22,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="!scroll-smooth">
+      <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
+      </head>
       <body
         className={`${sora.variable} font-Sora flex flex-col bg-gray-50 text-gray-950 relative dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
       >
@@ -31,7 +36,6 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {children}
-          <Footer />
           <switch />
         </Providers>
       </body>

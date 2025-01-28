@@ -56,7 +56,6 @@ export default function Intro() {
               duration: 0.2,
             }}
           >
-            👋
           </motion.span>
         </div>
       </div>
