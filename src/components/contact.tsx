@@ -2,8 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import SectionHeading from "@/components/section-heading";
-import SubmitBtn from "@/components/submit-btn";
+import SectionHeading from "./section-heading";
+import SubmitBtn from "./submit-btn";
 import { useSectionInView } from "@/lib/useInView";
 
 export default function Contact() {
