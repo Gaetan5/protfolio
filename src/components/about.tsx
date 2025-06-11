@@ -137,8 +137,8 @@ export default function About() {
         {/* Contact Section */}
         <Section title="📫 Get in Touch">
           <ul className="list-disc list-inside ml-4">
-            <li><strong>LinkedIn</strong>: <a href="https://linkedin.com/in/gaetan-ekoro" className="text-blue-600 hover:underline">Gaetan Ekoro</a></li>
-            <li><strong>Twitter</strong>: <a href="https://x.com/Gaetan5" className="text-blue-600 hover:underline">@Gaetan5</a></li>
+            <li><strong>LinkedIn</strong>: <a href="https://linkedin.com/in/gaetan-ekoro" className=\"text-blue-600 hover:underline">Gaetan Ekoro</a></li>
+            <li><strong>Twitter</strong>: <a href="https://x.com/Gaetan5" className=\"text-blue-600 hover:underline">@Gaetan5</a></li>
             <li><strong>Email</strong>: <a href="mailto:ekorogaetan5@gmail.com" className="text-blue-600 hover:underline">ekorogaetan5@gmail.com</a></li>
           </ul>
         </Section>
