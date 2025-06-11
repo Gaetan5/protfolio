@@ -2,8 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import SectionHeading from "@/components/SectionHeading"; // Assurez-vous que la casse est correcte
-import SubmitBtn from "@/components/SubmitBtn"; // Assurez-vous que la casse est correcte
+import SectionHeading from "@/components/section-heading";
+import SubmitBtn from "@/components/submit-btn";
 import { useSectionInView } from "@/lib/useInView";
 
 export default function Contact() {

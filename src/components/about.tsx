@@ -4,12 +4,28 @@ import React from "react";
 import { motion } from "framer-motion";
 import SectionHeading from "./section-heading";
 import { useSectionInView } from "@/lib/useInView";
-import Section from "./Section"; // Adjust the path as necessary
 import Image from "next/image";
 
-// Composant About
+// Section component for better organization
+interface SectionProps {
+  title: string;
+  children: React.ReactNode;
+}
+
+function Section({ title, children }: SectionProps) {
+  return (
+    <div className="mb-8">
+      <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">{title}</h3>
+      <div className="text-gray-700 dark:text-gray-300 space-y-3">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+// About component
 export default function About() {
-  // Utilisation du hook pour détecter si la section est en vue
+  // Hook for section view detection
   const { ref } = useSectionInView("#about");
 
   return (
@@ -21,13 +37,17 @@ export default function About() {
       ref={ref}
       id="about"
     >
-      {/* En-tête de la section */}
+      <SectionHeading>About Me</SectionHeading>
+
+      {/* Header section */}
       <header className="text-center mb-6 mt-10">
         <p className="mt-2 text-lg">
           👋 Hi, I&apos;m <br />
           <strong>
             Gaetan X Ekoro (Gaetan X)
           </strong>
+        </p>
+        <div className="flex justify-center my-6">
           <Image
             src="/profile1.png"
             width="280"
@@ -37,43 +57,33 @@ export default function About() {
             priority={true}
             className="rounded-full object-cover shadow-xl"
           />
-        </p>
-        <p className="text-sm text-gray-600">
-          🚀 Back-End Developer | 🖌 Logo Designer | 🌍 Embedded Systems Innovator| 🌍 Data Analytic
+        </div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">
+          🚀 Back-End Developer | 🖌 Logo Designer | 🌍 Embedded Systems Innovator | 🌍 Data Analyst
         </p>
       </header>
 
-      {/* Contenu principal de la section */}
-      <article className="max-w-3xl mx-auto space-y-6">
-        {/* Section Présentation */}
+      {/* Main content */}
+      <article className="max-w-3xl mx-auto space-y-6 text-left">
+        {/* Presentation Section */}
         <Section title="🎯 Presentation">
           <p>
             I am a passionate designer and developer with over 
-            <strong>
-              5 years of experience
-            </strong> 
+            <strong> 5 years of experience </strong> 
             in web and mobile application development. I specialize in robust back-end solutions, intuitive UI design, and embedded systems development. 
             Additionally, I hold a 
-            <strong>
-              Bachelor&apos;s ESG-TI, Degree in Electrical Engineering and Industrial Information 
-            </strong>, 
+            <strong> Bachelor&apos;s ESG-TI, Degree in Electrical Engineering and Industrial Information</strong>, 
             with 
-            <strong>
-              3 years&apos; experience as an electrotechnician
-            </strong>, allowing me to bridge the gap between software and hardware.
+            <strong> 3 years&apos; experience as an electrotechnician</strong>, allowing me to bridge the gap between software and hardware.
           </p>
           <p>
             My love for technology and my dream of revolutionizing the tech world led me to work on several impactful projects, including 
-            <strong>
-              geolocation and security systems for medicalized electric cars
-            </strong> 
+            <strong> geolocation and security systems for medicalized electric cars </strong> 
             and 
-            <strong>
-              online ticket payment platforms
-            </strong>.
+            <strong> online ticket payment platforms</strong>.
           </p>
           <p>When I&apos;m not coding, you can find me:</p>
-          <ul className="list-disc list-inside">
+          <ul className="list-disc list-inside ml-4">
             <li>Watching <strong>anime</strong></li>
             <li>Reading <strong>manga</strong></li>
             <li>Diving into <strong>sci-fi</strong> movies</li>
@@ -81,43 +91,55 @@ export default function About() {
           </ul>
         </Section>
 
-        {/* Section Ce que je fais */}
+        {/* What I Do Section */}
         <Section title="✨ What I Do">
-          <ul className="list-disc list-inside">
+          <ul className="list-disc list-inside ml-4">
             <li>💻 Back-End Development: Building high-performance, secure, and scalable web applications.</li>
             <li>⚙ Embedded Systems: Crafting innovative solutions that integrate hardware and software.</li>
             <li>🎨 Logo Design: Designing impactful logos that encapsulate brand identity.</li>
-            <li>🌍 Entrepreneurial Projects: Leading initiatives like <a href="#">INTERACT</a>, a technological ecosystem aimed at driving Africa&apos;s development, focusing on data security and digital transformation.</li>
+            <li>🌍 Entrepreneurial Projects: Leading initiatives like INTERACT, a technological ecosystem aimed at driving Africa&apos;s development, focusing on data security and digital transformation.</li>
           </ul>
         </Section>
 
-        {/* Section Projets en vedette */}
+        {/* Featured Projects Section */}
         <Section title="📂 Featured Projects">
-          <ul className="list-disc list-inside">
-            <li><a href="#">🌐 My Portfolio Website</a>: Showcasing my skills, achievements, and professional journey.</li>
-            <li><a href="#">📱 Medicalized Electric Car Project</a>: Developed the <strong>geolocation</strong> and <strong>security systems</strong> for this innovative vehicle.</li>
-            <li><a href="#">🎫 Online Ticket Payment App</a>: A web app featuring QR code generation, payment confirmations, and user subscriptions.</li>
+          <ul className="list-disc list-inside ml-4">
+            <li>🌐 My Portfolio Website: Showcasing my skills, achievements, and professional journey.</li>
+            <li>📱 Medicalized Electric Car Project: Developed the <strong>geolocation</strong> and <strong>security systems</strong> for this innovative vehicle.</li>
+            <li>🎫 Online Ticket Payment App: A web app featuring QR code generation, payment confirmations, and user subscriptions.</li>
           </ul>
         </Section>
 
-        {/* Section Statistiques GitHub */}
+        {/* GitHub Stats Section */}
         <Section title="📈 GitHub Stats">
-          <div className="flex flex-col items-center">
-            <a href="https://github.com/Gaetan5/github-readme-stats#gh-dark-mode-only">
-              <img className="w-1/2" src="https://github-readme-stats.vercel.app/api?username=Gaetan5&show_icons=true&theme=github_dark#gh-dark-mode-only" alt="GitHub Stats Dark Mode" />
-            </a>
-            <a href="https://github.com/Gaetan5/github-readme-stats#gh-dark-mode-only">
-              <img className="w-1/3" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Gaetan5&layout=compact&theme=github_dark#gh-dark-mode-only" alt="Top Languages Dark Mode" />
-            </a>
+          <div className="flex flex-col items-center space-y-4">
+            <div className="w-full max-w-md">
+              <Image
+                src="https://github-readme-stats.vercel.app/api?username=Gaetan5&show_icons=true&theme=github_dark"
+                alt="GitHub Stats"
+                width={400}
+                height={200}
+                className="w-full h-auto rounded-lg"
+              />
+            </div>
+            <div className="w-full max-w-sm">
+              <Image
+                src="https://github-readme-stats.vercel.app/api/top-langs/?username=Gaetan5&layout=compact&theme=github_dark"
+                alt="Top Languages"
+                width={300}
+                height={150}
+                className="w-full h-auto rounded-lg"
+              />
+            </div>
           </div>
         </Section>
 
-        {/* Section Contact */}
+        {/* Contact Section */}
         <Section title="📫 Get in Touch">
-          <ul className="list-disc list-inside">
-            <li><strong>LinkedIn</strong>: <a href="https://linkedin.com/in/gaetan-ekoro">Gaetan Ekoro</a></li>
-            <li><strong>Twitter</strong>: <a href="https://x.com/Gaetan5">@Gaetan5</a></li>
-            <li><strong>Email</strong>: <a href="mailto:ekorogaetan5@gmail.com">ekorogaetan5@gmail.com</a></li>
+          <ul className="list-disc list-inside ml-4">
+            <li><strong>LinkedIn</strong>: <a href="https://linkedin.com/in/gaetan-ekoro" className="text-blue-600 hover:underline">Gaetan Ekoro</a></li>
+            <li><strong>Twitter</strong>: <a href="https://x.com/Gaetan5" className="text-blue-600 hover:underline">@Gaetan5</a></li>
+            <li><strong>Email</strong>: <a href="mailto:ekorogaetan5@gmail.com" className="text-blue-600 hover:underline">ekorogaetan5@gmail.com</a></li>
           </ul>
         </Section>
       </article>
