@@ -6,13 +6,18 @@ import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
 import { BsLinkedin } from "react-icons/bs";
 import { FaGithubSquare } from "react-icons/fa";
+
 import { useSectionInView } from "@/lib/useInView";
 import { useActiveSectionContext } from "@/containers/active-section";
+import { useLocale } from "@/containers/LocaleContext";
+import { t } from "@/lib/i18n";
 import { Mail } from "lucide-react";
+
 
 export default function Intro() {
   const { ref } = useSectionInView("#home", 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const { locale } = useLocale();
 
   return (
     <section
@@ -33,15 +38,15 @@ export default function Intro() {
             }}
           >
             <div className="relative w-60 h-60 sm:w-80 sm:h-80 rounded-full overflow-hidden">
-            <Image
-              src="/Profile1.png"
-              width={"400"}
-              height={"400"}
-              alt="portrait"
-              quality="100"
-              priority={true}
-              className="object-cover shadow-xl"
-            />
+              <Image
+                src="/Profile1.png"
+                width={"400"}
+                height={"400"}
+                alt="portrait"
+                quality="100"
+                priority={true}
+                className="object-cover shadow-xl"
+              />
             </div>
           </motion.div>
 
@@ -63,16 +68,13 @@ export default function Intro() {
       <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce={true}>
         <h1 className="mb-10 mt-4 px-4 text-2xl sm:text-4xl">
           <span className="font-medium !leading-[1.5] ">
-            Boost your business with innovative solutions,
-            tailored to your needs thanks to my expertise.
+            {t("intro_headline", locale)}
           </span>{" "}
           <p className="text-[14px]">
-            Resonance is a full-service creative studio creating beautiful digital experiences and products.
+            {t("intro_sub", locale)}
           </p>
         </h1>
       </Fade>
-
-
 
       <motion.div
         className="flex sm:flex-row items-center justify-center gap-4 px-4 text-lg font-medium"
@@ -90,7 +92,7 @@ export default function Intro() {
             setTimeOfLastClick(Date.now());
           }}
         >
-          Connect <Mail color={"#9ca3af"} />
+          {t("intro_connect", locale)} <Mail color={"#9ca3af"} />
         </Link>
 
         <a

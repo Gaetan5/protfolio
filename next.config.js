@@ -8,7 +8,8 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-    dangerouslyAllowSVG: true, // Autoriser les SVG
+    // ATTENTION : Laisser 'dangerouslyAllowSVG: true' uniquement si vous contrôlez la source des SVG !
+    dangerouslyAllowSVG: true, // Autoriser les SVG (sécurité à surveiller)
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;", // Pour limiter les risques
   },
 };

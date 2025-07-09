@@ -5,8 +5,11 @@ import { motion } from "framer-motion";
 import SectionHeading from "./section-heading";
 import { useSectionInView } from "@/lib/useInView";
 import Image from "next/image";
+import { useLocale } from "@/containers/LocaleContext";
+import { t } from "@/lib/i18n";
 
 // Section component for better organization
+
 interface SectionProps {
   title: string;
   children: React.ReactNode;
@@ -24,9 +27,8 @@ function Section({ title, children }: SectionProps) {
 }
 
 // About component
-export default function About() {
-  // Hook for section view detection
   const { ref } = useSectionInView("#about");
+  const { locale } = useLocale();
 
   return (
     <motion.section
@@ -37,12 +39,12 @@ export default function About() {
       ref={ref}
       id="about"
     >
-      <SectionHeading>About Me</SectionHeading>
+      <SectionHeading locale={locale}>{t("about_heading", locale)}</SectionHeading>
 
       {/* Header section */}
       <header className="text-center mb-6 mt-10">
         <p className="mt-2 text-lg">
-          👋 Hi, I&apos;m <br />
+          👋 {t("about_hi", locale)} <br />
           <strong>
             Gaetan X Ekoro (Gaetan X)
           </strong>
@@ -50,84 +52,73 @@ export default function About() {
         <div className="flex justify-center my-6">
           <Image
             src="/profile1.png"
-            width="280"
-            height="280"
-            alt="portrait"
-            quality="100"
-            priority={true}
+            width={280}
+            height={280}
+            alt="Portrait de Gaetan X Ekoro"
+            quality={90}
+            loading="lazy"
             className="rounded-full object-cover shadow-xl"
           />
         </div>
         <p className="text-sm text-gray-600 dark:text-gray-400">
-          🚀 Back-End Developer | 🖌 Logo Designer | 🌍 Embedded Systems Innovator | 🌍 Data Analyst
+          {t("about_job", locale)}
         </p>
       </header>
 
       {/* Main content */}
       <article className="max-w-3xl mx-auto space-y-6 text-left">
         {/* Presentation Section */}
-        <Section title="🎯 Presentation">
-          <p>
-            I am a passionate designer and developer with over 
-            <strong> 5 years of experience </strong> 
-            in web and mobile application development. I specialize in robust back-end solutions, intuitive UI design, and embedded systems development. 
-            Additionally, I hold a 
-            <strong> Bachelor&apos;s ESG-TI, Degree in Electrical Engineering and Industrial Information</strong>, 
-            with 
-            <strong> 3 years&apos; experience as an electrotechnician</strong>, allowing me to bridge the gap between software and hardware.
-          </p>
-          <p>
-            My love for technology and my dream of revolutionizing the tech world led me to work on several impactful projects, including 
-            <strong> geolocation and security systems for medicalized electric cars </strong> 
-            and 
-            <strong> online ticket payment platforms</strong>.
-          </p>
-          <p>When I&apos;m not coding, you can find me:</p>
+        <Section title={"🎯 " + t("about_presentation", locale)}>
+          <p dangerouslySetInnerHTML={{ __html: t("about_presentation_1", locale) }} />
+          <p dangerouslySetInnerHTML={{ __html: t("about_presentation_2", locale) }} />
+          <p>{t("about_presentation_3", locale)}</p>
           <ul className="list-disc list-inside ml-4">
-            <li>Watching <strong>anime</strong></li>
-            <li>Reading <strong>manga</strong></li>
-            <li>Diving into <strong>sci-fi</strong> movies</li>
-            <li>Engaging in discussions about the latest tech innovations and pop culture trends.</li>
+            <li dangerouslySetInnerHTML={{ __html: t("about_presentation_hobbies_1", locale) }} />
+            <li dangerouslySetInnerHTML={{ __html: t("about_presentation_hobbies_2", locale) }} />
+            <li dangerouslySetInnerHTML={{ __html: t("about_presentation_hobbies_3", locale) }} />
+            <li dangerouslySetInnerHTML={{ __html: t("about_presentation_hobbies_4", locale) }} />
           </ul>
         </Section>
 
         {/* What I Do Section */}
-        <Section title="✨ What I Do">
+        <Section title={"✨ " + t("about_whatido", locale)}>
           <ul className="list-disc list-inside ml-4">
-            <li>💻 Back-End Development: Building high-performance, secure, and scalable web applications.</li>
-            <li>⚙ Embedded Systems: Crafting innovative solutions that integrate hardware and software.</li>
-            <li>🎨 Logo Design: Designing impactful logos that encapsulate brand identity.</li>
-            <li>🌍 Entrepreneurial Projects: Leading initiatives like INTERACT, a technological ecosystem aimed at driving Africa&apos;s development, focusing on data security and digital transformation.</li>
+            <li>{t("about_whatido_1", locale)}</li>
+            <li>{t("about_whatido_2", locale)}</li>
+            <li>{t("about_whatido_3", locale)}</li>
+            <li>{t("about_whatido_4", locale)}</li>
           </ul>
         </Section>
 
         {/* Featured Projects Section */}
-        <Section title="📂 Featured Projects">
+        <Section title={"📂 " + t("about_featured", locale)}>
           <ul className="list-disc list-inside ml-4">
-            <li>🌐 My Portfolio Website: Showcasing my skills, achievements, and professional journey.</li>
-            <li>📱 Medicalized Electric Car Project: Developed the <strong>geolocation</strong> and <strong>security systems</strong> for this innovative vehicle.</li>
-            <li>🎫 Online Ticket Payment App: A web app featuring QR code generation, payment confirmations, and user subscriptions.</li>
+            <li dangerouslySetInnerHTML={{ __html: t("about_featured_1", locale) }} />
+            <li dangerouslySetInnerHTML={{ __html: t("about_featured_2", locale) }} />
+            <li dangerouslySetInnerHTML={{ __html: t("about_featured_3", locale) }} />
           </ul>
         </Section>
 
         {/* GitHub Stats Section */}
-        <Section title="📈 GitHub Stats">
+        <Section title={"📈 " + t("about_github", locale)}>
           <div className="flex flex-col items-center space-y-4">
             <div className="w-full max-w-md">
               <Image
                 src="https://github-readme-stats.vercel.app/api?username=Gaetan5&show_icons=true&theme=github_dark"
-                alt="GitHub Stats"
+                alt="Statistiques GitHub de Gaetan5"
                 width={400}
                 height={200}
+                loading="lazy"
                 className="w-full h-auto rounded-lg"
               />
             </div>
             <div className="w-full max-w-sm">
               <Image
                 src="https://github-readme-stats.vercel.app/api/top-langs/?username=Gaetan5&layout=compact&theme=github_dark"
-                alt="Top Languages"
+                alt="Langages principaux de Gaetan5"
                 width={300}
                 height={150}
+                loading="lazy"
                 className="w-full h-auto rounded-lg"
               />
             </div>
@@ -135,11 +126,11 @@ export default function About() {
         </Section>
 
         {/* Contact Section */}
-        <Section title="📫 Get in Touch">
+        <Section title={"📫 " + t("about_contact", locale)}>
           <ul className="list-disc list-inside ml-4">
-            <li><strong>LinkedIn</strong>: <a href="https://linkedin.com/in/gaetan-ekoro" className=\"text-blue-600 hover:underline">Gaetan Ekoro</a></li>
-            <li><strong>Twitter</strong>: <a href="https://x.com/Gaetan5" className=\"text-blue-600 hover:underline">@Gaetan5</a></li>
-            <li><strong>Email</strong>: <a href="mailto:ekorogaetan5@gmail.com" className="text-blue-600 hover:underline">ekorogaetan5@gmail.com</a></li>
+            <li><strong>{t("about_linkedin", locale)}</strong>: <a href="https://linkedin.com/in/gaetan-ekoro" className="text-blue-600 hover:underline">Gaetan Ekoro</a></li>
+            <li><strong>{t("about_twitter", locale)}</strong>: <a href="https://x.com/Gaetan5" className="text-blue-600 hover:underline">@Gaetan5</a></li>
+            <li><strong>{t("about_email", locale)}</strong>: <a href="mailto:ekorogaetan5@gmail.com" className="text-blue-600 hover:underline">ekorogaetan5@gmail.com</a></li>
           </ul>
         </Section>
       </article>

@@ -39,7 +39,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
       >
         <Hamburger toggled={isOpen} toggle={setIsOpen} size={20} />
       </motion.button>
-      
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -71,7 +71,9 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
                     setTimeOfLastClick(Date.now());
                   }}
                 >
-                  {link.nameEng}
+                  {typeof window !== "undefined" && window.localStorage.getItem("locale") === "fr"
+                    ? link.nameFr
+                    : link.nameEng}
                 </NextLink>
               </motion.div>
             ))}

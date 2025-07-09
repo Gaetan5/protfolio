@@ -2,7 +2,7 @@
 
 import React from "react";
 import SectionHeading from "./section-heading";
-import { skillsData } from "@/lib/data";
+import { t } from "@/lib/i18n";
 import { useSectionInView } from "@/lib/useInView";
 import { motion } from "framer-motion";
 
@@ -20,19 +20,22 @@ const fadeInAnimationVariants = {
   }),
 };
 
+import { useLocale } from "@/containers/LocaleContext";
+
 export default function Skills() {
   const { ref } = useSectionInView("#skills");
+  const { locale } = useLocale();
   return (
     <section
       id="skills"
       ref={ref}
       className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
     >
-      <SectionHeading>
-        {"My Skills"}
+      <SectionHeading locale={locale}>
+        {t("skills_title", locale)}
       </SectionHeading>
       <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
-        {skillsData.map((skill, index) => (
+        {t("skills_list", locale).map((skill: string, index: number) => (
           <motion.li
             className="bg-white borderBlack rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80"
             key={index}

@@ -1,10 +1,13 @@
 import React from "react";
+import { useLocale } from "@/containers/LocaleContext";
+import { t } from "@/lib/i18n";
 
 export default function Footer() {
+  const { locale } = useLocale();
   return (
     <footer className="mb-5 px-4 text-center text-gray-500">
       <small className="mb-2 block text-xs">
-        &copy; 2024 Once an Engineer, always an Engineer . All rights reserved.
+        {t("footer_copyright", locale)}
       </small>
     </footer>
   );

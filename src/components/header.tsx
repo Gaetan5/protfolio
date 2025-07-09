@@ -42,7 +42,10 @@ export default function Header({ links }: HeaderProps) {
                   setTimeOfLastClick(Date.now());
                 }}
               >
-                {link.nameEng}
+                {/* Affichage dynamique selon la langue */}
+                {typeof window !== "undefined" && window.localStorage.getItem("locale") === "fr"
+                  ? link.nameFr
+                  : link.nameEng}
                 {link.hash === activeSection && (
                   <motion.span
                     className="bg-gray-100 rounded-full absolute inset-0 -z-10 dark:bg-gray-800"
