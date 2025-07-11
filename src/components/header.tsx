@@ -1,17 +1,16 @@
-"use client";
+'use client';
 
-import React from "react";
-import { motion } from "framer-motion";
-import NextLink from "next/link";
-import clsx from "clsx";
-import { useActiveSectionContext } from "@/containers/active-section";
-import { Link } from "@/lib/types";
+import React from 'react';
+import { motion } from 'framer-motion';
+import NextLink from 'next/link';
+import clsx from 'clsx';
+import { useActiveSectionContext } from '@/containers/active-section';
+import { Link } from '@/lib/types';
 
 type HeaderProps = { links: Link[] };
 
 export default function Header({ links }: HeaderProps) {
-  const { activeSection, setActiveSection, setTimeOfLastClick } =
-    useActiveSectionContext();
+  const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   return (
     <header className="hidden md:flex items-center justify-center fixed z-[999] w-full mt-4">
@@ -30,11 +29,10 @@ export default function Header({ links }: HeaderProps) {
             >
               <NextLink
                 className={clsx(
-                  "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300",
+                  'flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300',
                   {
-                    "text-gray-950 dark:text-gray-200":
-                      activeSection === link.hash,
-                  }
+                    'text-gray-950 dark:text-gray-200': activeSection === link.hash,
+                  },
                 )}
                 href={link.hash}
                 onClick={() => {
@@ -43,7 +41,7 @@ export default function Header({ links }: HeaderProps) {
                 }}
               >
                 {/* Affichage dynamique selon la langue */}
-                {typeof window !== "undefined" && window.localStorage.getItem("locale") === "fr"
+                {typeof window !== 'undefined' && window.localStorage.getItem('locale') === 'fr'
                   ? link.nameFr
                   : link.nameEng}
                 {link.hash === activeSection && (
@@ -51,7 +49,7 @@ export default function Header({ links }: HeaderProps) {
                     className="bg-gray-100 rounded-full absolute inset-0 -z-10 dark:bg-gray-800"
                     layoutId="activeSection"
                     transition={{
-                      type: "spring",
+                      type: 'spring',
                       stiffness: 380,
                       damping: 30,
                     }}

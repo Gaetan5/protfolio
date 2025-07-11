@@ -1,6 +1,6 @@
-import { links } from "./data";
+import { links } from './data';
 
-export type SectionName = (typeof links)[number]["hash"];
+export type SectionName = (typeof links)[number]['hash'];
 
 export type ProjectInfo = {
   titleEn: string;

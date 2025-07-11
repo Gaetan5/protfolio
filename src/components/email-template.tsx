@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Html,
   Body,
@@ -9,18 +9,15 @@ import {
   Preview,
   Section,
   Text,
-} from "@react-email/components";
-import { Tailwind } from "@react-email/tailwind";
+} from '@react-email/components';
+import { Tailwind } from '@react-email/tailwind';
 
 type EmailTemplateProps = {
   message: string;
   senderEmail: string;
 };
 
-const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
-  message,
-  senderEmail,
-}) => {
+const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({ message, senderEmail }) => {
   return (
     <Html>
       <Head />
@@ -34,7 +31,7 @@ const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
               </Heading>
               <Text>{message}</Text>
               <Hr />
-              <Text>The sender's email is: {senderEmail}</Text>
+              <Text>The sender&apos;s email is: {senderEmail}</Text>
             </Section>
           </Container>
         </Body>

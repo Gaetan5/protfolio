@@ -1,11 +1,11 @@
-"use client";
-import React from "react";
-import ActiveSectionContextProvider from "./active-section";
-import { Analytics } from "@vercel/analytics/react";
-import { Toaster } from "react-hot-toast";
-import dynamic from "next/dynamic";
-import ThemeContextProvider from "./Theme-context";
-import { LocaleProvider } from "./LocaleCtx";
+'use client';
+import React from 'react';
+import ActiveSectionContextProvider from './active-section';
+import { Analytics } from '@vercel/analytics/react';
+import { Toaster } from 'react-hot-toast';
+import dynamic from 'next/dynamic';
+import ThemeContextProvider from './Theme-context';
+import { LocaleProvider } from './LocaleCtx';
 
 type ProvidersProps = {
   children: React.ReactNode;

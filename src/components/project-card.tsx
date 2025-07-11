@@ -1,12 +1,11 @@
-"use client";
+'use client';
 
-import { useRef } from "react";
-import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ProjectInfo } from "@/lib/types";
+import { useRef } from 'react';
+import Image from 'next/image';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ProjectInfo } from '@/lib/types';
 
-
-type ProjectProps = ProjectInfo & { locale: "en" | "fr" };
+type ProjectProps = ProjectInfo & { locale: 'en' | 'fr' };
 
 export default function Project({
   titleEn,
@@ -20,7 +19,7 @@ export default function Project({
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["0 1", "1.33 1"],
+    offset: ['0 1', '1.33 1'],
   });
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
@@ -36,9 +35,9 @@ export default function Project({
     >
       <section className="bg-white max-w-[42rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 relative sm:h-[20rem] hover:bg-gray-200 transition sm:group-even:pl-8 dark:text-white dark:bg-white/10 dark:hover:bg-white/20">
         <div className="pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem]">
-          <h3 className="text-2xl font-semibold">{locale === "fr" ? titleFr : titleEn}</h3>
+          <h3 className="text-2xl font-semibold">{locale === 'fr' ? titleFr : titleEn}</h3>
           <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70">
-            {locale === "fr" ? descriptionFr : descriptionEn}
+            {locale === 'fr' ? descriptionFr : descriptionEn}
           </p>
           <ul className="flex flex-wrap mt-4 gap-2 sm:mt-auto">
             {tags.map((tag, index) => (
@@ -54,7 +53,7 @@ export default function Project({
 
         <Image
           src={imageUrl}
-          alt={locale === "fr" ? titleFr : titleEn}
+          alt={locale === 'fr' ? titleFr : titleEn}
           quality={90}
           width={400}
           height={200}

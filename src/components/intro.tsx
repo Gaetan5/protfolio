@@ -1,21 +1,20 @@
-"use client";
-import Image from "next/image";
-import React from "react";
-import { motion } from "framer-motion";
-import { Fade } from "react-awesome-reveal";
-import Link from "next/link";
-import { BsLinkedin } from "react-icons/bs";
-import { FaGithubSquare } from "react-icons/fa";
+'use client';
+import Image from 'next/image';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Fade } from 'react-awesome-reveal';
+import Link from 'next/link';
+import { BsLinkedin } from 'react-icons/bs';
+import { FaGithubSquare } from 'react-icons/fa';
 
-import { useSectionInView } from "@/lib/useInView";
-import { useActiveSectionContext } from "@/containers/active-section";
-import { useLocaleContext } from "@/containers/LocaleCtx";
-import { t } from "@/lib/i18n";
-import { Mail } from "lucide-react";
-
+import { useSectionInView } from '@/lib/useInView';
+import { useActiveSectionContext } from '@/containers/active-section';
+import { useLocaleContext } from '@/containers/LocaleCtx';
+import { t } from '@/lib/i18n';
+import { Mail } from 'lucide-react';
 
 export default function Intro() {
-  const { ref } = useSectionInView("#home", 0.5);
+  const { ref } = useSectionInView('#home', 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   const { locale } = useLocaleContext();
 
@@ -31,7 +30,7 @@ export default function Intro() {
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              type: "spring",
+              type: 'spring',
               stiffness: 125,
               damping: 10,
               duration: 0.2,
@@ -40,8 +39,8 @@ export default function Intro() {
             <div className="relative w-60 h-60 sm:w-80 sm:h-80 rounded-full overflow-hidden">
               <Image
                 src="/Profile1.png"
-                width={"400"}
-                height={"400"}
+                width={'400'}
+                height={'400'}
                 alt="portrait"
                 quality="100"
                 priority={true}
@@ -55,24 +54,19 @@ export default function Intro() {
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              type: "spring",
+              type: 'spring',
               stiffness: 125,
               damping: 10,
               duration: 0.2,
             }}
-          >
-          </motion.span>
+          ></motion.span>
         </div>
       </div>
 
       <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce={true}>
         <h1 className="mb-10 mt-4 px-4 text-2xl sm:text-4xl">
-          <span className="font-medium !leading-[1.5] ">
-            {t("intro_headline", locale)}
-          </span>{" "}
-          <p className="text-[14px]">
-            {t("intro_sub", locale)}
-          </p>
+          <span className="font-medium !leading-[1.5] ">{t('intro_headline', locale)}</span>{' '}
+          <p className="text-[14px]">{t('intro_sub', locale)}</p>
         </h1>
       </Fade>
 
@@ -88,11 +82,11 @@ export default function Intro() {
           href="mailto:ekorogaetan5@gmail.com"
           className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 dark:bg-white/10 active:scale-105 transition"
           onClick={() => {
-            setActiveSection("#contact");
+            setActiveSection('#contact');
             setTimeOfLastClick(Date.now());
           }}
         >
-          {t("intro_connect", locale)} <Mail color={"#9ca3af"} />
+          {t('intro_connect', locale)} <Mail color={'#9ca3af'} />
         </Link>
 
         <a

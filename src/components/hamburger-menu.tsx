@@ -1,21 +1,20 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "@/lib/types";
-import clsx from "clsx";
-import NextLink from "next/link";
-import { useActiveSectionContext } from "@/containers/active-section";
-import { Menu } from "lucide-react";
-import Hamburger from "hamburger-react";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from '@/lib/types';
+import clsx from 'clsx';
+import NextLink from 'next/link';
+import { useActiveSectionContext } from '@/containers/active-section';
+import { Menu } from 'lucide-react';
+import Hamburger from 'hamburger-react';
 
 type HamburgerMenuProps = { links: Link[] };
 
 const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { activeSection, setActiveSection, setTimeOfLastClick } =
-    useActiveSectionContext();
+  const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   const menuTrigger = {
     visible: { scale: 1, opacity: 0.7, y: 0 },
@@ -57,13 +56,13 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
               >
                 <NextLink
                   className={clsx(
-                    "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300 cursor-pointer",
+                    'flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300 cursor-pointer',
                     {
-                      "text-gray-950 bg-slate-200 dark:text-gray-200 dark:bg-gray-700 rounded":
+                      'text-gray-950 bg-slate-200 dark:text-gray-200 dark:bg-gray-700 rounded':
                         activeSection === link.hash,
-                      "rounded-t-xl round": index === 0,
-                      "rounded-b-xl round": index === links.length - 1,
-                    }
+                      'rounded-t-xl round': index === 0,
+                      'rounded-b-xl round': index === links.length - 1,
+                    },
                   )}
                   href={link.hash}
                   onClick={() => {
@@ -71,7 +70,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
                     setTimeOfLastClick(Date.now());
                   }}
                 >
-                  {typeof window !== "undefined" && window.localStorage.getItem("locale") === "fr"
+                  {typeof window !== 'undefined' && window.localStorage.getItem('locale') === 'fr'
                     ? link.nameFr
                     : link.nameEng}
                 </NextLink>

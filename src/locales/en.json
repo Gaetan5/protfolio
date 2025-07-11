@@ -10,7 +10,19 @@
   "contact_success": "Message sent successfully!",
   "skills_title": "My Skills",
   "skills_list": [
-    "Python", "Django", "JavaScript", "TypeScript", "Java", "Next.js", "Node.js", "Git", "Tailwind", "Canvas", "MongoDB", "Excel", "Data Analytic"
+    "Python",
+    "Django",
+    "JavaScript",
+    "TypeScript",
+    "Java",
+    "Next.js",
+    "Node.js",
+    "Git",
+    "Tailwind",
+    "Canvas",
+    "MongoDB",
+    "Excel",
+    "Data Analytic"
   ],
   "intro_headline": "Boost your business with innovative solutions, tailored to your needs thanks to my expertise.",
   "intro_sub": "Resonance is a full-service creative studio creating beautiful digital experiences and products.",
