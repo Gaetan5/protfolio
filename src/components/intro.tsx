@@ -9,7 +9,7 @@ import { FaGithubSquare } from "react-icons/fa";
 
 import { useSectionInView } from "@/lib/useInView";
 import { useActiveSectionContext } from "@/containers/active-section";
-import { useLocale } from "@/containers/LocaleContext";
+import { useLocaleContext } from "@/containers/LocaleCtx";
 import { t } from "@/lib/i18n";
 import { Mail } from "lucide-react";
 
@@ -17,7 +17,7 @@ import { Mail } from "lucide-react";
 export default function Intro() {
   const { ref } = useSectionInView("#home", 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
-  const { locale } = useLocale();
+  const { locale } = useLocaleContext();
 
   return (
     <section
@@ -99,6 +99,8 @@ export default function Intro() {
           className="bg-gray-900 p-4 text-white flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
           href="https://www.linkedin.com/in/gaetan-x-ekoro-56z/"
           target="_blank"
+          rel="noopener"
+          title="LinkedIn - Gaetan X Ekoro"
         >
           <BsLinkedin />
         </a>
@@ -107,6 +109,8 @@ export default function Intro() {
           className="bg-gray-900 p-4 text-white flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
           href="https://github.com/Gaetan5"
           target="_blank"
+          rel="noopener"
+          title="GitHub - Gaetan5"
         >
           <FaGithubSquare />
         </a>

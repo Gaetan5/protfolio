@@ -7,7 +7,7 @@ import SectionHeading from "./section-heading";
 import SubmitBtn from "./submit-btn";
 import { useSectionInView } from "@/lib/useInView";
 import ErrorMessage from "./ErrorMessage";
-import { useLocale } from "@/containers/LocaleContext";
+import { useLocaleContext } from "@/containers/LocaleCtx";
 import { t } from "@/lib/i18n";
 
 
@@ -15,7 +15,7 @@ export default function Contact() {
   const { ref } = useSectionInView("#contact");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const { locale } = useLocale();
+  const { locale } = useLocaleContext();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

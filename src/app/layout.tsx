@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: defaultMeta.description,
     url: defaultMeta.url,
     images: [defaultMeta.image],
-    type: defaultMeta.type,
+    type: "website" as any,
   },
   twitter: {
     card: "summary_large_image",

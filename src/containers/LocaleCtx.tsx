@@ -1,3 +1,4 @@
+"use client";
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 export type Locale = "fr" | "en";
@@ -30,4 +31,4 @@ export const LocaleProvider = ({ children }: { children: React.ReactNode }) => {
     );
 };
 
-export const useLocale = () => useContext(LocaleContext);
+export const useLocaleContext = () => useContext(LocaleContext);

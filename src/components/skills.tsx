@@ -20,11 +20,11 @@ const fadeInAnimationVariants = {
   }),
 };
 
-import { useLocale } from "@/containers/LocaleContext";
+import { useLocaleContext } from "@/containers/LocaleCtx";
 
 export default function Skills() {
   const { ref } = useSectionInView("#skills");
-  const { locale } = useLocale();
+  const { locale } = useLocaleContext();
   return (
     <section
       id="skills"

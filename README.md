@@ -44,7 +44,7 @@ Voir [CONTRIBUTING.md](./CONTRIBUTING.md)
 - Balises meta dynamiques et Open Graph à ajouter pour chaque page.
 - Accessibilité vérifiée avec Lighthouse ou axe-core.
 
-#### Audit accessibilité rapide :
+#### Audit accessibilité rapide
 
 ```bash
 npm install -g axe-core

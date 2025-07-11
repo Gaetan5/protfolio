@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import SectionHeading from "./section-heading";
 import { useSectionInView } from "@/lib/useInView";
 import Image from "next/image";
-import { useLocale } from "@/containers/LocaleContext";
+import { useLocaleContext } from "@/containers/LocaleCtx";
 import { t } from "@/lib/i18n";
 
 // Section component for better organization
@@ -27,8 +27,9 @@ function Section({ title, children }: SectionProps) {
 }
 
 // About component
+export default function About() {
   const { ref } = useSectionInView("#about");
-  const { locale } = useLocale();
+  const { locale } = useLocaleContext();
 
   return (
     <motion.section

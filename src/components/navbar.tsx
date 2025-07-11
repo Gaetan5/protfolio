@@ -2,12 +2,12 @@ import { links } from "@/lib/data";
 import React from "react";
 import Header from "./header";
 import HamburgerMenu from "./hamburger-menu";
-import { useLocale } from "@/containers/LocaleContext";
+import { useLocaleContext } from "@/containers/LocaleCtx";
 
 const locales = ["fr", "en"] as const;
 
 export default function Navbar() {
-    const { locale, setLocale } = useLocale();
+    const { locale, setLocale } = useLocaleContext();
     return (
         <nav>
             <div className="flex justify-end p-2">

@@ -5,11 +5,11 @@ import SectionHeading from "./section-heading";
 import { projectsData } from "@/lib/data";
 import Project from "./project-card";
 import { useSectionInView } from "@/lib/useInView";
-import { useLocale } from "@/containers/LocaleContext";
+import { useLocaleContext } from "@/containers/LocaleCtx";
 
 export default function Projects() {
   const { ref } = useSectionInView("#projects", 0.1);
-  const { locale } = useLocale();
+  const { locale } = useLocaleContext();
 
   return (
     <section ref={ref} id="projects" className="scroll-mt-28 mb-28">
