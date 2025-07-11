@@ -31,4 +31,8 @@ export const LocaleProvider = ({ children }: { children: React.ReactNode }) => {
     );
 };
 
-export const useLocaleContext = () => useContext(LocaleContext);
+export const useLocaleContext = () => {
+    const context = useContext(LocaleContext);
+    console.log("useLocaleContext loaded", context);
+    return context;
+};

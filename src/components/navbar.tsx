@@ -2,7 +2,7 @@ import { links } from "@/lib/data";
 import React from "react";
 import Header from "./header";
 import HamburgerMenu from "./hamburger-menu";
-import { useLocaleContext } from "@/containers/LocaleCtx";
+import { useLocaleContext } from "../containers/LocaleCtx";
 
 const locales = ["fr", "en"] as const;
 
