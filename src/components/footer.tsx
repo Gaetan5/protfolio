@@ -9,6 +9,9 @@ export default function Footer() {
   return (
     <footer className="mb-5 px-4 text-center text-gray-500">
       <small className="mb-2 block text-xs">{t('footer_copyright', locale)}</small>
+      <p className="mt-2 text-center italic text-lg text-cyan-600 dark:text-cyan-300">
+        {t('footer_quote', locale)}
+      </p>
     </footer>
   );
 }

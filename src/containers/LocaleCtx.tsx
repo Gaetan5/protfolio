@@ -12,17 +12,25 @@ const LocaleContext = createContext<{
 });
 
 export const LocaleProvider = ({ children }: { children: React.ReactNode }) => {
-  const [locale, setLocale] = useState<Locale>('fr');
+  const [locale, setLocale] = useState<Locale | undefined>(undefined);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const stored = typeof window !== 'undefined' ? localStorage.getItem('locale') : null;
-    if (stored === 'fr' || stored === 'en') setLocale(stored);
+    if (stored === 'fr' || stored === 'en') {
+      setLocale(stored);
+    } else {
+      setLocale('fr');
+    }
+    setIsReady(true);
   }, []);
 
   const handleSetLocale = (l: Locale) => {
     setLocale(l);
     if (typeof window !== 'undefined') localStorage.setItem('locale', l);
   };
+
+  if (!isReady || !locale) return null;
 
   return (
     <LocaleContext.Provider value={{ locale, setLocale: handleSetLocale }}>

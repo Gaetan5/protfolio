@@ -17,17 +17,11 @@ export const metadata: Metadata = {
   title: defaultMeta.title,
   description: defaultMeta.description,
   openGraph: {
-    title: defaultMeta.title,
-    description: defaultMeta.description,
-    url: defaultMeta.url,
-    images: [defaultMeta.image],
-    type: 'website' as any,
+    ...defaultMeta.openGraph,
   },
   twitter: {
-    card: 'summary_large_image',
-    title: defaultMeta.title,
-    description: defaultMeta.description,
-    images: [defaultMeta.image],
+    ...defaultMeta.twitter,
+    images: [defaultMeta.twitter.image],
   },
 };
 
@@ -39,18 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
-        <meta property="og:title" content={defaultMeta.title} />
-        <meta property="og:description" content={defaultMeta.description} />
-        <meta property="og:image" content={defaultMeta.image} />
-        <meta property="og:url" content={defaultMeta.url} />
-        <meta property="og:type" content={defaultMeta.type} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={defaultMeta.title} />
-        <meta name="twitter:description" content={defaultMeta.description} />
-        <meta name="twitter:image" content={defaultMeta.image} />
-        <meta name="twitter:site" content={defaultMeta.twitter} />
-        <meta name="author" content={defaultMeta.author} />
-        <meta name="keywords" content={defaultMeta.keywords} />
+        {/* Les balises meta SEO sont maintenant gérées par l'objet metadata de Next.js */}
       </head>
       <body
         className={`${sora.variable} font-Sora flex flex-col bg-gray-50 text-gray-950 relative dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
