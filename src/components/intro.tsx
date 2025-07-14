@@ -21,6 +21,7 @@ export default function Intro() {
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   // Hook pour la langue courante
   const { locale } = useLocaleContext();
+  console.log('Intro rendered, locale:', locale);
 
   return (
     // Section principale avec gestion du thème (bg, texte)
@@ -76,8 +77,12 @@ export default function Intro() {
       {/* Titre principal et sous-titre avec gestion du thème */}
       <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce={true}>
         <h1 className="mb-10 mt-4 px-4 text-2xl sm:text-4xl">
-          <span className="font-medium !leading-[1.5] text-gray-900 dark:text-cyan-300 transition-colors duration-300">{t('intro_headline', locale)}</span>{' '}
-          <p className="text-[14px] text-gray-700 dark:text-gray-400 transition-colors duration-300">{t('intro_sub', locale)}</p>
+          <span className="font-medium !leading-[1.5] text-gray-900 dark:text-cyan-300 transition-colors duration-300">
+            {t('intro_headline', locale)}
+          </span>{' '}
+          <p className="text-[14px] text-gray-700 dark:text-gray-400 transition-colors duration-300">
+            {t('intro_sub', locale)}
+          </p>
         </h1>
       </Fade>
 

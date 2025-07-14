@@ -14,6 +14,7 @@ export default function Contact() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const { locale } = useLocaleContext();
+  console.log('Contact rendered, locale:', locale);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

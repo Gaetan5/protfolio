@@ -51,8 +51,8 @@ Remplacée par un visuel libre de droits, tu peux remplacer par ton propre banne
 <details>
   <summary>Voir en texte</summary>
 
-| Front-End | Languages | Tools & DB |
-|-----------|-----------|------------|
+| Front-End                                                                                                                                                                                                    | Languages                                                                                                                                                                                                                                                                                                                                                                                                                                          | Tools & DB                                                                                                                                                                                                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)<br>![Next.js](https://img.shields.io/badge/Next.js-000?style=for-the-badge&logo=next.js&logoColor=white) | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)<br>![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)<br>![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)<br>![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white) | ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)<br>![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)<br>![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) |
 
 </details>
@@ -99,8 +99,8 @@ Remplacée par un visuel libre de droits, tu peux remplacer par ton propre banne
 
 ## 💡 Fun Facts & Now
 
-- 🔭 En ce moment : Construire l’écosystème INTERACT / IoT pour la santé & la sécurité et toute solution pour Start-up et Entreprise 
-- 🧑‍💻 J’automatise ma maison avec des microcontrôleurs, Intergre aussi l'IA dans toute solution du quotidien 
+- 🔭 En ce moment : Construire l’écosystème INTERACT / IoT pour la santé & la sécurité et toute solution pour Start-up et Entreprise
+- 🧑‍💻 J’automatise ma maison avec des microcontrôleurs, Intergre aussi l'IA dans toute solution du quotidien
 - 📚 Toujours en veille sur l’IA, le cloud et la cybersécurité
 - 🎬 Je dessine des persos manga, je binge du sci-fi et je rêve de robots utiles
 

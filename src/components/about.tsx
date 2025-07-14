@@ -19,9 +19,13 @@ function Section({ title, children }: SectionProps) {
   return (
     <div className="mb-8">
       {/* Titre de section avec gestion du thème */}
-      <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-cyan-200 transition-colors duration-300">{title}</h3>
+      <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-cyan-200 transition-colors duration-300">
+        {title}
+      </h3>
       {/* Contenu de la section (texte, listes, timeline, etc.) */}
-      <div className="text-gray-700 dark:text-gray-300 space-y-3 transition-colors duration-300">{children}</div>
+      <div className="text-gray-700 dark:text-gray-300 space-y-3 transition-colors duration-300">
+        {children}
+      </div>
     </div>
   );
 }
@@ -45,35 +49,40 @@ const timeline = [
     title: 'Développeur Full Stack',
     place: 'EKOSERX',
     type: 'pro',
-    description: "Développement d'une plateforme de téléconsultation médicale (API sécurisée, visioconférence, messagerie temps réel, gestion des rendez-vous).",
+    description:
+      "Développement d'une plateforme de téléconsultation médicale (API sécurisée, visioconférence, messagerie temps réel, gestion des rendez-vous).",
   },
   {
     year: '2021-2022',
     title: 'Ingénieur IoT',
     place: 'Projet Voiture médicalisée',
     type: 'pro',
-    description: "Intégration d’un système de géolocalisation et de sécurité embarqué en temps réel.",
+    description:
+      'Intégration d’un système de géolocalisation et de sécurité embarqué en temps réel.',
   },
   {
     year: '2025-202X',
     title: 'Développeur API',
     place: 'Mega-Ique Digital',
     type: 'pro',
-    description: "Conception d’une API robuste pour la gestion des produits et commandes entre ces deux plateformes.",
+    description:
+      'Conception d’une API robuste pour la gestion des produits et commandes entre ces deux plateformes.',
   },
   {
     year: '2019-2020',
     title: 'Développeur',
     place: 'InterPay',
     type: 'pro',
-    description: "Application de paiement de tickets en ligne avec génération de QR code, confirmation utilisateur et gestion des abonnements.",
+    description:
+      'Application de paiement de tickets en ligne avec génération de QR code, confirmation utilisateur et gestion des abonnements.',
   },
   {
     year: '2018-...',
     title: 'Fondateur',
     place: 'INTERACT',
     type: 'pro',
-    description: "Écosystème technologique pour l’Afrique, démocratisation de la digitalisation et sécurité des données.",
+    description:
+      'Écosystème technologique pour l’Afrique, démocratisation de la digitalisation et sécurité des données.',
   },
 ];
 
@@ -97,9 +106,13 @@ function Timeline() {
           <div>
             {/* Année, titre, lieu, description */}
             <div className="text-sm text-gray-500 dark:text-cyan-300">{item.year}</div>
-            <div className="font-bold text-gray-900 dark:text-cyan-200 transition-colors duration-300">{item.title}</div>
+            <div className="font-bold text-gray-900 dark:text-cyan-200 transition-colors duration-300">
+              {item.title}
+            </div>
             <div className="italic text-cyan-700 dark:text-cyan-400">{item.place}</div>
-            {item.description && <div className="mt-1 text-gray-700 dark:text-gray-300">{item.description}</div>}
+            {item.description && (
+              <div className="mt-1 text-gray-700 dark:text-gray-300">{item.description}</div>
+            )}
           </div>
         </motion.div>
       ))}
@@ -108,7 +121,15 @@ function Timeline() {
 }
 
 // Composant Typewriter : effet d'écriture animée pour la présentation
-function Typewriter({ texts, speed = 60, pause = 1200 }: { texts: string[]; speed?: number; pause?: number }) {
+function Typewriter({
+  texts,
+  speed = 60,
+  pause = 1200,
+}: {
+  texts: string[];
+  speed?: number;
+  pause?: number;
+}) {
   // Gestion de l'animation lettre par lettre
   const [displayed, setDisplayed] = useState('');
   const [index, setIndex] = useState(0);
@@ -127,9 +148,12 @@ function Typewriter({ texts, speed = 60, pause = 1200 }: { texts: string[]; spee
       setIndex((prev) => (prev + 1) % texts.length);
       return;
     }
-    timeoutRef.current = setTimeout(() => {
-      setSubIndex((prev) => prev + (reverse ? -1 : 1));
-    }, reverse ? speed / 2 : speed);
+    timeoutRef.current = setTimeout(
+      () => {
+        setSubIndex((prev) => prev + (reverse ? -1 : 1));
+      },
+      reverse ? speed / 2 : speed,
+    );
     setDisplayed(texts[index].substring(0, subIndex));
     return () => clearTimeout(timeoutRef.current);
   }, [subIndex, index, reverse, texts, speed, pause]);
@@ -143,6 +167,7 @@ export default function About() {
   const { ref } = useSectionInView('#about');
   // Hook pour la langue courante
   const { locale } = useLocaleContext();
+  console.log('About rendered, locale:', locale);
 
   return (
     <motion.section
@@ -203,7 +228,11 @@ export default function About() {
         {/* Section stack technique */}
         <Section title={t('about_tech_stack', locale)}>
           <div className="flex justify-center">
-            <img src="https://skillicons.dev/icons?i=python,java,ts,js,react,nextjs,tailwind,mysql,postgres,linux,figma,raspberrypi" alt="Tech Stack" className="max-w-full" />
+            <img
+              src="https://skillicons.dev/icons?i=python,java,ts,js,react,nextjs,tailwind,mysql,postgres,linux,figma,raspberrypi"
+              alt="Tech Stack"
+              className="max-w-full"
+            />
           </div>
         </Section>
 
@@ -211,21 +240,37 @@ export default function About() {
         <Section title={t('about_featured_projects', locale)}>
           <div className="flex flex-col md:flex-row md:justify-center gap-6">
             <div className="flex flex-col items-center">
-              <a href="https://gaetan-ekoro.onrender.com/" target="_blank" rel="noopener noreferrer">
-                <img width="80" src="https://img.icons8.com/color/96/monitor--v1.png" alt="portfolio"/>
+              <a
+                href="https://gaetan-ekoro.onrender.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  width="80"
+                  src="https://img.icons8.com/color/96/monitor--v1.png"
+                  alt="portfolio"
+                />
               </a>
-              <b><a href="https://gaetan-ekoro.onrender.com/">Portfolio Website</a></b>
-              <span className="text-sm">🎨 Présente mon parcours, mes compétences et mes réalisations.</span>
+              <b>
+                <a href="https://gaetan-ekoro.onrender.com/">Portfolio Website</a>
+              </b>
+              <span className="text-sm">
+                🎨 Présente mon parcours, mes compétences et mes réalisations.
+              </span>
             </div>
             <div className="flex flex-col items-center">
-              <img width="80" src="https://img.icons8.com/color/96/car--v1.png" alt="car project"/>
+              <img width="80" src="https://img.icons8.com/color/96/car--v1.png" alt="car project" />
               <b>Medicalized Electric Car Project</b>
-              <span className="text-sm">🚗 Systèmes embarqués & sécurité pour la mobilité médicale.</span>
+              <span className="text-sm">
+                🚗 Systèmes embarqués & sécurité pour la mobilité médicale.
+              </span>
             </div>
             <div className="flex flex-col items-center">
-              <img width="80" src="https://img.icons8.com/color/96/qr-code.png" alt="ticket app"/>
+              <img width="80" src="https://img.icons8.com/color/96/qr-code.png" alt="ticket app" />
               <b>Online Ticket Payment App</b>
-              <span className="text-sm">🎫 QR code, paiements sécurisés et abonnements utilisateurs.</span>
+              <span className="text-sm">
+                🎫 QR code, paiements sécurisés et abonnements utilisateurs.
+              </span>
             </div>
           </div>
         </Section>
@@ -233,8 +278,14 @@ export default function About() {
         {/* Section fun facts */}
         <Section title={t('about_fun_facts', locale)}>
           <ul className="list-disc ml-6 space-y-1 text-left">
-            <li>🔭 En ce moment : Construire l’écosystème INTERACT / IoT pour la santé & la sécurité et toute solution pour Start-up et Entreprise</li>
-            <li>🧑‍💻 J’automatise ma maison avec des microcontrôleurs, Intergre aussi l'IA dans toute solution du quotidien</li>
+            <li>
+              🔭 En ce moment : Construire l’écosystème INTERACT / IoT pour la santé & la sécurité
+              et toute solution pour Start-up et Entreprise
+            </li>
+            <li>
+              🧑‍💻 J’automatise ma maison avec des microcontrôleurs, Intergre aussi l&apos;IA dans
+              toute solution du quotidien
+            </li>
             <li>📚 Toujours en veille sur l’IA, le cloud et la cybersécurité</li>
             <li>🎬 Je dessine des persos manga, je binge du sci-fi et je rêve de robots utiles</li>
           </ul>
@@ -260,22 +311,49 @@ export default function About() {
         <Section title={t('about_contact_networks', locale)}>
           <div className="flex flex-wrap justify-center gap-2">
             <a href="https://github.com/Gaetan5" target="_blank" rel="noopener noreferrer">
-              <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+              <img
+                src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"
+                alt="GitHub"
+              />
             </a>
-            <a href="https://www.linkedin.com/in/gaetan-x-ekoro-56z" target="_blank" rel="noopener noreferrer">
-              <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+            <a
+              href="https://www.linkedin.com/in/gaetan-x-ekoro-56z"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"
+                alt="LinkedIn"
+              />
             </a>
             <a href="https://x.com/Gaetan5" target="_blank" rel="noopener noreferrer">
-              <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter" />
+              <img
+                src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"
+                alt="Twitter"
+              />
             </a>
             <a href="mailto:ekorogaetan5@gmail.com">
-              <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+              <img
+                src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"
+                alt="Email"
+              />
             </a>
             <a href="https://gaetan-ekoro.onrender.com/" target="_blank" rel="noopener noreferrer">
-              <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=about-dot-me&logoColor=white" alt="Portfolio" />
+              <img
+                src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=about-dot-me&logoColor=white"
+                alt="Portfolio"
+              />
             </a>
-            <a href="https://wa.me/237693813701" target="_blank" rel="noopener noreferrer" aria-label={t('about_whatsapp', locale)}>
-              <img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp" />
+            <a
+              href="https://wa.me/237693813701"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t('about_whatsapp', locale)}
+            >
+              <img
+                src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"
+                alt="WhatsApp"
+              />
             </a>
           </div>
         </Section>
