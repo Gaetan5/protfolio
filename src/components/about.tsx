@@ -228,9 +228,11 @@ export default function About() {
         {/* Section stack technique */}
         <Section title={t('about_tech_stack', locale)}>
           <div className="flex justify-center">
-            <img
+            <Image
               src="https://skillicons.dev/icons?i=python,java,ts,js,react,nextjs,tailwind,mysql,postgres,linux,figma,raspberrypi"
               alt="Tech Stack"
+              width={400}
+              height={40}
               className="max-w-full"
             />
           </div>
@@ -245,8 +247,9 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
-                  width="80"
+                <Image
+                  width={80}
+                  height={80}
                   src="https://img.icons8.com/color/96/monitor--v1.png"
                   alt="portfolio"
                 />
@@ -259,14 +262,24 @@ export default function About() {
               </span>
             </div>
             <div className="flex flex-col items-center">
-              <img width="80" src="https://img.icons8.com/color/96/car--v1.png" alt="car project" />
+              <Image
+                width={80}
+                height={80}
+                src="https://img.icons8.com/color/96/car--v1.png"
+                alt="car project"
+              />
               <b>Medicalized Electric Car Project</b>
               <span className="text-sm">
                 🚗 Systèmes embarqués & sécurité pour la mobilité médicale.
               </span>
             </div>
             <div className="flex flex-col items-center">
-              <img width="80" src="https://img.icons8.com/color/96/qr-code.png" alt="ticket app" />
+              <Image
+                width={80}
+                height={80}
+                src="https://img.icons8.com/color/96/qr-code.png"
+                alt="ticket app"
+              />
               <b>Online Ticket Payment App</b>
               <span className="text-sm">
                 🎫 QR code, paiements sécurisés et abonnements utilisateurs.
@@ -311,9 +324,11 @@ export default function About() {
         <Section title={t('about_contact_networks', locale)}>
           <div className="flex flex-wrap justify-center gap-2">
             <a href="https://github.com/Gaetan5" target="_blank" rel="noopener noreferrer">
-              <img
+              <Image
                 src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"
                 alt="GitHub"
+                width={120}
+                height={32}
               />
             </a>
             <a
@@ -321,27 +336,35 @@ export default function About() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
+              <Image
                 src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"
                 alt="LinkedIn"
+                width={120}
+                height={32}
               />
             </a>
             <a href="https://x.com/Gaetan5" target="_blank" rel="noopener noreferrer">
-              <img
+              <Image
                 src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"
                 alt="Twitter"
+                width={120}
+                height={32}
               />
             </a>
             <a href="mailto:ekorogaetan5@gmail.com">
-              <img
+              <Image
                 src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"
                 alt="Email"
+                width={120}
+                height={32}
               />
             </a>
             <a href="https://gaetan-ekoro.onrender.com/" target="_blank" rel="noopener noreferrer">
-              <img
+              <Image
                 src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=about-dot-me&logoColor=white"
                 alt="Portfolio"
+                width={120}
+                height={32}
               />
             </a>
             <a
@@ -350,9 +373,11 @@ export default function About() {
               rel="noopener noreferrer"
               aria-label={t('about_whatsapp', locale)}
             >
-              <img
+              <Image
                 src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"
                 alt="WhatsApp"
+                width={120}
+                height={32}
               />
             </a>
           </div>

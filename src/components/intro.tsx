@@ -36,12 +36,16 @@ export default function Intro() {
         <img
           src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=2500&pause=800&color=0CE6F2&vCenter=true&width=700&lines=Salut%2C+je+suis+Gaetan+X+Ekoro+%7C+Gaetan5+%F0%9F%91%8B;Back-End+Engineer+%E2%9A%99%EF%B8%8F+%7C+Logo+Designer+%F0%9F%96%8C%EF%B8%8F+%7C+Embedded+Systems+Innovator+%F0%9F%9A%80"
           alt="Typing SVG"
+          width={700}
+          height={60}
           className="w-full max-w-xl bg-white dark:bg-gray-900 rounded shadow dark:shadow-cyan-900/30"
         />
         {/* Image de bannière tech */}
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80"
           alt="Tech Banner"
+          width={900}
+          height={400}
           className="rounded-lg shadow-lg w-full max-w-2xl bg-white dark:bg-gray-900 dark:shadow-cyan-900/30"
         />
       </div>
