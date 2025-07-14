@@ -34,6 +34,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/favicon/site.webmanifest" />
         {/* Les balises meta SEO sont maintenant gérées par l'objet metadata de Next.js */}
+        {typeof window !== 'undefined' && process.env.NEXT_PUBLIC_VERCEL === '1' && (
+          <script defer src="/_vercel/insights/script.js" />
+        )}
       </head>
       <body
         className={`${sora.variable} font-Sora flex flex-col bg-gray-50 text-gray-950 relative dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
