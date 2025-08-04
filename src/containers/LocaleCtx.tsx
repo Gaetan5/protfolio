@@ -1,5 +1,5 @@
 'use client';
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
 
 export type Locale = 'fr' | 'en';
 
@@ -25,22 +25,25 @@ export const LocaleProvider = ({ children }: { children: React.ReactNode }) => {
     setIsReady(true);
   }, []);
 
-  const handleSetLocale = (l: Locale) => {
+  const handleSetLocale = useCallback((l: Locale) => {
     setLocale(l);
     if (typeof window !== 'undefined') localStorage.setItem('locale', l);
-  };
+  }, []);
+
+  const contextValue = useMemo(
+    () => ({
+      locale: locale || 'fr',
+      setLocale: handleSetLocale,
+    }),
+    [locale, handleSetLocale],
+  );
 
   if (!isReady || !locale) return null;
 
-  return (
-    <LocaleContext.Provider value={{ locale, setLocale: handleSetLocale }}>
-      {children}
-    </LocaleContext.Provider>
-  );
+  return <LocaleContext.Provider value={contextValue}>{children}</LocaleContext.Provider>;
 };
 
 export const useLocaleContext = () => {
   const context = useContext(LocaleContext);
-  console.log('useLocaleContext loaded', context);
   return context;
 };

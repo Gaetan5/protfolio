@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SectionHeading from './section-heading';
 import { useSectionInView } from '@/lib/useInView';
 import Image from 'next/image';
+import OptimizedImage from './optimized-image';
 import { useLocaleContext } from '@/containers/LocaleCtx';
 import { t } from '@/lib/i18n';
 import Bio from './Bio';
@@ -139,7 +140,11 @@ function Typewriter({
 
   useEffect(() => {
     if (index === texts.length) return;
-    if (!reverse && subIndex === texts[index].length) {
+
+    const currentText = texts[index];
+    if (!currentText) return;
+
+    if (!reverse && subIndex === currentText.length) {
       timeoutRef.current = setTimeout(() => setReverse(true), pause);
       return;
     }
@@ -148,26 +153,32 @@ function Typewriter({
       setIndex((prev) => (prev + 1) % texts.length);
       return;
     }
+
     timeoutRef.current = setTimeout(
       () => {
         setSubIndex((prev) => prev + (reverse ? -1 : 1));
       },
       reverse ? speed / 2 : speed,
     );
-    setDisplayed(texts[index].substring(0, subIndex));
-    return () => clearTimeout(timeoutRef.current);
+
+    setDisplayed(currentText.substring(0, subIndex));
+
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
   }, [subIndex, index, reverse, texts, speed, pause]);
 
   return <span className="text-cyan-600 dark:text-cyan-400 font-bold">{displayed}|</span>;
 }
 
 // Composant About : page principale de présentation du portfolio
-export default function About() {
+const About = React.memo(function About() {
   // Hook pour l'animation d'apparition de la section
   const { ref } = useSectionInView('#about');
   // Hook pour la langue courante
   const { locale } = useLocaleContext();
-  console.log('About rendered, locale:', locale);
 
   return (
     <motion.section
@@ -233,7 +244,7 @@ export default function About() {
               alt="Tech Stack"
               width={400}
               height={40}
-              className="max-w-full"
+              className="max-w-full h-auto"
             />
           </div>
         </Section>
@@ -324,11 +335,12 @@ export default function About() {
         <Section title={t('about_contact_networks', locale)}>
           <div className="flex flex-wrap justify-center gap-2">
             <a href="https://github.com/Gaetan5" target="_blank" rel="noopener noreferrer">
-              <Image
+              <OptimizedImage
                 src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"
                 alt="GitHub"
                 width={120}
                 height={32}
+                isBadge={true}
               />
             </a>
             <a
@@ -336,35 +348,39 @@ export default function About() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image
+              <OptimizedImage
                 src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"
                 alt="LinkedIn"
                 width={120}
                 height={32}
+                isBadge={true}
               />
             </a>
             <a href="https://x.com/Gaetan5" target="_blank" rel="noopener noreferrer">
-              <Image
+              <OptimizedImage
                 src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"
                 alt="Twitter"
                 width={120}
                 height={32}
+                isBadge={true}
               />
             </a>
             <a href="mailto:ekorogaetan5@gmail.com">
-              <Image
+              <OptimizedImage
                 src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"
                 alt="Email"
                 width={120}
                 height={32}
+                isBadge={true}
               />
             </a>
             <a href="https://gaetan-ekoro.onrender.com/" target="_blank" rel="noopener noreferrer">
-              <Image
+              <OptimizedImage
                 src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=about-dot-me&logoColor=white"
                 alt="Portfolio"
                 width={120}
                 height={32}
+                isBadge={true}
               />
             </a>
             <a
@@ -373,11 +389,12 @@ export default function About() {
               rel="noopener noreferrer"
               aria-label={t('about_whatsapp', locale)}
             >
-              <Image
+              <OptimizedImage
                 src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"
                 alt="WhatsApp"
                 width={120}
                 height={32}
+                isBadge={true}
               />
             </a>
           </div>
@@ -385,4 +402,8 @@ export default function About() {
       </article>
     </motion.section>
   );
-}
+});
+
+About.displayName = 'About';
+
+export default About;

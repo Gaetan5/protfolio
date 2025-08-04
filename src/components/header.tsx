@@ -3,7 +3,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import NextLink from 'next/link';
-import clsx from 'clsx';
+import { useLocaleContext } from '@/containers/LocaleCtx';
+import { t } from '@/lib/i18n';
+import { clsx } from 'clsx';
 import { useActiveSectionContext } from '@/containers/active-section';
 import { Link } from '@/lib/types';
 

@@ -2,12 +2,14 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from '@/lib/types';
-import clsx from 'clsx';
+import { useLocaleContext } from '@/containers/LocaleCtx';
+import { t } from '@/lib/i18n';
+import { Menu, X } from 'lucide-react';
+import { clsx } from 'clsx';
 import NextLink from 'next/link';
 import { useActiveSectionContext } from '@/containers/active-section';
-import { Menu } from 'lucide-react';
 import Hamburger from 'hamburger-react';
+import { Link } from '@/lib/types';
 
 type HamburgerMenuProps = { links: Link[] };
 
