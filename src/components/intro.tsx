@@ -1,114 +1,107 @@
-"use client";
-import React from "react";
+'use client';
+import React from 'react';
 import Image from 'next/image';
-import Section from "./Section";
-import Link from "next/link";
-import { BsLinkedin } from "react-icons/bs";
-import { FaGitSquare } from "react-icons/fa";
-import { Mail } from "lucide-react";
+import { motion } from 'framer-motion';
+import { Fade } from 'react-awesome-reveal';
+import Link from 'next/link';
+import { BsLinkedin } from 'react-icons/bs';
+import { FaGithubSquare } from 'react-icons/fa';
 
-// Animations...
-import { Fade } from "react-awesome-reveal";
-import { motion } from "framer-motion";
-import { useSectionInview } from "@/lib/userView";
+import { useSectionInView } from '@/lib/useInView';
+import { useActiveSectionContext } from '@/containers/active-section';
+import { useLocaleContext } from '@/containers/LocaleCtx';
+import { t } from '@/lib/i18n';
+import { Mail } from 'lucide-react';
+import TypewriterEffect from './TypewriterEffect';
 
-export default function Intro() {
-    const { ref } = useSectionInview("#home", 0.5);
+// Composant Intro : section d'accueil du portfolio avec photo, animation, et liens principaux
+const Intro = React.memo(function Intro() {
+  // Hook pour détecter la visibilité de la section (pour l'animation d'apparition)
+  const { ref } = useSectionInView('#home', 0.5);
+  // Hooks pour la gestion de la section active (navigation dynamique)
+  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  // Hook pour la langue courante
+  const { locale } = useLocaleContext();
 
-    return (
-        <Section 
-            ref={ref}
-            id="home"
-            className="mb-20 max-w-[75rem] text-center sm:mb-0"
-        > 
-            <div className="flex items-center justify-center">
-                <div className="relative">
-                    <motion.div
-                        initial={{ opacity:0, scale:0 }}
-                        animate={{ opacity:1, scale:1 }}
-                        transition={{
-                            type: "spring",
-                            stiffness: 125,
-                            damping: 10,
-                            duration: 0.2,
-                        }}
-                    >
-                        <Image 
-                            src="/profile1.png"
-                            width="320"
-                            height="320"
-                            alt="portrait"
-                            quality="100"
-                            priority={true}
-                            className="rounded-full shadow-xl object-cover"
-                        />
-                    </motion.div>
-                    <motion.span 
-                        className="text-6xl absolute bottom-8 right-12"
-                        initial={{ opacity:0, scale:0 }}
-                        animate={{ opacity:1, scale:1 }}
-                        transition={{
-                            type: "spring",
-                            stiffness: 125,
-                            damping: 10,
-                            duration: 0.2,
-                        }}
-                    >
-                        👋🏽
-                    </motion.span>
-                </div>
+  return (
+    // Section principale avec gestion du thème (bg, texte)
+    <section
+      ref={ref}
+      id="home"
+      className="text-center sm:mb-0 h-screen flex flex-col justify-center bg-white dark:bg-gray-900 transition-colors duration-300"
+    >
+      {/* Image de bannière tech */}
+      <div className="flex flex-col items-center justify-center gap-4 mb-6">
+        <Image
+          src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80"
+          alt="Tech Banner"
+          width={900}
+          height={400}
+          priority={true}
+          className="rounded-lg shadow-lg w-full max-w-2xl bg-white dark:bg-gray-900 dark:shadow-cyan-900/30"
+        />
+      </div>
+
+      {/* Portrait professionnel animé */}
+      <div className="flex items-center justify-center">
+        <div className="relative">
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 125,
+              damping: 10,
+              duration: 0.2,
+            }}
+          >
+            <div className="relative w-60 h-60 sm:w-80 sm:h-80 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+              <Image
+                src="/InteractPhoto1.jpg"
+                width={400}
+                height={400}
+                alt="Portrait professionnel de Gaetan X Ekoro"
+                quality={100}
+                priority={true}
+                className="object-cover shadow-xl rounded-full ring-4 ring-cyan-400/60 dark:ring-cyan-600/60 dark:shadow-cyan-900/30"
+              />
             </div>
-            
-            <Fade direction="up" delay={400} cascade damping={0.1} triggerOnce={true}>
-                <h1 className="mb-10 mt-4 text-2xl sm:text-4xl">
-                    <span className="font-medium !leading-[1.5]">
-                        Grow your business with a new website.
-                    </span>{" "}
-                    <p className="text-[14px] mb-6">
-                        Fontend is a full-service creative studio creating
-                        beautiful digital experiences and products.
-                    </p>
-                </h1>
-            </Fade>
+          </motion.div>
+        </div>
+      </div>
 
-            <motion.div 
-                className="flex sm:flex-row items-center justify-center gap-4 px-4 text-lg font-medium"
-                initial={{ opacity:0, scale:0 }}
-                animate={{ opacity:1, scale:1 }}
-                transition={{
-                    type: "spring",
-                    stiffness: 125,
-                    damping: 10,
-                    duration: 0.2,
-                }}
-            >
-                <Link
-                    href="mailto:contact@studio.com"  // Corrige le lien vers un e-mail valide
-                    className="group bg-gray-900 text-white px-7 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 dark:bg-white/10 active:scale-105 transition"
-                >
-                    Connect <Mail color={"#9ca3af"} />
-                </Link>
+      {/* Titre principal et sous-titre avec gestion du thème */}
+      <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce={true}>
+        <div className="mb-10 mt-4 px-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-cyan-300 mb-4">
+            <span className="bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent">
+              Gaetan X Ekoro
+            </span>
+          </h1>
+          <div className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-medium mb-4">
+            <TypewriterEffect
+              texts={['Data & Software Engineer', 'IoT Specialist', 'Embedded Systems Innovator']}
+            />
+          </div>
+          <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 transition-colors duration-300 max-w-2xl mx-auto">
+            {t('intro_sub', locale)}
+          </p>
+        </div>
+      </Fade>
 
-                <a
-                    href="https://linkedin.com"  // Remplacez par l'URL LinkedIn réelle
-                    className="group bg-gray-900 p-4 text-white flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] transition cursor-pointer border-black dark:bg-white/10 dark:text-white/60"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Linkedin Profile"
-                >
-                    <BsLinkedin />
-                </a>
-                
-                <a
-                    href="https://github.com"  // Remplacez par l'URL GitHub réelle
-                    className="bg-gray-900 text-white flex items-center gap-2 text-[1.15rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer border-black dark:bg-white/10 dark:text-white/60"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub Profile"
-                >
-                    <FaGitSquare />
-                </a>
-            </motion.div>
-        </Section>
-    );
-}
+      {/* Liens de contact principaux avec gestion du thème et accessibilité */}
+      <motion.div
+        className="flex sm:flex-row items-center justify-center gap-4 px-4 text-lg font-medium"
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.1,
+        }}
+      ></motion.div>
+    </section>
+  );
+});
+
+Intro.displayName = 'Intro';
+
+export default Intro;

@@ -1,14 +1,26 @@
-import ActiveSectionContextProvider from "./active-section";
-//import React, { ProviderProps } from "react";
+'use client';
+import React from 'react';
+import ActiveSectionContextProvider from './active-section';
+import { Analytics } from '@vercel/analytics/react';
+import { Toaster } from 'react-hot-toast';
+import dynamic from 'next/dynamic';
+import ThemeContextProvider from './Theme-context';
+import { LocaleProvider } from './LocaleCtx';
 
-type ProviderProps = {
-    children: React.ReactNode;
+type ProvidersProps = {
+  children: React.ReactNode;
 };
 
-export default function Provider({children}: ProviderProps) {
-    return(
+export default function Providers({ children }: ProvidersProps) {
+  return (
+    <LocaleProvider>
+      <ThemeContextProvider>
         <ActiveSectionContextProvider>
-            {children}
+          <Analytics />
+          <Toaster />
+          {children}
         </ActiveSectionContextProvider>
-    )
+      </ThemeContextProvider>
+    </LocaleProvider>
+  );
 }

@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "a11y": "npx axe http://localhost:3000 --exit --tags wcag2a,wcag2aa"
+  },
+  "devDependencies": {
+    "axe-core": "^4.8.2"
+  }
+}
