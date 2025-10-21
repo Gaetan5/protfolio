@@ -181,11 +181,7 @@ const About = React.memo(function About() {
   const { locale } = useLocaleContext();
 
   return (
-    <section
-      ref={ref}
-      id="about"
-      className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4"
-    >
+    <section ref={ref} id="about" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
       {/* Titre principal de la page About */}
       <motion.div
         initial={{ opacity: 0, y: 100 }}

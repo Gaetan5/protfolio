@@ -16,18 +16,17 @@ const Contact = React.memo(function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   return (
-    <section
-      ref={ref}
-      id="contact"
-      className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4"
-    >
+    <section ref={ref} id="contact" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
       <div className="max-w-3xl mx-auto text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold capitalize mb-4 text-gray-900 dark:text-white">
           {t('contact_title', locale)}
         </h2>
         <p className="text-base md:text-lg text-gray-600 dark:text-gray-400">
           {t('contact_description', locale)}{' '}
-          <a className="underline text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300" href="mailto:gaetan.ekoro@gmail.com">
+          <a
+            className="underline text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300"
+            href="mailto:gaetan.ekoro@gmail.com"
+          >
             ekorogaetan5@gmail.com
           </a>{' '}
           {t('contact_or', locale)}

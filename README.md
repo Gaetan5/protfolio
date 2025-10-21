@@ -16,6 +16,7 @@ Portfolio moderne et professionnel développé avec **Next.js 15**, **TypeScript
 ## ✨ **Fonctionnalités**
 
 ### 🎨 **Interface & Design**
+
 - ✅ **Design moderne** avec Tailwind CSS
 - ✅ **Mode sombre/clair** avec transitions fluides
 - ✅ **Interface responsive** adaptée à tous les appareils
@@ -23,6 +24,7 @@ Portfolio moderne et professionnel développé avec **Next.js 15**, **TypeScript
 - ✅ **Navigation intuitive** avec scroll smooth
 
 ### 📱 **Sections Principales**
+
 - ✅ **Résumé Exécutif** - Présentation professionnelle
 - ✅ **À propos** - Présentation détaillée et expertise
 - ✅ **Expérience** - Timeline professionnelle
@@ -35,6 +37,7 @@ Portfolio moderne et professionnel développé avec **Next.js 15**, **TypeScript
 - ✅ **Contact** - Formulaire de contact fonctionnel
 
 ### ⚡ **Optimisations Techniques**
+
 - ✅ **Performance optimisée** (Lighthouse Score 95+)
 - ✅ **Images optimisées** avec Next.js Image
 - ✅ **Chargement dynamique** des composants
@@ -46,6 +49,7 @@ Portfolio moderne et professionnel développé avec **Next.js 15**, **TypeScript
 ## 🛠️ **Technologies Utilisées**
 
 ### **Frontend**
+
 - **Next.js 15** - Framework React avec App Router
 - **TypeScript** - Typage statique
 - **Tailwind CSS** - Framework CSS utilitaire
@@ -53,6 +57,7 @@ Portfolio moderne et professionnel développé avec **Next.js 15**, **TypeScript
 - **Lucide React** - Icônes modernes
 
 ### **Backend & APIs**
+
 - **Python** - Langage principal
 - **FastAPI** - APIs performantes
 - **Django** - Framework web robuste
@@ -60,18 +65,21 @@ Portfolio moderne et professionnel développé avec **Next.js 15**, **TypeScript
 - **Redis** - Cache et sessions
 
 ### **IoT & Hardware**
+
 - **Raspberry Pi** - Systèmes embarqués
 - **Arduino** - Microcontrôleurs
 - **Sensors** - Capteurs et monitoring
 - **GPS** - Géolocalisation
 
 ### **Data Engineering**
+
 - **Apache Kafka** - Streaming de données
 - **Apache Spark** - Traitement big data
 - **Pandas** - Analyse de données
 - **Plotly/Dash** - Visualisation
 
 ### **DevOps & Cloud**
+
 - **Docker** - Conteneurisation
 - **AWS** - Cloud computing
 - **Git** - Version control
@@ -80,10 +88,12 @@ Portfolio moderne et professionnel développé avec **Next.js 15**, **TypeScript
 ## 🚀 **Installation & Démarrage**
 
 ### **Prérequis**
-- Node.js 18+ 
+
+- Node.js 18+
 - npm ou yarn
 
 ### **Installation**
+
 ```bash
 # Cloner le repository
 git clone https://github.com/Gaetan5/protfolio.git
@@ -103,6 +113,7 @@ npm run dev
 Le site sera accessible sur [http://localhost:3000](http://localhost:3000)
 
 ### **Scripts Disponibles**
+
 ```bash
 npm run dev          # Démarrage en développement
 npm run build        # Build de production
@@ -148,24 +159,28 @@ src/
 ## 🎯 **Expertise Principale**
 
 ### **Software Engineering**
+
 - Développement d'APIs RESTful et GraphQL
 - Applications web scalables avec Django/FastAPI
 - Architecture microservices
 - Tests unitaires et d'intégration
 
 ### **Data Engineering**
+
 - Pipelines de données en temps réel
 - Traitement big data avec Apache Spark
 - Visualisation avec Plotly/Dash
 - Optimisation des performances
 
 ### **IoT & Embedded Systems**
+
 - Systèmes IoT pour la santé et la sécurité
 - Intégration de microcontrôleurs
 - Géolocalisation et monitoring
 - Protocoles de sécurité
 
 ### **DevOps & Cloud**
+
 - Déploiement avec Docker
 - Infrastructure AWS
 - CI/CD avec GitHub Actions
@@ -182,6 +197,7 @@ src/
 ## 🌐 **Déploiement**
 
 Le portfolio est déployé sur **Vercel** avec :
+
 - ✅ **CDN global** pour des performances optimales
 - ✅ **HTTPS automatique**
 - ✅ **Déploiement automatique** depuis GitHub
