@@ -12,17 +12,17 @@ const ExecutiveSummary = React.memo(function ExecutiveSummary() {
   const { locale } = useLocaleContext();
 
   return (
-    <section ref={ref} id="executive-summary" className="scroll-mt-28 mb-28">
+    <section ref={ref} id="executive-summary" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.175 }}
-        className="max-w-[45rem] text-center leading-8 sm:mb-40"
+        className="max-w-3xl mx-auto text-center mb-16"
       >
-        <h2 className="text-3xl font-medium capitalize mb-8 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold capitalize mb-4 text-gray-900 dark:text-white">
           {t('executive_summary_title', locale)}
         </h2>
-        <p className="text-gray-700 dark:text-gray-300 mb-12">
+        <p className="text-base md:text-lg text-gray-600 dark:text-gray-400">
           {t('executive_summary_description', locale)}
         </p>
       </motion.div>

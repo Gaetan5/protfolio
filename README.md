@@ -2,9 +2,16 @@
 
 > **Software & Data Engineer** spécialisé en IoT, APIs et solutions médicales
 
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38bdf8?logo=tailwind-css)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 ## 📋 **Aperçu**
 
 Portfolio moderne et professionnel développé avec **Next.js 15**, **TypeScript** et **Tailwind CSS**. Présentation complète de mon expertise en développement de logiciels, systèmes IoT et Data Engineering.
+
+**🌐 Live Demo:** [gaetan-ekoro.vercel.app](https://gaetan-ekoro.vercel.app)
 
 ## ✨ **Fonctionnalités**
 
@@ -79,15 +86,21 @@ Portfolio moderne et professionnel développé avec **Next.js 15**, **TypeScript
 ### **Installation**
 ```bash
 # Cloner le repository
-git clone https://github.com/Gaetan5/portfolio.git
-cd portfolio
+git clone https://github.com/Gaetan5/protfolio.git
+cd protfolio
 
 # Installer les dépendances
 npm install
 
+# Configurer les variables d'environnement
+cp .env.example .env.local
+# Éditer .env.local et ajouter votre clé API Resend
+
 # Démarrer en mode développement
 npm run dev
 ```
+
+Le site sera accessible sur [http://localhost:3000](http://localhost:3000)
 
 ### **Scripts Disponibles**
 ```bash

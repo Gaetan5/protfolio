@@ -181,19 +181,25 @@ const About = React.memo(function About() {
   const { locale } = useLocaleContext();
 
   return (
-    <motion.section
-      className="max-w-[45rem] text-center mt-32 leading-8 mb-28 sm:mb-40 scroll-mt-28"
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.175 }}
+    <section
       ref={ref}
       id="about"
+      className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4"
     >
       {/* Titre principal de la page About */}
-      <SectionHeading locale={locale}>{t('about_heading', locale)}</SectionHeading>
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.175 }}
+        className="max-w-3xl mx-auto text-center mb-16"
+      >
+        <h2 className="text-3xl md:text-4xl font-bold capitalize mb-4 text-gray-900 dark:text-white">
+          {t('about_heading', locale)}
+        </h2>
+      </motion.div>
 
       {/* Header section : présentation animée et photo */}
-      <header className="text-center mb-6 mt-10">
+      <header className="text-center mb-12 max-w-3xl mx-auto">
         <p className="mt-2 text-lg">
           <Typewriter
             texts={[
@@ -257,12 +263,14 @@ const About = React.memo(function About() {
                 href="https://gaetan-ekoro.onrender.com/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Voir mon portfolio website"
+                title="Portfolio Website"
               >
                 <Image
                   width={80}
                   height={80}
                   src="https://img.icons8.com/color/96/monitor--v1.png"
-                  alt="portfolio"
+                  alt="Icône portfolio website"
                 />
               </a>
               <b>
@@ -323,7 +331,7 @@ const About = React.memo(function About() {
         {/* Bouton de téléchargement du CV */}
         <div className="my-8 flex flex-col items-center">
           <a
-            href="/CV-2024_GAETAN EKORO EDOUARD (LastUpdate).pdf"
+            href="/CV-2025_GAETAN EKORO EDOUARD.pdf"
             download
             className="inline-block px-6 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-700 dark:bg-cyan-400 dark:text-gray-900 dark:hover:bg-cyan-300 transition"
           >
@@ -334,10 +342,16 @@ const About = React.memo(function About() {
         {/* Section contact & réseaux sociaux */}
         <Section title={t('about_contact_networks', locale)}>
           <div className="flex flex-wrap justify-center gap-2">
-            <a href="https://github.com/Gaetan5" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/Gaetan5"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visiter mon profil GitHub"
+              title="GitHub Profile"
+            >
               <OptimizedImage
                 src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"
-                alt="GitHub"
+                alt="Badge GitHub"
                 width={120}
                 height={32}
                 isBadge={true}
@@ -347,37 +361,55 @@ const About = React.memo(function About() {
               href="https://www.linkedin.com/in/gaetan-x-ekoro-56z"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visiter mon profil LinkedIn"
+              title="LinkedIn Profile"
             >
               <OptimizedImage
                 src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"
-                alt="LinkedIn"
+                alt="Badge LinkedIn"
                 width={120}
                 height={32}
                 isBadge={true}
               />
             </a>
-            <a href="https://x.com/Gaetan5" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://x.com/Gaetan5"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visiter mon profil Twitter/X"
+              title="Twitter/X Profile"
+            >
               <OptimizedImage
                 src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"
-                alt="Twitter"
+                alt="Badge Twitter"
                 width={120}
                 height={32}
                 isBadge={true}
               />
             </a>
-            <a href="mailto:ekorogaetan5@gmail.com">
+            <a
+              href="mailto:ekorogaetan5@gmail.com"
+              aria-label="M'envoyer un email"
+              title="Email Contact"
+            >
               <OptimizedImage
                 src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"
-                alt="Email"
+                alt="Badge Email"
                 width={120}
                 height={32}
                 isBadge={true}
               />
             </a>
-            <a href="https://gaetan-ekoro.onrender.com/" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://gaetan-ekoro.onrender.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Voir mon ancien portfolio"
+              title="Portfolio Website"
+            >
               <OptimizedImage
                 src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=about-dot-me&logoColor=white"
-                alt="Portfolio"
+                alt="Badge Portfolio"
                 width={120}
                 height={32}
                 isBadge={true}
@@ -400,7 +432,7 @@ const About = React.memo(function About() {
           </div>
         </Section>
       </article>
-    </motion.section>
+    </section>
   );
 });
 

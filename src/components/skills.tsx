@@ -95,17 +95,19 @@ const Skills = React.memo(function Skills() {
   const { locale } = useLocaleContext();
 
   return (
-    <section ref={ref} id="skills" className="scroll-mt-28 mb-28">
+    <section ref={ref} id="skills" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.175 }}
-        className="max-w-[45rem] text-center leading-8 sm:mb-40"
+        className="max-w-3xl mx-auto text-center mb-16"
       >
-        <h2 className="text-3xl font-medium capitalize mb-8 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold capitalize mb-4 text-gray-900 dark:text-white">
           {t('skills_title', locale)}
         </h2>
-        <p className="text-gray-700 dark:text-gray-300 mb-12">{t('skills_description', locale)}</p>
+        <p className="text-base md:text-lg text-gray-600 dark:text-gray-400">
+          {t('skills_description', locale)}
+        </p>
       </motion.div>
 
       <div className="max-w-4xl mx-auto px-4">
@@ -118,7 +120,7 @@ const Skills = React.memo(function Skills() {
               transition={{ delay: index * 0.1 }}
               className="group relative"
             >
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-cyan-300 dark:hover:border-cyan-600">
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-cyan-500/20 dark:hover:shadow-cyan-900/40 transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 hover:border-cyan-400/50 dark:hover:border-cyan-600/50 hover:-translate-y-1">
                 <div className="flex flex-col items-center text-center space-y-3">
                   <div className="p-3 bg-cyan-100 dark:bg-cyan-900 rounded-full text-cyan-600 dark:text-cyan-400 group-hover:scale-110 transition-transform duration-300">
                     {skillIcons[skill] || <Code className="w-6 h-6" />}

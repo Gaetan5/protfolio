@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { useLocaleContext } from '@/containers/LocaleCtx';
@@ -59,6 +61,11 @@ const Contact = dynamic(() => import('@/components/contact'), {
   ssr: true,
 });
 
+const Testimonials = dynamic(() => import('@/components/testimonials'), {
+  loading: () => <div className="h-96 bg-gray-200 animate-pulse" />,
+  ssr: true,
+});
+
 // Wrapper client pour les fonctionnalités avancées
 const ClientWrapper = dynamic(() => import('@/components/client-wrapper'), {
   loading: () => null,
@@ -100,6 +107,9 @@ export default function Home() {
 
         {/* Statistiques GitHub */}
         <GitHubStats />
+
+        {/* Témoignages */}
+        <Testimonials />
 
         {/* Contact */}
         <Contact />

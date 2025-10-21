@@ -30,22 +30,8 @@ const Intro = React.memo(function Intro() {
       id="home"
       className="text-center sm:mb-0 h-screen flex flex-col justify-center bg-white dark:bg-gray-900 transition-colors duration-300"
     >
-      {/* Bandeaux animés et image de présentation */}
+      {/* Image de bannière tech */}
       <div className="flex flex-col items-center justify-center gap-4 mb-6">
-        {/* Animation de texte typewriter moderne */}
-        <div className="text-center mb-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-cyan-300 mb-4">
-            <span className="bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent">
-              Gaetan X Ekoro
-            </span>
-          </h1>
-          <div className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-medium">
-            <TypewriterEffect
-              texts={['Back-End Engineer', 'Logo Designer', 'Embedded Systems Innovator']}
-            />
-          </div>
-        </div>
-        {/* Image de bannière tech */}
         <Image
           src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80"
           alt="Tech Banner"
@@ -86,14 +72,21 @@ const Intro = React.memo(function Intro() {
 
       {/* Titre principal et sous-titre avec gestion du thème */}
       <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce={true}>
-        <h1 className="mb-10 mt-4 px-4 text-2xl sm:text-4xl">
-          <span className="font-medium !leading-[1.5] text-gray-900 dark:text-cyan-300 transition-colors duration-300">
-            {t('intro_headline', locale)}
-          </span>{' '}
-          <p className="text-[14px] text-gray-700 dark:text-gray-400 transition-colors duration-300">
+        <div className="mb-10 mt-4 px-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-cyan-300 mb-4">
+            <span className="bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent">
+              Gaetan X Ekoro
+            </span>
+          </h1>
+          <div className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-medium mb-4">
+            <TypewriterEffect
+              texts={['Data & Software Engineer', 'IoT Specialist', 'Embedded Systems Innovator']}
+            />
+          </div>
+          <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 transition-colors duration-300 max-w-2xl mx-auto">
             {t('intro_sub', locale)}
           </p>
-        </h1>
+        </div>
       </Fade>
 
       {/* Liens de contact principaux avec gestion du thème et accessibilité */}

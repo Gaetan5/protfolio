@@ -13,22 +13,22 @@ const Projects = React.memo(function Projects() {
   const { locale } = useLocaleContext();
 
   return (
-    <section ref={ref} id="projects" className="scroll-mt-28 mb-28">
+    <section ref={ref} id="projects" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.175 }}
-        className="max-w-[45rem] text-center leading-8 sm:mb-40"
+        className="max-w-3xl mx-auto text-center mb-16"
       >
-        <h2 className="text-3xl font-medium capitalize mb-8 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold capitalize mb-4 text-gray-900 dark:text-white">
           {t('projects_title', locale)}
         </h2>
-        <p className="text-gray-700 dark:text-gray-300 mb-12">
+        <p className="text-base md:text-lg text-gray-600 dark:text-gray-400">
           {t('projects_description', locale)}
         </p>
       </motion.div>
 
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsData.map((project, index) => (
             <motion.div
@@ -36,7 +36,7 @@ const Projects = React.memo(function Projects() {
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="group relative bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+              className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl hover:shadow-cyan-500/20 dark:hover:shadow-cyan-900/40 transition-all duration-300 overflow-hidden border border-gray-200/50 dark:border-gray-700/50 hover:border-cyan-400/50 dark:hover:border-cyan-600/50 hover:-translate-y-2"
             >
               {/* Image du projet */}
               <div className="relative h-48 overflow-hidden">

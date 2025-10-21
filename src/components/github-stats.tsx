@@ -11,17 +11,17 @@ const GitHubStats = React.memo(function GitHubStats() {
   const { locale } = useLocaleContext();
 
   return (
-    <section ref={ref} id="github-stats" className="scroll-mt-28 mb-28">
+    <section ref={ref} id="github" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.175 }}
-        className="max-w-[45rem] text-center leading-8 sm:mb-40"
+        className="max-w-3xl mx-auto text-center mb-16"
       >
-        <h2 className="text-3xl font-medium capitalize mb-8 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold capitalize mb-4 text-gray-900 dark:text-white">
           {t('github_stats_title', locale)}
         </h2>
-        <p className="text-gray-700 dark:text-gray-300 mb-12">
+        <p className="text-base md:text-lg text-gray-600 dark:text-gray-400">
           {t('github_stats_description', locale)}
         </p>
       </motion.div>
@@ -91,7 +91,7 @@ const GitHubStats = React.memo(function GitHubStats() {
                   <span className="text-gray-700 dark:text-gray-300">Python</span>
                   <div className="flex items-center gap-2">
                     <div className="w-32 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                      <div className="bg-cyan-600 h-2 rounded-full" style={{ width: '85%' }}></div>
+                      <div className="bg-cyan-600 h-2 rounded-full w-[85%]"></div>
                     </div>
                     <span className="text-sm text-gray-600 dark:text-gray-400">85%</span>
                   </div>
@@ -101,10 +101,7 @@ const GitHubStats = React.memo(function GitHubStats() {
                   <span className="text-gray-700 dark:text-gray-300">JavaScript</span>
                   <div className="flex items-center gap-2">
                     <div className="w-32 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                      <div
-                        className="bg-yellow-500 h-2 rounded-full"
-                        style={{ width: '70%' }}
-                      ></div>
+                      <div className="bg-yellow-500 h-2 rounded-full w-[70%]"></div>
                     </div>
                     <span className="text-sm text-gray-600 dark:text-gray-400">70%</span>
                   </div>
@@ -114,7 +111,7 @@ const GitHubStats = React.memo(function GitHubStats() {
                   <span className="text-gray-700 dark:text-gray-300">TypeScript</span>
                   <div className="flex items-center gap-2">
                     <div className="w-32 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                      <div className="bg-blue-600 h-2 rounded-full" style={{ width: '60%' }}></div>
+                      <div className="bg-blue-600 h-2 rounded-full w-[60%]"></div>
                     </div>
                     <span className="text-sm text-gray-600 dark:text-gray-400">60%</span>
                   </div>
@@ -124,7 +121,7 @@ const GitHubStats = React.memo(function GitHubStats() {
                   <span className="text-gray-700 dark:text-gray-300">Java</span>
                   <div className="flex items-center gap-2">
                     <div className="w-32 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                      <div className="bg-red-600 h-2 rounded-full" style={{ width: '45%' }}></div>
+                      <div className="bg-red-600 h-2 rounded-full w-[45%]"></div>
                     </div>
                     <span className="text-sm text-gray-600 dark:text-gray-400">45%</span>
                   </div>

@@ -15,7 +15,7 @@ export default function Header({ links }: HeaderProps) {
   const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   return (
-    <header className="hidden md:flex items-center justify-center fixed z-[999] w-full mt-4">
+    <header className="hidden md:flex items-center justify-center fixed z-[999] w-full top-6">
       <motion.div
         className="flex p-1  rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
         initial={{ y: -100, opacity: 0 }}
@@ -42,10 +42,6 @@ export default function Header({ links }: HeaderProps) {
                   setTimeOfLastClick(Date.now());
                 }}
               >
-                {/* Affichage dynamique selon la langue */}
-                {typeof window !== 'undefined' && window.localStorage.getItem('locale') === 'fr'
-                  ? link.nameFr
-                  : link.nameEng}
                 {link.hash === activeSection && (
                   <motion.span
                     className="bg-gray-100 rounded-full absolute inset-0 -z-10 dark:bg-gray-800"
@@ -55,8 +51,12 @@ export default function Header({ links }: HeaderProps) {
                       stiffness: 380,
                       damping: 30,
                     }}
-                  ></motion.span>
+                  />
                 )}
+                {/* Affichage dynamique selon la langue */}
+                {typeof window !== 'undefined' && window.localStorage.getItem('locale') === 'fr'
+                  ? link.nameFr
+                  : link.nameEng}
               </NextLink>
             </motion.li>
           ))}

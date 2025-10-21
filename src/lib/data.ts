@@ -9,7 +9,7 @@ export const personalInfo = {
   location: 'Cameroun, Douala',
   github: 'https://github.com/Gaetan5',
   linkedin: 'https://linkedin.com/in/gaetan-ekoro',
-  cvPath: '/CV-2025_GAETAN EKORO EDOUARD (LastUpdate).pdf',
+  cvPath: '/CV-2025_GAETAN EKORO EDOUARD.pdf',
   cvFileName: 'CV-2025_GAETAN EKORO EDOUARD.pdf',
 };
 
@@ -22,6 +22,7 @@ export const links: Link[] = [
   { nameEng: 'Blog', nameFr: 'Blog', hash: '#blog' },
   { nameEng: 'Certifications', nameFr: 'Certifications', hash: '#certifications' },
   { nameEng: 'GitHub', nameFr: 'GitHub', hash: '#github-stats' },
+  { nameEng: 'Testimonials', nameFr: 'Témoignages', hash: '#testimonials' },
   { nameEng: 'Contact', nameFr: 'Contact', hash: '#contact' },
 ];
 
@@ -94,7 +95,7 @@ export const projectsData = [
       'Écosystème IoT pour la santé et la sécurité. Solution complète pour startups et entreprises avec intégration de microcontrôleurs.',
     tags: ['IoT', 'Python', 'Microcontrôleurs', 'Sécurité'],
     imageUrl: '/image2.png',
-    githubUrl: 'https://github.com/Gaetan5/interact-iot',
+    githubUrl: null, // Projet privé - En cours de développement
     liveUrl: null,
   },
   {
@@ -103,7 +104,7 @@ export const projectsData = [
       'API sécurisée avec visioconférence, messagerie en temps réel, et gestion des rendez-vous médicaux.',
     tags: ['Python', 'FastAPI', 'WebRTC', 'PostgreSQL', 'WebSockets'],
     imageUrl: '/image1.png',
-    githubUrl: 'https://github.com/Gaetan5/ekoserx',
+    githubUrl: null, // Projet client confidentiel
     liveUrl: null,
   },
   {
@@ -112,7 +113,7 @@ export const projectsData = [
       'API robuste pour la gestion des produits et commandes entre ces deux plateformes e-commerce.',
     tags: ['Python', 'Django', 'REST API', 'MySQL', 'WooCommerce'],
     imageUrl: '/image3.png',
-    githubUrl: 'https://github.com/Gaetan5/woo-odoo-sync',
+    githubUrl: null, // Projet client confidentiel
     liveUrl: null,
   },
   {
@@ -121,7 +122,7 @@ export const projectsData = [
       "Intégration d'un système de géolocalisation et de sécurité en temps réel pour voitures médicalisées.",
     tags: ['IoT', 'GPS', 'Python', 'Raspberry Pi', 'Sécurité'],
     imageUrl: '/image4.png',
-    githubUrl: 'https://github.com/Gaetan5/medical-gps',
+    githubUrl: null, // Projet privé
     liveUrl: null,
   },
   {
@@ -130,17 +131,17 @@ export const projectsData = [
       'Application de paiement de tickets en ligne avec génération de QR code, confirmation utilisateur et gestion des abonnements.',
     tags: ['Python', 'Django', 'Stripe API', 'QR Code', 'PostgreSQL'],
     imageUrl: '/image1.png',
-    githubUrl: 'https://github.com/Gaetan5/interpay',
+    githubUrl: null, // Projet privé
     liveUrl: null,
   },
   {
-    title: 'Dashboard Analytics INTERACT',
+    title: 'Portfolio Next.js',
     description:
-      'Tableau de bord analytique pour visualiser les données IoT et métriques de performance en temps réel.',
-    tags: ['Python', 'Dash', 'Plotly', 'PostgreSQL', 'Redis'],
+      'Portfolio professionnel moderne développé avec Next.js 15, TypeScript, Tailwind CSS et Framer Motion. Optimisé pour les performances et le SEO.',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
     imageUrl: '/image2.png',
-    githubUrl: 'https://github.com/Gaetan5/interact-dashboard',
-    liveUrl: null,
+    githubUrl: 'https://github.com/Gaetan5/protfolio',
+    liveUrl: 'https://gaetan-ekoro.vercel.app',
   },
 ];
 
