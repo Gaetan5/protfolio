@@ -26,9 +26,9 @@ export const metadata: Metadata = {
       { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
     ],
-    apple: '/favicon/apple-touch-icon.png',
-    shortcut: '/favicon/favicon.ico',
+    apple: [{ url: '/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
+  manifest: '/favicon/site.webmanifest',
   openGraph: {
     ...defaultMeta.openGraph,
   },
@@ -41,10 +41,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="!scroll-smooth" data-scroll-behavior="smooth">
-      <head>
-        <link rel="manifest" href="/favicon/site.webmanifest" />
-        {/* Les balises meta SEO et favicons sont gérées par l'objet metadata de Next.js */}
-      </head>
       <body
         className={`${sora.variable} font-Sora flex flex-col bg-gray-50 text-gray-950 relative dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
       >
@@ -53,10 +49,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SkipToContent />
         <DebugManager />
         <Providers>
-          <Navbar />
-          <main id="main-content">{children}</main>
-          <ThemeController />
-          <ScrollToTop />
+          <LocaleProvider>
+            <Navbar />
+            <main id="main-content">{children}</main>
+            <ThemeController />
+            <ScrollToTop />
+          </LocaleProvider>
         </Providers>
       </body>
     </html>

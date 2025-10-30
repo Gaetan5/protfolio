@@ -246,7 +246,7 @@ const About = React.memo(function About() {
               alt="Tech Stack"
               width={400}
               height={40}
-              className="max-w-full h-auto"
+              className="max-w-full w-auto h-auto"
             />
           </div>
         </Section>
