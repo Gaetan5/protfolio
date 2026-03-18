@@ -169,7 +169,7 @@ const AccessibilityManager: React.FC<AccessibilityManagerProps> = ({ className =
                     onClick={() => setFontSize(16)}
                     className="px-3 py-1 bg-blue-100 text-blue-600 rounded hover:bg-blue-200"
                   >
-                    Reset
+                    {t('accessibility.reset', locale)}
                   </button>
                 </div>
               </div>

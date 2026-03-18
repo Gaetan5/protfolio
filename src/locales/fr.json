@@ -7,6 +7,8 @@
     "experience": "Expérience",
     "blog": "Blog",
     "certifications": "Certifications",
+    "github": "GitHub",
+    "testimonials": "Témoignages",
     "contact": "Contact"
   },
   "intro": {
@@ -15,109 +17,213 @@
     "title": "Data & Software Engineer",
     "description": "Passionné par l'innovation technologique et la transformation d'idées ambitieuses en solutions durables.",
     "cta": "Découvrir mon travail",
-    "scroll": "Défiler pour en savoir plus"
+    "scroll": "Défiler pour en savoir plus",
+    "headline": "Bonjour, je suis Gaëtan Ekoro",
+    "sub": "Data & Software Engineer | Spécialiste IoT & CyberSécurité",
+    "typewriter": ["Data & Software Engineer", "IoT Specialist", "Embedded Systems Innovator"]
   },
-  "intro_headline": "Bonjour, je suis Gaetan Ekoro",
-  "intro_sub": "Data & Software Engineer | Spécialiste IoT & CyberSécurité",
-  "projects_title": "Mes Projets",
-  "projects_description": "Découvrez une sélection de mes réalisations récentes en développement logiciel, IoT et Data Engineering",
-  "skills_title": "Compétences Techniques",
-  "skills_description": "Technologies et outils que je maîtrise pour créer des solutions innovantes",
-  "expertise_title": "Domaines d'Expertise",
-  "experience_title": "Expérience Professionnelle",
-  "experience_description": "Mon parcours professionnel et les projets sur lesquels j'ai travaillé",
-  "blog_title": "Blog Technique",
-  "blog_description": "Articles et tutoriels sur les technologies modernes et mes expériences de développement",
-  "certifications_title": "Certifications",
-  "certifications_description": "Certifications professionnelles et formations continues",
-  "github_stats_title": "Statistiques GitHub",
-  "github_stats_description": "Mon activité de développement et contributions open source",
-  "contact_title": "Contactez-moi",
-  "contact_description": "Vous avez un projet ? Discutons-en ! Contactez-moi directement à",
-  "contact_or": "ou via le formulaire ci-dessous",
-  "contact_email_placeholder": "Votre adresse email",
-  "contact_message_placeholder": "Votre message",
-  "contact_submit": "Envoyer le message",
-  "cv_download_title": "Télécharger mon CV",
-  "cv_download_description": "Consultez mon CV complet pour plus de détails sur mon parcours et mes compétences",
-  "executive_summary_title": "Résumé Exécutif",
-  "executive_summary_description": "Ingénieur logiciel polyvalent avec plus de 5 ans d'expérience dans le développement de solutions web, mobiles et data science. Spécialiste du back-end, des interfaces intuitives et des systèmes embarqués.",
-  "value_proposition_text": "Je transforme des idées complexes en solutions techniques élégantes et performantes",
-  "value_point_1": "Développement d'applications web robustes et scalables",
-  "value_point_2": "Conception de systèmes IoT innovants pour la santé et la sécurité",
-  "value_point_3": "Expertise en Data Engineering et analyse de données en temps réel",
-  "about_heading": "À Propos",
-  "about_job": "Software & Data Engineer",
-  "about_presentation": "Toujours prêt à relever de nouveaux défis",
-  "about_presentation_pro": "Designer passionné et polyvalent, j'ai plus de 5 ans d'expérience dans le développement de solutions web, mobiles et data science, spécialisé dans le back-end, les interfaces utilisateur intuitives et les systèmes embarqués. Grâce à mes 3 années de génie électrique et mes compétences transversales, je conçois des écosystèmes technologiques robustes et fiables, adaptés aux défis du monde réel.",
-  "about_whatido": "Ce que je fais",
-  "about_whoami": "Je suis également le fondateur d'initiatives telles qu'INTERACT, un projet visionnaire visant à accompagner les entrepreneurs et les entreprises africaines dans leur transition vers la numérisation, la sécurité des données et l'autonomisation technologique. Mon approche est axée sur l'impact : transformer des idées ambitieuses en solutions concrètes, durables et innovantes.",
-  "about_tech_stack": "Stack Technique",
-  "about_featured_projects": "Projets Phares",
-  "about_fun_facts": "Fun Facts",
-  "about_experience": "Expérience & Formation",
-  "about_education": "Formation",
-  "about_contact_networks": "Réseaux Sociaux",
-  "about_cv_download": "Télécharger mon CV",
-  "about_hi": "Bonjour, je suis",
-  "value_proposition": "Proposition de Valeur",
-  "key_achievements": "Réalisations Clés",
-  "top_languages": "Langages Principaux",
-  "expertise_backend": "Développement Backend",
-  "expertise_backend_desc": "APIs RESTful, microservices, Python, FastAPI, Django",
-  "expertise_design": "Design UI/UX",
-  "expertise_design_desc": "Interfaces modernes, responsive design, Figma",
-  "expertise_iot": "Systèmes IoT",
-  "expertise_iot_desc": "Systèmes embarqués, capteurs, Raspberry Pi, Arduino",
-  "achievement_1_title": "25+ Projets Réalisés",
-  "achievement_1_desc": "Applications web, mobiles, APIs et systèmes IoT déployés",
-  "achievement_2_title": "Initiative INTERACT",
-  "achievement_2_desc": "Accompagnement des entreprises dans la transition digitale",
-  "achievement_3_title": "Polyvalence Technique",
-  "achievement_3_desc": "Génie électrique, Software Engineering et Data Science",
-  "cta_title": "Prêt à collaborer ?",
-  "cta_description": "Téléchargez mon CV ou contactez-moi pour discuter de votre projet",
-  "download_cv": "Télécharger CV",
-  "request_cv_email": "Demander par email",
-  "view_all_articles": "Voir tous les articles",
-  "read_more": "Lire la suite",
-  "verify_certification": "Vérifier la certification",
-  "total_certifications": "Certifications totales",
-  "latest_certification": "Dernière certification",
-  "verification_rate": "Taux de vérification",
-  "github_overview": "Aperçu GitHub",
-  "repositories": "Dépôts",
-  "commits": "Commits",
-  "stars": "Étoiles",
-  "forks": "Forks",
-  "total_commits": "Total Commits",
-  "stars_earned": "Étoiles Gagnées",
-  "profile_views": "Vues du Profil",
-  "current_streak": "Série Actuelle",
-  "longest_streak": "Série la Plus Longue",
-  "total_contributions": "Contributions Totales",
-  "view_github_profile": "Voir le profil GitHub",
-  "contribution_streak": "Série de Contributions",
-  "github_activity": "Activité GitHub",
   "about": {
     "heading": "À propos de moi",
     "subtitle": "Développeur passionné avec une expertise en technologies modernes",
     "description": "Je suis un ingénieur logiciel expérimenté spécialisé dans le développement d'applications web modernes et l'ingénierie des données. Avec plus de 5 ans d'expérience, je combine créativité technique et rigueur pour créer des solutions innovantes.",
+    "presentation": "Toujours prêt à relever de nouveaux défis",
+    "presentation_pro": "Ingénieur passionné et polyvalent, j'ai plus de 5 ans d'expérience dans le développement de solutions web, mobiles et data science, spécialisé dans le back-end, les interfaces utilisateur intuitives et les systèmes embarqués. Grâce à mes 3 années de génie électrique et mes compétences transversales, je conçois des écosystèmes technologiques robustes et fiables, adaptés aux défis du monde réel.",
+    "what_i_do": "Ce que je fais",
+    "who_i_am": "Je suis également le fondateur d'initiatives telles qu'INTERACT, un projet visionnaire visant à accompagner les entrepreneurs et les entreprises africaines dans leur transition vers la numérisation, la sécurité des données et l'autonomisation technologique. Mon approche est axée sur l'impact : transformer des idées ambitieuses en solutions concrètes, d'utilité publique, durables et innovantes.",
     "skills": "Compétences clés",
-    "experience": "Années d'expérience",
+    "experience_label": "Années d'expérience",
     "projects": "Projets réalisés",
-    "languages": "Langues parlées"
+    "languages": "Langues parlées",
+    "tech_stack": "Stack Technique",
+    "featured_projects": "Projets Phares",
+    "featured_projects_list": [
+      {
+        "title": "Portfolio Website",
+        "description": "🎨 Présente mon parcours, mes compétences et mes réalisations.",
+        "icon": "https://img.icons8.com/color/96/monitor--v1.png",
+        "url": "https://gaetan-ekoro.onrender.com/"
+      },
+      {
+        "title": "Voiture Électrique Médicalisée",
+        "description": "🚗 Systèmes embarqués & sécurité pour la mobilité médicale.",
+        "icon": "https://img.icons8.com/color/96/car--v1.png",
+        "url": null
+      },
+      {
+        "title": "Application de Paiement de Tickets",
+        "description": "🎫 QR code, paiements sécurisés et abonnements utilisateurs.",
+        "icon": "https://img.icons8.com/color/96/qr-code.png",
+        "url": null
+      }
+    ],
+    "fun_facts": "Fun Facts",
+    "fun_facts_list": [
+      "🔭 En ce moment : Construire l’écosystème INTERACT / IoT pour la santé & la sécurité",
+      "🧑‍💻 J’automatise ma maison avec des microcontrôleurs et j'intègre l'IA dans mes solutions",
+      "📚 Toujours en veille sur l’IA, le cloud et la cybersécurité",
+      "🎬 Je dessine des persos manga, je regarde de la SF et je rêve de robots utiles"
+    ],
+    "job": "Data & Software Engineer",
+    "cv_download": "Télécharger mon CV",
+    "education": "Formation",
+    "contact_networks": "Contact & Réseaux Sociaux",
+    "whatsapp": "M'envoyer un message sur WhatsApp",
+    "experience": "Expérience",
+    "timeline": [
+      {
+        "year": "2024",
+        "title": "Licence - Génie Électrique et Informatique Industrielle",
+        "place": "IUT de Douala",
+        "type": "academic"
+      },
+      {
+        "year": "2020",
+        "title": "Bachelor ESG-TI",
+        "place": "Lycée Bilingue de Yaoundé",
+        "type": "academic"
+      },
+      {
+        "year": "2022-2024",
+        "title": "Développeur Full Stack",
+        "place": "EKOSERX",
+        "type": "pro",
+        "description": "Développement d'une plateforme de téléconsultation médicale (API sécurisée, visioconférence, messagerie temps réel, gestion des rendez-vous)."
+      },
+      {
+        "year": "2021-2022",
+        "title": "Ingénieur IoT",
+        "place": "Projet Voiture médicalisée",
+        "type": "pro",
+        "description": "Intégration d’un système de géolocalisation et de sécurité embarqué en temps réel."
+      },
+      {
+        "year": "2025-202X",
+        "title": "Développeur API",
+        "place": "Mega-Ique Digital",
+        "type": "pro",
+        "description": "Conception d’une API robuste pour la gestion des produits et commandes."
+      },
+      {
+        "year": "2019-2020",
+        "title": "Développeur",
+        "place": "InterPay",
+        "type": "pro",
+        "description": "Application de paiement de tickets en ligne avec génération de QR code."
+      },
+      {
+        "year": "2018-...",
+        "title": "Fondateur",
+        "place": "INTERACT",
+        "type": "pro",
+        "description": "Écosystème technologique pour l’Afrique, démocratisation de la digitalisation et sécurité des données."
+      }
+    ]
   },
   "projects": {
     "heading": "Mes Projets",
-    "subtitle": "Découvrez mes réalisations récentes",
+    "subtitle": "Découvrez une sélection de mes réalisations récentes en développement logiciel, IoT et Data Engineering",
     "viewProject": "Voir le projet",
     "viewCode": "Voir le code",
-    "technologies": "Technologies utilisées"
+    "technologies": "Technologies utilisées",
+    "list": [
+      {
+        "title": "INTERACT (Startup)",
+        "description": "Écosystème IoT visionnaire pour la digitalisation, la sécurité des données et l’autonomisation technologique. Solution complète pour startups et entreprises.",
+        "tags": ["IoT", "Python", "Microcontrôleurs", "Sécurité", "Digitalization"],
+        "imageUrl": "/image2.png"
+      },
+      {
+        "title": "EKOSE-RX (Digital Solution)",
+        "description": "Plateforme de téléconsultation avec API sécurisée, visioconférence (Agora), messagerie en temps réel et gestion médicale.",
+        "tags": ["Python", "FastAPI", "Agora", "WebRTC", "PostgreSQL", "WebSockets"],
+        "imageUrl": "/image1.png"
+      },
+      {
+        "title": "CoStudia (Digital Solution)",
+        "description": "Solution digitale collaborative pour l’éducation et le partage de connaissances.",
+        "tags": ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL"],
+        "imageUrl": "/image3.png"
+      },
+      {
+        "title": "Geolocation KIT",
+        "description": "Intégration d'un système de géolocalisation et de sécurité en temps réel pour véhicules médicalisés.",
+        "tags": ["IoT", "GPS", "Python", "Raspberry Pi", "Security"],
+        "imageUrl": "/image4.png"
+      },
+      {
+        "title": "Synchronization Tools",
+        "description": "API robuste pour la synchronisation de données entre plateformes e-commerce (WooCommerce ↔ Odoo) et services tiers.",
+        "tags": ["Python", "Django", "REST API", "MySQL", "Automation"],
+        "imageUrl": "/image3.png"
+      },
+      {
+        "title": "Portfolio Professionnel",
+        "description": "Portfolio moderne développé avec Next.js 15, TypeScript et Tailwind CSS. Optimisé pour les performances, le SEO et l’accessibilité.",
+        "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+        "imageUrl": "/image2.png",
+        "githubUrl": "https://github.com/Gaetan5/protfolio",
+        "liveUrl": "https://gaetan-ekoro.vercel.app"
+      }
+    ]
   },
   "skills": {
     "heading": "Compétences Techniques",
-    "subtitle": "Technologies et outils que je maîtrise",
+    "subtitle": "Un aperçu des technologies et outils que j'utilise pour donner vie aux projets",
+    "list": [
+      "Python",
+      "Django",
+      "FastAPI",
+      "Node.js",
+      "Java",
+      "Spring Boot",
+      "Micro-services",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Redis",
+      "Apache Kafka",
+      "Apache Spark",
+      "ELK Stack",
+      "Docker",
+      "Git",
+      "CI/CD",
+      "AWS",
+      "Linux",
+      "CyberSecurity",
+      "CompTIA Security+",
+      "API Pentesting",
+      "Audit Internet-ISMS",
+      "OAuth2",
+      "JWT",
+      "WebRTC",
+      "WebSockets",
+      "REST API",
+      "GraphQL",
+      "Raspberry Pi",
+      "Arduino",
+      "Microcontrôleurs",
+      "GPS",
+      "Sensors",
+      "Monitoring & Supervision",
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Plotly",
+      "Dash",
+      "Jupyter",
+      "Figma",
+      "Postman",
+      "Swagger",
+      "Prisma",
+      "Excel",
+      "Keycloak",
+      "Agora"
+    ],
     "frontend": "Frontend",
     "backend": "Backend",
     "database": "Base de données",
@@ -131,75 +237,239 @@
   },
   "experience": {
     "heading": "Expérience Professionnelle",
-    "subtitle": "Mon parcours professionnel",
+    "subtitle": "Mon parcours professionnel et les projets sur lesquels j'ai travaillé",
     "present": "Présent",
     "responsibilities": "Responsabilités",
-    "achievements": "Réalisations"
+    "achievements": "Réalisations",
+    "list": [
+      {
+        "title": "Co-fondateur & CEO",
+        "location": "INTERACT",
+        "description": "Direction technique et stratégique de l'écosystème INTERACT. Développement de solutions innovantes et impactantes. Projets phares : CoStudia (Éducation), Ekose-RX (Santé), Miss Cameroun Allemagne.",
+        "icon": "🚀",
+        "date": "2023 - Présent"
+      },
+      {
+        "title": "Ingénieur Logiciel (Stage Professionnel)",
+        "location": "Mega-Ique Digital",
+        "description": "Audit et expertise clientèles. Travail sous environnement Docker et Micro-services. Monitoring et analyse du trafic Wireless/Tx. Investigation et résolution d'incidents.",
+        "icon": "💻",
+        "date": "11/2024 - 05/2025"
+      },
+      {
+        "title": "Ingénieur réseau & télécoms",
+        "location": "VisionTelecoms",
+        "description": "Installation de systèmes SDI et caméras de surveillance. Maintenance et installation réseau (téléphonie, audio, télévision). Installation de baies et locaux techniques.",
+        "icon": "🔧",
+        "date": "2022 - 2024"
+      },
+      {
+        "title": "Développeur Full-stack (Stage Académique)",
+        "location": "PB Telecom",
+        "description": "Développement web et mobile. Maintenance informatique. Déploiement et installation de réseaux en environnements professionnels.",
+        "icon": "⚙️",
+        "date": "2019 - 2021"
+      },
+      {
+        "title": "Ingénieur Logiciel & Data (Freelance)",
+        "location": "Projets Divers / INTERACT",
+        "description": "Développement d'applications robustes, pipelines de données et solutions IoT. Spécialisation en transformation d'idées ambitieuses en solutions durables.",
+        "icon": "📊",
+        "date": "2023 - Présent"
+      }
+    ]
   },
   "blog": {
     "heading": "Blog Technique",
-    "subtitle": "Articles et tutoriels sur les technologies modernes",
+    "subtitle": "Articles et tutoriels sur les technologies modernes et mes expériences de développement",
     "readMore": "Lire la suite",
     "published": "Publié le",
-    "tags": "Tags"
+    "tags": "Tags",
+    "list": [
+      {
+        "title": "Architecture IoT pour la Santé : Cas d'usage INTERACT",
+        "excerpt": "Comment concevoir un système IoT scalable pour la surveillance médicale en temps réel avec Python et microcontrôleurs.",
+        "content": "Découvrez l'architecture complète du système INTERACT, de la collecte de données via capteurs à l'analyse en temps réel...",
+        "tags": ["IoT", "Python", "Architecture", "Santé"],
+        "date": "2024-01-15",
+        "readTime": "8 min",
+        "imageUrl": "/image2.png",
+        "slug": "architecture-iot-sante-interact"
+      },
+      {
+        "title": "Optimisation des APIs FastAPI pour la Production",
+        "excerpt": "Meilleures pratiques pour déployer des APIs FastAPI performantes avec monitoring et sécurité avancée.",
+        "content": "Guide complet sur l'optimisation des performances, la sécurité OAuth2/JWT, et le monitoring des APIs FastAPI...",
+        "tags": ["FastAPI", "Python", "Performance", "Security"],
+        "date": "2024-01-10",
+        "readTime": "12 min",
+        "imageUrl": "/image1.png",
+        "slug": "optimisation-fastapi-production"
+      }
+    ]
   },
   "certifications": {
     "heading": "Certifications",
-    "subtitle": "Certifications professionnelles obtenues",
+    "subtitle": "Certifications professionnelles et formations continues",
     "issued": "Délivrée le",
     "expires": "Expire le",
-    "viewCertificate": "Voir le certificat"
+    "viewCertificate": "Voir le certificat",
+    "verify": "Vérifier la certification",
+    "total": "Certifications totales",
+    "latest": "Dernière certification",
+    "rate": "Taux de vérification",
+    "list": [
+      {
+        "title": "React JS Professional",
+        "issuer": "Certification Réelle",
+        "date": "2024",
+        "credentialId": "REACT-EK-2024",
+        "imageUrl": "https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black",
+        "verifyUrl": "#"
+      },
+      {
+        "title": "Python 3 Mastery",
+        "issuer": "Certification Réelle",
+        "date": "2023",
+        "credentialId": "PY3-EK-2023",
+        "imageUrl": "https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white",
+        "verifyUrl": "#"
+      },
+      {
+        "title": "CompTIA Security +",
+        "issuer": "CompTIA",
+        "date": "2024",
+        "credentialId": "SEC-EK-2024",
+        "imageUrl": "https://img.shields.io/badge/CompTIA_Security+-FF0000?style=for-the-badge&logo=comptia&logoColor=white",
+        "verifyUrl": "#"
+      },
+      {
+        "title": "Audit Internet-ISMS",
+        "issuer": "Professionnel",
+        "date": "2024",
+        "credentialId": "ISMS-EK-2024",
+        "imageUrl": "https://img.shields.io/badge/Audit-ISMS-316192?style=for-the-badge&logo=security&logoColor=white",
+        "verifyUrl": "#"
+      },
+      {
+        "title": "CyberSécurité & API Pentesting",
+        "issuer": "CEH / Professionnel",
+        "date": "2024",
+        "credentialId": "CYBER-EK-2024",
+        "imageUrl": "https://img.shields.io/badge/Cybersecurity-000000?style=for-the-badge&logo=kali-linux&logoColor=white",
+        "verifyUrl": "#"
+      },
+      {
+        "title": "MS Excel Advanced",
+        "issuer": "Microsoft / IUT-Dla",
+        "date": "2023",
+        "credentialId": "EXCEL-EK-2023",
+        "imageUrl": "https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white",
+        "verifyUrl": "#"
+      }
+    ]
   },
   "contact": {
-    "heading": "Contact",
-    "subtitle": "Travaillons ensemble sur votre prochain projet",
-    "name": "Nom complet",
-    "email": "Adresse email",
-    "message": "Message",
-    "send": "Envoyer le message",
-    "sending": "Envoi en cours...",
-    "success": "Message envoyé avec succès !",
-    "error": "Erreur lors de l'envoi du message"
+    "heading": "Contactez-moi",
+    "subtitle": "N'hésitez pas à me contacter directement à",
+    "or": "ou via ce formulaire.",
+    "email_placeholder": "Votre email",
+    "message_placeholder": "Votre message",
+    "submit": "Envoyer",
+    "download_cv": "Télécharger mon CV",
+    "socials": "Réseaux Sociaux",
+    "cv_download_title": "Curriculum Vitae",
+    "cv_download_description": "Téléchargez mon CV complet pour plus de détails sur mon parcours et mes compétences."
+  },
+  "cv-download": {
+    "download": "Télécharger CV",
+    "requestEmail": "Recevoir par Email",
+    "emailSubject": "Demande de CV - Gaëtan Ekoro",
+    "emailBody": "Bonjour Gaëtan, j'aimerais recevoir votre CV pour une opportunité de collaboration."
   },
   "footer": {
-    "description": "Développeur passionné créant des solutions digitales innovantes",
-    "quickLinks": "Liens rapides",
+    "description": "Data & Software Engineer passionné par la création de solutions digitales innovantes et durables.",
+    "quickLinks": "Navigation rapide",
     "contact": "Contact",
     "followMe": "Suivez-moi",
-    "rights": "Tous droits réservés"
+    "partners": "Partenaires & Associés",
+    "rights": "© 2026 Gaëtan Ekoro. Tous droits réservés.",
+    "developer": "Conçu et développé par Gaëtan Ekoro"
   },
   "github-stats": {
     "heading": "Statistiques GitHub",
-    "subtitle": "Mon activité de développement",
+    "subtitle": "Mon activité de développement et contributions open source",
     "repositories": "Dépôts",
     "commits": "Commits",
     "contributions": "Contributions",
-    "languages": "Langages utilisés"
+    "languages": "Langages utilisés",
+    "overview": "Aperçu GitHub",
+    "stars": "Étoiles",
+    "forks": "Forks",
+    "total_commits": "Total Commits",
+    "stars_earned": "Étoiles Gagnées",
+    "profile_views": "Vues du Profil",
+    "current_streak": "Série Actuelle",
+    "longest_streak": "Série la Plus Longue",
+    "total_contributions": "Contributions Totales",
+    "view_profile": "Voir le profil GitHub",
+    "streak": "Série de Contributions",
+    "activity": "Activité GitHub"
   },
   "executive-summary": {
     "heading": "Résumé Exécutif",
-    "valueProposition": "Proposition de valeur",
-    "description": "Ingénieur logiciel expérimenté spécialisé dans le développement d'applications web modernes et l'ingénierie des données. Je combine expertise technique et vision stratégique pour créer des solutions innovantes qui transforment les entreprises.",
-    "keyAchievements": "Réalisations clés",
-    "achievement1": "Développement de 20+ applications web performantes",
-    "achievement2": "Optimisation des performances de 40% en moyenne",
-    "achievement3": "Mentorat de 10+ développeurs juniors",
-    "achievement4": "Certifications dans les technologies cloud et IA",
-    "cta": "Découvrir mon CV complet"
-  },
-  "cv-download": {
-    "heading": "Télécharger mon CV",
-    "description": "Consultez mon CV complet pour plus de détails sur mon expérience",
-    "download": "Télécharger CV",
-    "requestEmail": "Demander par email",
-    "emailSubject": "Demande de CV - Gaëtan Ekoro Edouard",
-    "emailBody": "Bonjour,\n\nJe souhaiterais recevoir votre CV complet.\n\nCordialement,"
+    "subtitle": "Ingénieur logiciel polyvalent avec plus de 5 ans d'expérience",
+    "valueProposition": "Proposition de Valeur",
+    "valuePropositionText": "Je transforme des idées complexes en solutions techniques élégantes et performantes",
+    "valuePoint1": "Développement d'applications web robustes et scalables",
+    "valuePoint2": "Conception de systèmes IoT innovants pour la santé et la sécurité",
+    "valuePoint3": "Expertise en Data Engineering et analyse de données en temps réel",
+    "keyAchievements": "Réalisations Clés",
+    "achievement1Title": "25+ Applications",
+    "achievement1Desc": "Développement d'applications web, mobiles et IoT performantes",
+    "achievement2Title": "40% Performance",
+    "achievement2Desc": "Optimisation moyenne des performances des systèmes",
+    "achievement3Title": "Impact Social",
+    "achievement3Desc": "Initiative INTERACT pour la transition numérique en Afrique",
+    "ctaTitle": "Prêt à transformer vos idées ?",
+    "ctaDescription": "Collaborons pour créer des solutions qui font la différence."
   },
   "stats": {
-    "projects": "Projets",
-    "clients": "Clients",
+    "heading": "Chiffres clés",
+    "subtitle": "Quelques statistiques qui témoignent de mon expertise et de mon engagement",
+    "projects": "Projets réalisés",
+    "clients": "Clients satisfaits",
     "experience": "Années d'expérience",
-    "uptime": "Temps de disponibilité"
+    "support": "Support disponible"
+  },
+  "testimonials": {
+    "heading": "Ce que disent mes clients",
+    "subtitle": "Témoignages de professionnels avec qui j'ai eu le plaisir de collaborer",
+    "cta": "Vous souhaitez travailler ensemble ?",
+    "contact": "Contactez-moi",
+    "list": [
+      {
+        "name": "Dr. Marie Kouam",
+        "role": "Directrice Médicale, EKOSERX",
+        "image": "https://ui-avatars.com/api/?name=Marie+Kouam&background=06b6d4&color=fff&size=128",
+        "content": "Gaetan a développé une plateforme de téléconsultation exceptionnelle. Son expertise technique et sa compréhension des besoins médicaux ont été déterminantes pour notre succès.",
+        "rating": 5
+      },
+      {
+        "name": "Jean-Paul Mbida",
+        "role": "CEO, Mega-Ique Digital",
+        "image": "https://ui-avatars.com/api/?name=Jean+Mbida&background=3b82f6&color=fff&size=128",
+        "content": "L’API de synchronisation WooCommerce-Odoo développée par Gaetan a transformé notre workflow. Performance, fiabilité et support excellent.",
+        "rating": 5
+      },
+      {
+        "name": "Sarah Nkolo",
+        "role": "Product Manager, InterPay",
+        "image": "https://ui-avatars.com/api/?name=Sarah+Nkolo&background=8b5cf6&color=fff&size=128",
+        "content": "Un développeur passionné et rigoureux. Le système de paiement qu’il a créé est robuste, sécurisé et facile à maintenir. Je recommande vivement !",
+        "rating": 5
+      }
+    ]
   },
   "accessibility": {
     "title": "Accessibilité",
@@ -215,7 +485,8 @@
     "shortcutMotion": "Basculer le mouvement réduit",
     "shortcutZoomIn": "Agrandir la police",
     "shortcutZoomOut": "Réduire la police",
-    "shortcutReset": "Réinitialiser la taille"
+    "shortcutReset": "Réinitialiser la taille",
+    "reset": "Réinitialiser"
   },
   "performance": {
     "title": "Métriques de Performance",
@@ -226,5 +497,16 @@
     "good": "Bon",
     "average": "Moyen",
     "needsImprovement": "À améliorer"
+  },
+  "common": {
+    "hi": "Bonjour, je suis Gaëtan !",
+    "view_all": "Voir tout",
+    "send": "Envoyer",
+    "sending": "Envoi...",
+    "success": "Message envoyé avec succès ! 🎉",
+    "error": "Une erreur est survenue lors de l'envoi du message.",
+    "network_error": "Erreur réseau. Veuillez réessayer.",
+    "or": "ou",
+    "select_language": "Choisir la langue"
   }
 }

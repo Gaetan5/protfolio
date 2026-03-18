@@ -20,13 +20,8 @@ const CVDownload = React.memo(function CVDownload() {
   };
 
   const handleEmailCV = () => {
-    const subject = encodeURIComponent('Demande de CV - Gaetan X Ekoro Edouard');
-    const body = encodeURIComponent(`Bonjour,
-
-Je souhaiterais recevoir votre CV en pièce jointe.
-
-Cordialement,
-[Votre nom]`);
+    const subject = encodeURIComponent(t('cv-download.emailSubject', locale));
+    const body = encodeURIComponent(t('cv-download.emailBody', locale));
 
     window.open(`mailto:${personalInfo.email}?subject=${subject}&body=${body}`);
   };
@@ -42,7 +37,7 @@ Cordialement,
       >
         <Download className="w-5 h-5" />
         <FileText className="w-5 h-5" />
-        {t('download_cv', locale)}
+        {t('cv-download.download', locale)}
       </motion.button>
 
       {/* Demande par email */}
@@ -53,7 +48,7 @@ Cordialement,
         className="flex items-center gap-2 px-6 py-3 bg-gray-600 hover:bg-gray-700 text-white font-medium rounded-lg transition-colors shadow-lg hover:shadow-xl"
       >
         <Mail className="w-5 h-5" />
-        {t('request_cv_email', locale)}
+        {t('cv-download.requestEmail', locale)}
       </motion.button>
     </div>
   );

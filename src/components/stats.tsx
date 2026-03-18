@@ -12,36 +12,36 @@ const Stats = React.memo(function Stats() {
     {
       icon: <Code className="w-8 h-8" />,
       number: '50+',
-      label: locale === 'fr' ? 'Projets réalisés' : 'Projects completed',
+      label: t('stats.projects', locale),
       color: 'text-cyan-600 dark:text-cyan-400',
       bgColor: 'bg-cyan-100 dark:bg-cyan-900',
     },
     {
       icon: <Users className="w-8 h-8" />,
       number: '30+',
-      label: locale === 'fr' ? 'Clients satisfaits' : 'Happy clients',
+      label: t('stats.clients', locale),
       color: 'text-blue-600 dark:text-blue-400',
       bgColor: 'bg-blue-100 dark:bg-blue-900',
     },
     {
       icon: <Award className="w-8 h-8" />,
       number: '5+',
-      label: locale === 'fr' ? "Années d'expérience" : 'Years experience',
+      label: t('stats.experience', locale),
       color: 'text-purple-600 dark:text-purple-400',
       bgColor: 'bg-purple-100 dark:bg-purple-900',
     },
     {
       icon: <Clock className="w-8 h-8" />,
       number: '24/7',
-      label: locale === 'fr' ? 'Support disponible' : 'Support available',
+      label: t('stats.support', locale),
       color: 'text-green-600 dark:text-green-400',
       bgColor: 'bg-green-100 dark:bg-green-900',
     },
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-6xl mx-auto px-4">
+    <section className="py-16 bg-transparent">
+      <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
@@ -49,12 +49,10 @@ const Stats = React.memo(function Stats() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            {locale === 'fr' ? 'Chiffres clés' : 'Key Numbers'}
+            {t('stats.heading', locale)}
           </h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            {locale === 'fr'
-              ? 'Quelques statistiques qui témoignent de mon expertise et de mon engagement'
-              : 'Some statistics that demonstrate my expertise and commitment'}
+            {t('stats.subtitle', locale)}
           </p>
         </motion.div>
 

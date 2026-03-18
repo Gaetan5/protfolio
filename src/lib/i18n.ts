@@ -3,14 +3,24 @@ import fr from '@/locales/fr.json';
 
 export type Locale = 'en' | 'fr';
 
-// Type pour les traductions imbriquées
+// Type for les traductions imbriquées
 type NestedRecord = {
-  [key: string]: string | string[] | NestedRecord;
+  [key: string]: any;
 };
 
-const translations = { en, fr } as Record<Locale, NestedRecord>;
+const translations = { en, fr } as any;
 
 export function t(key: string, locale: Locale = 'en'): string {
+  const value = tr(key, locale);
+  return typeof value === 'string' ? value : key;
+}
+
+export function ta(key: string, locale: Locale = 'en'): string[] {
+  const value = tr(key, locale);
+  return Array.isArray(value) ? value : [key];
+}
+
+export function tr(key: string, locale: Locale = 'en'): any {
   const keys = key.split('.');
   let value: any = translations[locale];
 
@@ -18,9 +28,8 @@ export function t(key: string, locale: Locale = 'en'): string {
     if (value && typeof value === 'object' && k in value) {
       value = value[k];
     } else {
-      return key; // Retourner la clé si la traduction n'est pas trouvée
+      return null;
     }
   }
-
-  return typeof value === 'string' ? value : key;
+  return value;
 }

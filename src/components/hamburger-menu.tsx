@@ -17,6 +17,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const { locale } = useLocaleContext();
 
   const menuTrigger = {
     visible: { scale: 1, opacity: 0.7, y: 0 },
@@ -30,7 +31,10 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
   };
 
   return (
-    <div className="md:hidden top-5 right-5 fixed w-60 z-[999] flex flex-col items-end gap-2">
+    <div
+      className="md:hidden top-5 right-5 absolute w-60 z-[999] flex flex-col items-end gap-2 notranslate"
+      translate="no"
+    >
       <motion.button
         className="bg-white w-[3rem] h-[3rem] drop-shadow backdrop-blur-[0.5rem] border border-slate-400 dark:border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center dark:bg-gray-950"
         variants={menuTrigger}
@@ -68,13 +72,12 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
                   )}
                   href={link.hash}
                   onClick={() => {
-                    setActiveSection(link.hash);
+                    setActiveSection(link.hash as any);
                     setTimeOfLastClick(Date.now());
+                    setIsOpen(false);
                   }}
                 >
-                  {typeof window !== 'undefined' && window.localStorage.getItem('locale') === 'fr'
-                    ? link.nameFr
-                    : link.nameEng}
+                  <span suppressHydrationWarning>{t(`nav.${link.key}`, locale)}</span>
                 </NextLink>
               </motion.div>
             ))}

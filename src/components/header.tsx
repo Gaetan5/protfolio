@@ -13,9 +13,13 @@ type HeaderProps = { links: Link[] };
 
 export default function Header({ links }: HeaderProps) {
   const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const { locale } = useLocaleContext();
 
   return (
-    <header className="hidden md:flex items-center justify-center fixed z-[999] w-full top-6">
+    <header
+      className="hidden md:flex items-center justify-center absolute z-[999] w-full top-6 notranslate"
+      translate="no"
+    >
       <motion.div
         className="flex p-1  rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
         initial={{ y: -100, opacity: 0 }}
@@ -38,7 +42,7 @@ export default function Header({ links }: HeaderProps) {
                 )}
                 href={link.hash}
                 onClick={() => {
-                  setActiveSection(link.hash);
+                  setActiveSection(link.hash as any);
                   setTimeOfLastClick(Date.now());
                 }}
               >
@@ -53,8 +57,7 @@ export default function Header({ links }: HeaderProps) {
                     }}
                   />
                 )}
-                {/* Affichage dynamique selon la langue */}
-                {locale === 'fr' ? link.nameFr : link.nameEng}
+                <span suppressHydrationWarning>{t(`nav.${link.key}`, locale)}</span>
               </NextLink>
             </motion.li>
           ))}

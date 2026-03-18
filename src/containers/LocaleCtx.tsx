@@ -12,15 +12,13 @@ const LocaleContext = createContext<{
 });
 
 export const LocaleProvider = ({ children }: { children: React.ReactNode }) => {
-  const [locale, setLocale] = useState<Locale | undefined>(undefined);
+  const [locale, setLocale] = useState<Locale>('fr');
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const stored = typeof window !== 'undefined' ? localStorage.getItem('locale') : null;
     if (stored === 'fr' || stored === 'en') {
       setLocale(stored);
-    } else {
-      setLocale('fr');
     }
     setIsReady(true);
   }, []);
@@ -32,13 +30,11 @@ export const LocaleProvider = ({ children }: { children: React.ReactNode }) => {
 
   const contextValue = useMemo(
     () => ({
-      locale: locale || 'fr',
+      locale,
       setLocale: handleSetLocale,
     }),
     [locale, handleSetLocale],
   );
-
-  if (!isReady || !locale) return null;
 
   return <LocaleContext.Provider value={contextValue}>{children}</LocaleContext.Provider>;
 };

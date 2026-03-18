@@ -11,7 +11,7 @@ const GitHubStats = React.memo(function GitHubStats() {
   const { locale } = useLocaleContext();
 
   return (
-    <section ref={ref} id="github" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
+    <section ref={ref} id="github-stats" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
@@ -19,14 +19,14 @@ const GitHubStats = React.memo(function GitHubStats() {
         className="max-w-3xl mx-auto text-center mb-16"
       >
         <h2 className="text-3xl md:text-4xl font-bold capitalize mb-4 text-gray-900 dark:text-white">
-          {t('github_stats_title', locale)}
+          {t('github-stats.heading', locale)}
         </h2>
         <p className="text-base md:text-lg text-gray-600 dark:text-gray-400">
-          {t('github_stats_description', locale)}
+          {t('github-stats.subtitle', locale)}
         </p>
       </motion.div>
 
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* GitHub Stats */}
           <motion.div
@@ -35,10 +35,10 @@ const GitHubStats = React.memo(function GitHubStats() {
             transition={{ delay: 0.2 }}
             className="space-y-6"
           >
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                 <Github className="w-6 h-6" />
-                {t('github_overview', locale)}
+                {t('github-stats.overview', locale)}
               </h3>
 
               <div className="grid grid-cols-2 gap-4">
@@ -47,7 +47,7 @@ const GitHubStats = React.memo(function GitHubStats() {
                     50+
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">
-                    {t('repositories', locale)}
+                    {t('github-stats.repositories', locale)}
                   </div>
                 </div>
 
@@ -56,7 +56,7 @@ const GitHubStats = React.memo(function GitHubStats() {
                     1.2k+
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">
-                    {t('commits', locale)}
+                    {t('github-stats.commits', locale)}
                   </div>
                 </div>
 
@@ -65,7 +65,7 @@ const GitHubStats = React.memo(function GitHubStats() {
                     25+
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">
-                    {t('stars', locale)}
+                    {t('github-stats.stars', locale)}
                   </div>
                 </div>
 
@@ -74,16 +74,16 @@ const GitHubStats = React.memo(function GitHubStats() {
                     15+
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">
-                    {t('forks', locale)}
+                    {t('github-stats.forks', locale)}
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Top Languages */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                {t('top_languages', locale)}
+                {t('github-stats.languages', locale)}
               </h3>
 
               <div className="space-y-3">
@@ -138,17 +138,19 @@ const GitHubStats = React.memo(function GitHubStats() {
             className="space-y-6"
           >
             {/* GitHub Stats Card */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                 <TrendingUp className="w-6 h-6" />
-                {t('github_activity', locale)}
+                {t('github-stats.activity', locale)}
               </h3>
 
               <div className="space-y-4">
                 <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                   <div className="flex items-center gap-3">
                     <Code className="w-5 h-5 text-cyan-600" />
-                    <span className="text-gray-700 dark:text-gray-300">Total Commits</span>
+                    <span className="text-gray-700 dark:text-gray-300">
+                      {t('github-stats.total_commits', locale)}
+                    </span>
                   </div>
                   <span className="font-semibold text-gray-900 dark:text-white">1,247</span>
                 </div>
@@ -156,7 +158,9 @@ const GitHubStats = React.memo(function GitHubStats() {
                 <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                   <div className="flex items-center gap-3">
                     <Star className="w-5 h-5 text-yellow-500" />
-                    <span className="text-gray-700 dark:text-gray-300">Stars Earned</span>
+                    <span className="text-gray-700 dark:text-gray-300">
+                      {t('github-stats.stars_earned', locale)}
+                    </span>
                   </div>
                   <span className="font-semibold text-gray-900 dark:text-white">25</span>
                 </div>
@@ -164,7 +168,9 @@ const GitHubStats = React.memo(function GitHubStats() {
                 <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                   <div className="flex items-center gap-3">
                     <GitBranch className="w-5 h-5 text-green-600" />
-                    <span className="text-gray-700 dark:text-gray-300">Repositories</span>
+                    <span className="text-gray-700 dark:text-gray-300">
+                      {t('github-stats.repositories', locale)}
+                    </span>
                   </div>
                   <span className="font-semibold text-gray-900 dark:text-white">50+</span>
                 </div>
@@ -172,7 +178,9 @@ const GitHubStats = React.memo(function GitHubStats() {
                 <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                   <div className="flex items-center gap-3">
                     <Eye className="w-5 h-5 text-purple-600" />
-                    <span className="text-gray-700 dark:text-gray-300">Profile Views</span>
+                    <span className="text-gray-700 dark:text-gray-300">
+                      {t('github-stats.profile_views', locale)}
+                    </span>
                   </div>
                   <span className="font-semibold text-gray-900 dark:text-white">2.1k</span>
                 </div>
@@ -180,24 +188,30 @@ const GitHubStats = React.memo(function GitHubStats() {
             </div>
 
             {/* Contribution Streak */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                {t('contribution_streak', locale)}
+                {t('github-stats.streak', locale)}
               </h3>
 
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-700 dark:text-gray-300">Current Streak</span>
+                  <span className="text-gray-700 dark:text-gray-300">
+                    {t('github-stats.current_streak', locale)}
+                  </span>
                   <span className="font-bold text-green-600 dark:text-green-400">7 days</span>
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-700 dark:text-gray-300">Longest Streak</span>
+                  <span className="text-gray-700 dark:text-gray-300">
+                    {t('github-stats.longest_streak', locale)}
+                  </span>
                   <span className="font-bold text-blue-600 dark:text-blue-400">45 days</span>
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-700 dark:text-gray-300">Total Contributions</span>
+                  <span className="text-gray-700 dark:text-gray-300">
+                    {t('github-stats.total_contributions', locale)}
+                  </span>
                   <span className="font-bold text-purple-600 dark:text-purple-400">1,247</span>
                 </div>
 
@@ -234,7 +248,7 @@ const GitHubStats = React.memo(function GitHubStats() {
             className="inline-flex items-center gap-2 px-8 py-3 bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 dark:text-gray-900 text-white font-medium rounded-lg transition-colors"
           >
             <Github className="w-5 h-5" />
-            {t('view_github_profile', locale)}
+            {t('github-stats.view_profile', locale)}
           </a>
         </motion.div>
       </div>

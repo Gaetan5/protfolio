@@ -7,6 +7,8 @@
     "experience": "Experience",
     "blog": "Blog",
     "certifications": "Certifications",
+    "github": "GitHub",
+    "testimonials": "Testimonials",
     "contact": "Contact"
   },
   "intro": {
@@ -15,109 +17,213 @@
     "title": "Data & Software Engineer",
     "description": "Passionate about technological innovation and transforming ambitious ideas into sustainable solutions.",
     "cta": "Discover my work",
-    "scroll": "Scroll to learn more"
+    "scroll": "Scroll to learn more",
+    "headline": "Hello, I'm Gaëtan Ekoro",
+    "sub": "Data & Software Engineer | IoT & CyberSecurity Specialist",
+    "typewriter": ["Data & Software Engineer", "IoT Specialist", "Embedded Systems Innovator"]
   },
-  "intro_headline": "Hello, I'm Gaetan Ekoro",
-  "intro_sub": "Data & Software Engineer | IoT & CyberSecurity Specialist",
-  "projects_title": "My Projects",
-  "projects_description": "Discover a selection of my recent achievements in software development, IoT and Data Engineering",
-  "skills_title": "Technical Skills",
-  "skills_description": "Technologies and tools I master to create innovative solutions",
-  "expertise_title": "Areas of Expertise",
-  "experience_title": "Professional Experience",
-  "experience_description": "My professional journey and the projects I've worked on",
-  "blog_title": "Technical Blog",
-  "blog_description": "Articles and tutorials on modern technologies and my development experiences",
-  "certifications_title": "Certifications",
-  "certifications_description": "Professional certifications and continuing education",
-  "github_stats_title": "GitHub Statistics",
-  "github_stats_description": "My development activity and open source contributions",
-  "contact_title": "Contact Me",
-  "contact_description": "Have a project? Let's talk! Contact me directly at",
-  "contact_or": "or via the form below",
-  "contact_email_placeholder": "Your email address",
-  "contact_message_placeholder": "Your message",
-  "contact_submit": "Send message",
-  "cv_download_title": "Download my CV",
-  "cv_download_description": "View my complete CV for more details about my background and skills",
-  "executive_summary_title": "Executive Summary",
-  "executive_summary_description": "Versatile software engineer with over 5 years of experience in developing web, mobile, and data science solutions. Specialist in back-end, intuitive user interfaces, and embedded systems.",
-  "value_proposition_text": "I transform complex ideas into elegant and high-performance technical solutions",
-  "value_point_1": "Development of robust and scalable web applications",
-  "value_point_2": "Design of innovative IoT systems for health and security",
-  "value_point_3": "Expertise in Data Engineering and real-time data analysis",
-  "about_heading": "About",
-  "about_job": "Software & Data Engineer",
-  "about_presentation": "Always ready to take on new challenges",
-  "about_presentation_pro": "As a passionate and versatile designer, I have over 5 years of experience in developing web, mobile, and data science solutions, specializing in back-end, intuitive user interfaces, and embedded systems. Thanks to my 3 years of electrical engineering and my cross-functional skills, I design robust, reliable technological ecosystems that are tailored to real-world challenges.",
-  "about_whatido": "What I Do",
-  "about_whoami": "I am also the founder of initiatives such as INTERACT, a visionary project aimed at supporting African entrepreneurs and businesses in their transition to digitalization, data security, and technological empowerment. My approach is impact-driven: transforming ambitious ideas into concrete, sustainable, and innovative solutions.",
-  "about_tech_stack": "Tech Stack",
-  "about_featured_projects": "Featured Projects",
-  "about_fun_facts": "Fun Facts",
-  "about_experience": "Experience & Education",
-  "about_education": "Education",
-  "about_contact_networks": "Social Networks",
-  "about_cv_download": "Download my CV",
-  "about_hi": "Hello, I'm",
-  "value_proposition": "Value Proposition",
-  "key_achievements": "Key Achievements",
-  "top_languages": "Top Languages",
-  "expertise_backend": "Backend Development",
-  "expertise_backend_desc": "RESTful APIs, microservices, Python, FastAPI, Django",
-  "expertise_design": "UI/UX Design",
-  "expertise_design_desc": "Modern interfaces, responsive design, Figma",
-  "expertise_iot": "IoT Systems",
-  "expertise_iot_desc": "Embedded systems, sensors, Raspberry Pi, Arduino",
-  "achievement_1_title": "25+ Completed Projects",
-  "achievement_1_desc": "Web, mobile, APIs and IoT systems deployed",
-  "achievement_2_title": "INTERACT Initiative",
-  "achievement_2_desc": "Supporting businesses in digital transition",
-  "achievement_3_title": "Technical Versatility",
-  "achievement_3_desc": "Electrical Engineering, Software Engineering and Data Science",
-  "cta_title": "Ready to collaborate?",
-  "cta_description": "Download my CV or contact me to discuss your project",
-  "download_cv": "Download CV",
-  "request_cv_email": "Request by email",
-  "view_all_articles": "View all articles",
-  "read_more": "Read more",
-  "verify_certification": "Verify certification",
-  "total_certifications": "Total certifications",
-  "latest_certification": "Latest certification",
-  "verification_rate": "Verification rate",
-  "github_overview": "GitHub Overview",
-  "repositories": "Repositories",
-  "commits": "Commits",
-  "stars": "Stars",
-  "forks": "Forks",
-  "total_commits": "Total Commits",
-  "stars_earned": "Stars Earned",
-  "profile_views": "Profile Views",
-  "current_streak": "Current Streak",
-  "longest_streak": "Longest Streak",
-  "total_contributions": "Total Contributions",
-  "view_github_profile": "View GitHub Profile",
-  "contribution_streak": "Contribution Streak",
-  "github_activity": "GitHub Activity",
   "about": {
     "heading": "About Me",
     "subtitle": "Passionate developer with expertise in modern technologies",
     "description": "I am an experienced software engineer specialized in modern web application development and data engineering. With over 5 years of experience, I combine technical creativity and rigor to create innovative solutions.",
+    "presentation": "Always ready to take on new challenges",
+    "presentation_pro": "As a passionate and versatile engineer, I have over 5 years of experience in developing web, mobile, and data science solutions, specializing in back-end, intuitive user interfaces, and embedded systems. Thanks to my 3 years of electrical engineering and my cross-functional skills, I design robust, reliable technological ecosystems that are tailored to real-world challenges.",
+    "what_i_do": "What I Do",
+    "who_i_am": "I am also the founder of initiatives such as INTERACT, a visionary project aimed at supporting African entrepreneurs and businesses in their transition to digitalization, data security, and technological empowerment. My approach is impact-driven: transforming ambitious ideas into concrete, public-utility, sustainable, and innovative solutions.",
     "skills": "Key skills",
-    "experience": "Years of experience",
+    "experience_label": "Years of experience",
     "projects": "Completed projects",
-    "languages": "Spoken languages"
+    "languages": "Spoken languages",
+    "tech_stack": "Tech Stack",
+    "featured_projects": "Featured Projects",
+    "featured_projects_list": [
+      {
+        "title": "Portfolio Website",
+        "description": "🎨 Showcases my background, skills and achievements.",
+        "icon": "https://img.icons8.com/color/96/monitor--v1.png",
+        "url": "https://gaetan-ekoro.onrender.com/"
+      },
+      {
+        "title": "Medicalized Electric Car",
+        "description": "🚗 Embedded systems & security for medical mobility.",
+        "icon": "https://img.icons8.com/color/96/car--v1.png",
+        "url": null
+      },
+      {
+        "title": "Online Ticket Payment App",
+        "description": "🎫 QR code, secure payments and user subscriptions.",
+        "icon": "https://img.icons8.com/color/96/qr-code.png",
+        "url": null
+      }
+    ],
+    "fun_facts": "Fun Facts",
+    "fun_facts_list": [
+      "🔭 Currently: Building the INTERACT / IoT ecosystem for health & security",
+      "🧑‍💻 I automate my home with microcontrollers and integrate AI into my solutions",
+      "📚 Always learning about AI, Cloud, and Cybersecurity",
+      "🎬 I draw manga characters, watch Sci-Fi, and dream of useful robots"
+    ],
+    "job": "Data & Software Engineer",
+    "cv_download": "Download my CV",
+    "education": "Education",
+    "contact_networks": "Contact & Social Networks",
+    "whatsapp": "Send me a message on WhatsApp",
+    "experience": "Experience",
+    "timeline": [
+      {
+        "year": "2024",
+        "title": "Bachelor's Degree - Electrical Engineering and Industrial Computing",
+        "place": "IUT of Douala",
+        "type": "academic"
+      },
+      {
+        "year": "2020",
+        "title": "Bachelor ESG-TI",
+        "place": "Bilingual High School of Yaoundé",
+        "type": "academic"
+      },
+      {
+        "year": "2022-2024",
+        "title": "Full Stack Developer",
+        "place": "EKOSERX",
+        "type": "pro",
+        "description": "Development of a medical teleconsultation platform (secure API, videoconferencing, real-time messaging, appointment management)."
+      },
+      {
+        "year": "2021-2022",
+        "title": "IoT Engineer",
+        "place": "Medicalized Car Project",
+        "type": "pro",
+        "description": "Integration of a real-time embedded geolocation and security system."
+      },
+      {
+        "year": "2025-202X",
+        "title": "API Developer",
+        "place": "Mega-Ique Digital",
+        "type": "pro",
+        "description": "Design of a robust API for product and order management."
+      },
+      {
+        "year": "2019-2020",
+        "title": "Developer",
+        "place": "InterPay",
+        "type": "pro",
+        "description": "Online ticket payment application with QR code generation."
+      },
+      {
+        "year": "2018-...",
+        "title": "Founder",
+        "place": "INTERACT",
+        "type": "pro",
+        "description": "Technological ecosystem for Africa, democratization of digitalization and data security."
+      }
+    ]
   },
   "projects": {
     "heading": "My Projects",
-    "subtitle": "Discover my recent achievements",
+    "subtitle": "Discover a selection of my recent achievements in software development, IoT and Data Engineering",
     "viewProject": "View project",
     "viewCode": "View code",
-    "technologies": "Technologies used"
+    "technologies": "Technologies used",
+    "list": [
+      {
+        "title": "INTERACT (Startup)",
+        "description": "Visionary IoT ecosystem for digitalization, data security and technological empowerment. Complete solution for startups and businesses.",
+        "tags": ["IoT", "Python", "Microcontrollers", "Security", "Digitalization"],
+        "imageUrl": "/image2.png"
+      },
+      {
+        "title": "EKOSE-RX (Digital Solution)",
+        "description": "Teleconsultation platform with secure API, videoconferencing (Agora), real-time messaging and medical management.",
+        "tags": ["Python", "FastAPI", "Agora", "WebRTC", "PostgreSQL", "WebSockets"],
+        "imageUrl": "/image1.png"
+      },
+      {
+        "title": "CoStudia (Digital Solution)",
+        "description": "Collaborative digital solution for education and knowledge sharing.",
+        "tags": ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL"],
+        "imageUrl": "/image3.png"
+      },
+      {
+        "title": "Geolocation KIT",
+        "description": "Integration of a real-time geolocation and security system for medical vehicles.",
+        "tags": ["IoT", "GPS", "Python", "Raspberry Pi", "Security"],
+        "imageUrl": "/image4.png"
+      },
+      {
+        "title": "Synchronization Tools",
+        "description": "Robust API for data synchronization between e-commerce platforms (WooCommerce ↔ Odoo) and third-party services.",
+        "tags": ["Python", "Django", "REST API", "MySQL", "Automation"],
+        "imageUrl": "/image3.png"
+      },
+      {
+        "title": "Professional Portfolio",
+        "description": "Modern portfolio developed with Next.js 15, TypeScript and Tailwind CSS. Optimized for performance, SEO and accessibility.",
+        "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+        "imageUrl": "/image2.png",
+        "githubUrl": "https://github.com/Gaetan5/protfolio",
+        "liveUrl": "https://gaetan-ekoro.vercel.app"
+      }
+    ]
   },
   "skills": {
     "heading": "Technical Skills",
-    "subtitle": "Technologies and tools I master",
+    "subtitle": "An overview of the technologies and tools I use to bring projects to life",
+    "list": [
+      "Python",
+      "Django",
+      "FastAPI",
+      "Node.js",
+      "Java",
+      "Spring Boot",
+      "Micro-services",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Redis",
+      "Apache Kafka",
+      "Apache Spark",
+      "ELK Stack",
+      "Docker",
+      "Git",
+      "CI/CD",
+      "AWS",
+      "Linux",
+      "CyberSecurity",
+      "CompTIA Security+",
+      "API Pentesting",
+      "Audit Internet-ISMS",
+      "OAuth2",
+      "JWT",
+      "WebRTC",
+      "WebSockets",
+      "REST API",
+      "GraphQL",
+      "Raspberry Pi",
+      "Arduino",
+      "Microcontrollers",
+      "GPS",
+      "Sensors",
+      "Monitoring & Supervision",
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Plotly",
+      "Dash",
+      "Jupyter",
+      "Figma",
+      "Postman",
+      "Swagger",
+      "Prisma",
+      "Excel",
+      "Keycloak",
+      "Agora"
+    ],
     "frontend": "Frontend",
     "backend": "Backend",
     "database": "Database",
@@ -131,75 +237,243 @@
   },
   "experience": {
     "heading": "Professional Experience",
-    "subtitle": "My professional journey",
+    "subtitle": "My professional journey and the projects I've worked on",
     "present": "Present",
     "responsibilities": "Responsibilities",
-    "achievements": "Achievements"
+    "achievements": "Achievements",
+    "list": [
+      {
+        "title": "Co-founder & CEO",
+        "location": "INTERACT",
+        "description": "Technical and strategic direction of the INTERACT ecosystem. Developing innovative and impactful solutions. Key projects: CoStudia (Education), Ekose-RX (Health), Miss Cameroun Allemagne.",
+        "icon": "🚀",
+        "date": "2023 - Present"
+      },
+      {
+        "title": "Software Engineer (Professional Internship)",
+        "location": "Mega-Ique Digital",
+        "description": "Audit and client expertise. Work under Docker and Micro-services environment. Monitoring and analysis of Wireless/Tx traffic. Investigation and resolution of incidents.",
+        "icon": "💻",
+        "date": "11/2024 - 05/2025"
+      },
+      {
+        "title": "Network & Telecoms Engineer",
+        "location": "VisionTelecoms",
+        "description": "Installation of SDI systems and surveillance cameras. Network maintenance and installation (telephony, audio, television). Installation of racks and technical rooms.",
+        "icon": "🔧",
+        "date": "2022 - 2024"
+      },
+      {
+        "title": "Full-stack Developer (Academic Internship)",
+        "location": "PB Telecom",
+        "description": "Web and mobile development. IT maintenance. Deployment and installation of networks in professional environments.",
+        "icon": "⚙️",
+        "date": "2019 - 2021"
+      },
+      {
+        "title": "Software & Data Engineer (Freelance)",
+        "location": "Various Projects / INTERACT",
+        "description": "Development of robust applications, data pipelines and IoT solutions. Specialization in transforming ambitious ideas into sustainable solutions.",
+        "icon": "📊",
+        "date": "2023 - Present"
+      }
+    ]
   },
   "blog": {
     "heading": "Technical Blog",
-    "subtitle": "Articles and tutorials on modern technologies",
+    "subtitle": "Articles and tutorials on modern technologies and my development experiences",
     "readMore": "Read more",
     "published": "Published on",
-    "tags": "Tags"
+    "tags": "Tags",
+    "list": [
+      {
+        "title": "IoT Architecture for Health: INTERACT Use Case",
+        "excerpt": "How to design a scalable IoT system for real-time medical monitoring with Python and microcontrollers.",
+        "content": "Discover the complete architecture of the INTERACT system, from data collection via sensors to real-time analysis...",
+        "tags": ["IoT", "Python", "Architecture", "Health"],
+        "date": "2024-01-15",
+        "readTime": "8 min",
+        "imageUrl": "/image2.png",
+        "slug": "architecture-iot-sante-interact"
+      },
+      {
+        "title": "Optimizing FastAPI APIs for Production",
+        "excerpt": "Best practices for deploying high-performance FastAPI APIs with advanced monitoring and security.",
+        "content": "Complete guide on performance optimization, OAuth2/JWT security, and monitoring of FastAPI APIs...",
+        "tags": ["FastAPI", "Python", "Performance", "Security"],
+        "date": "2024-01-10",
+        "readTime": "12 min",
+        "imageUrl": "/image1.png",
+        "slug": "optimisation-fastapi-production"
+      }
+    ]
   },
   "certifications": {
     "heading": "Certifications",
-    "subtitle": "Professional certifications obtained",
+    "subtitle": "Professional certifications and continuing education",
     "issued": "Issued on",
     "expires": "Expires on",
-    "viewCertificate": "View certificate"
+    "viewCertificate": "View certificate",
+    "verify": "Verify certification",
+    "total": "Total certifications",
+    "latest": "Latest certification",
+    "rate": "Verification rate",
+    "list": [
+      {
+        "title": "React JS Professional",
+        "issuer": "Real Certification",
+        "date": "2024",
+        "credentialId": "REACT-EK-2024",
+        "imageUrl": "https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black",
+        "verifyUrl": "#"
+      },
+      {
+        "title": "Python 3 Mastery",
+        "issuer": "Real Certification",
+        "date": "2023",
+        "credentialId": "PY3-EK-2023",
+        "imageUrl": "https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white",
+        "verifyUrl": "#"
+      },
+      {
+        "title": "CompTIA Security +",
+        "issuer": "CompTIA",
+        "date": "2024",
+        "credentialId": "SEC-EK-2024",
+        "imageUrl": "https://img.shields.io/badge/CompTIA_Security+-FF0000?style=for-the-badge&logo=comptia&logoColor=white",
+        "verifyUrl": "#"
+      },
+      {
+        "title": "Audit Internet-ISMS",
+        "issuer": "Professional",
+        "date": "2024",
+        "credentialId": "ISMS-EK-2024",
+        "imageUrl": "https://img.shields.io/badge/Audit-ISMS-316192?style=for-the-badge&logo=security&logoColor=white",
+        "verifyUrl": "#"
+      },
+      {
+        "title": "Cybersecurity & API Pentesting",
+        "issuer": "CEH / Professional",
+        "date": "2024",
+        "credentialId": "CYBER-EK-2024",
+        "imageUrl": "https://img.shields.io/badge/Cybersecurity-000000?style=for-the-badge&logo=kali-linux&logoColor=white",
+        "verifyUrl": "#"
+      },
+      {
+        "title": "MS Excel Advanced",
+        "issuer": "Microsoft / IUT-Dla",
+        "date": "2023",
+        "credentialId": "EXCEL-EK-2023",
+        "imageUrl": "https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white",
+        "verifyUrl": "#"
+      }
+    ]
   },
   "contact": {
-    "heading": "Contact",
-    "subtitle": "Let's work together on your next project",
-    "name": "Full name",
-    "email": "Email address",
-    "message": "Message",
+    "heading": "Contact Me",
+    "subtitle": "Feel free to contact me directly at",
+    "or": "or via this form.",
+    "email_placeholder": "Your email",
+    "message_placeholder": "Your message",
+    "submit": "Send",
+    "download_cv": "Download my CV",
+    "socials": "Social Networks",
+    "cv_download_title": "Curriculum Vitae",
+    "cv_download_description": "Download my full CV for more details on my background and skills.",
     "send": "Send message",
     "sending": "Sending...",
     "success": "Message sent successfully!",
     "error": "Error sending message"
   },
+  "cv-download": {
+    "download": "Download CV",
+    "requestEmail": "Request by Email",
+    "emailSubject": "CV Request - Gaëtan Ekoro",
+    "emailBody": "Hi Gaëtan, I'd like to receive your CV for a potential collaboration opportunity."
+  },
   "footer": {
-    "description": "Passionate developer creating innovative digital solutions",
-    "quickLinks": "Quick links",
+    "description": "Data & Software Engineer passionate about creating innovative and sustainable digital solutions.",
+    "quickLinks": "Quick Navigation",
     "contact": "Contact",
     "followMe": "Follow me",
-    "rights": "All rights reserved"
+    "partners": "Partners & Associates",
+    "rights": "© 2026 Gaëtan Ekoro. All rights reserved.",
+    "developer": "Designed and developed by Gaëtan Ekoro"
   },
   "github-stats": {
     "heading": "GitHub Statistics",
-    "subtitle": "My development activity",
+    "subtitle": "My development activity and open source contributions",
     "repositories": "Repositories",
     "commits": "Commits",
     "contributions": "Contributions",
-    "languages": "Languages used"
+    "languages": "Languages used",
+    "overview": "GitHub Overview",
+    "stars": "Stars",
+    "forks": "Forks",
+    "total_commits": "Total Commits",
+    "stars_earned": "Stars Earned",
+    "profile_views": "Profile Views",
+    "current_streak": "Current Streak",
+    "longest_streak": "Longest Streak",
+    "total_contributions": "Total Contributions",
+    "view_profile": "View GitHub Profile",
+    "streak": "Contribution Streak",
+    "activity": "GitHub Activity"
   },
   "executive-summary": {
     "heading": "Executive Summary",
-    "valueProposition": "Value proposition",
-    "description": "Experienced software engineer specialized in modern web application development and data engineering. I combine technical expertise and strategic vision to create innovative solutions that transform businesses.",
-    "keyAchievements": "Key achievements",
-    "achievement1": "Development of 20+ high-performance web applications",
-    "achievement2": "Performance optimization of 40% on average",
-    "achievement3": "Mentoring of 10+ junior developers",
-    "achievement4": "Certifications in cloud and AI technologies",
-    "cta": "Discover my complete CV"
-  },
-  "cv-download": {
-    "heading": "Download my CV",
-    "description": "View my complete CV for more details about my experience",
-    "download": "Download CV",
-    "requestEmail": "Request by email",
-    "emailSubject": "CV Request - Gaëtan Ekoro Edouard",
-    "emailBody": "Hello,\n\nI would like to receive your complete CV.\n\nBest regards,"
+    "subtitle": "Versatile software engineer with over 5 years of experience",
+    "valueProposition": "Value Proposition",
+    "valuePropositionText": "I transform complex ideas into elegant and high-performance technical solutions",
+    "valuePoint1": "Development of robust and scalable web applications",
+    "valuePoint2": "Design of innovative IoT systems for health and security",
+    "valuePoint3": "Expertise in Data Engineering and real-time data analysis",
+    "keyAchievements": "Key Achievements",
+    "achievement1Title": "25+ Applications",
+    "achievement1Desc": "Development of high-performance web, mobile and IoT applications",
+    "achievement2Title": "40% Performance",
+    "achievement2Desc": "Average system performance optimization",
+    "achievement3Title": "Social Impact",
+    "achievement3Desc": "INTERACT Initiative for digital transition in Africa",
+    "ctaTitle": "Ready to transform your ideas?",
+    "ctaDescription": "Let's collaborate to create solutions that make a difference."
   },
   "stats": {
-    "projects": "Projects",
-    "clients": "Clients",
+    "heading": "Key Numbers",
+    "subtitle": "Some statistics that demonstrate my expertise and commitment",
+    "projects": "Projects completed",
+    "clients": "Happy clients",
     "experience": "Years of experience",
-    "uptime": "Uptime"
+    "support": "Support available"
+  },
+  "testimonials": {
+    "heading": "What my clients say",
+    "subtitle": "Testimonials from professionals I've had the pleasure of collaborating with",
+    "cta": "Want to work together?",
+    "contact": "Contact me",
+    "list": [
+      {
+        "name": "Dr. Marie Kouam",
+        "role": "Medical Director, EKOSERX",
+        "image": "https://ui-avatars.com/api/?name=Marie+Kouam&background=06b6d4&color=fff&size=128",
+        "content": "Gaetan developed an exceptional teleconsultation platform. His technical expertise and understanding of medical needs were decisive for our success.",
+        "rating": 5
+      },
+      {
+        "name": "Jean-Paul Mbida",
+        "role": "CEO, Mega-Ique Digital",
+        "image": "https://ui-avatars.com/api/?name=Jean+Mbida&background=3b82f6&color=fff&size=128",
+        "content": "The WooCommerce-Odoo synchronization API developed by Gaetan transformed our workflow. Performance, reliability and excellent support.",
+        "rating": 5
+      },
+      {
+        "name": "Sarah Nkolo",
+        "role": "Product Manager, InterPay",
+        "image": "https://ui-avatars.com/api/?name=Sarah+Nkolo&background=8b5cf6&color=fff&size=128",
+        "content": "A passionate and rigorous developer. The payment system he created is robust, secure and easy to maintain. I highly recommend him!",
+        "rating": 5
+      }
+    ]
   },
   "accessibility": {
     "title": "Accessibility",
@@ -215,7 +489,8 @@
     "shortcutMotion": "Toggle reduced motion",
     "shortcutZoomIn": "Increase font size",
     "shortcutZoomOut": "Decrease font size",
-    "shortcutReset": "Reset font size"
+    "shortcutReset": "Reset font size",
+    "reset": "Reset"
   },
   "performance": {
     "title": "Performance Metrics",
@@ -226,5 +501,16 @@
     "good": "Good",
     "average": "Average",
     "needsImprovement": "Needs improvement"
+  },
+  "common": {
+    "hi": "Hi, I'm Gaëtan!",
+    "view_all": "View all",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Message sent successfully! 🎉",
+    "error": "An error occurred while sending the message.",
+    "network_error": "Network error. Please try again.",
+    "or": "or",
+    "select_language": "Select language"
   }
 }

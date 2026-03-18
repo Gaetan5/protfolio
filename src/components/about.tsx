@@ -1,14 +1,16 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import SectionHeading from './section-heading';
 import { useSectionInView } from '@/lib/useInView';
 import Image from 'next/image';
 import OptimizedImage from './optimized-image';
 import { useLocaleContext } from '@/containers/LocaleCtx';
-import { t } from '@/lib/i18n';
-import Bio from './Bio';
+import { t, ta, tr } from '@/lib/i18n';
+import TypewriterEffect from './TypewriterEffect';
+import ScrollReveal from './scroll-reveal';
+import { personalInfo } from '@/lib/data';
 
 // Composant Section : utilisé pour structurer chaque bloc de la page About
 interface SectionProps {
@@ -21,7 +23,7 @@ function Section({ title, children }: SectionProps) {
     <div className="mb-8">
       {/* Titre de section avec gestion du thème */}
       <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-cyan-200 transition-colors duration-300">
-        {title}
+        <ScrollReveal>{title}</ScrollReveal>
       </h3>
       {/* Contenu de la section (texte, listes, timeline, etc.) */}
       <div className="text-gray-700 dark:text-gray-300 space-y-3 transition-colors duration-300">
@@ -31,68 +33,14 @@ function Section({ title, children }: SectionProps) {
   );
 }
 
-// Ajout du composant Timeline pour expériences et formations
-const timeline = [
-  {
-    year: '2024',
-    title: 'Licence - Génie Électrique et Informatique Industrielle',
-    place: 'IUT de Douala',
-    type: 'academic',
-  },
-  {
-    year: '2020',
-    title: 'Bachelor ESG-TI',
-    place: 'Lycée Bilingue de Yaoundé',
-    type: 'academic',
-  },
-  {
-    year: '2022-2024',
-    title: 'Développeur Full Stack',
-    place: 'EKOSERX',
-    type: 'pro',
-    description:
-      "Développement d'une plateforme de téléconsultation médicale (API sécurisée, visioconférence, messagerie temps réel, gestion des rendez-vous).",
-  },
-  {
-    year: '2021-2022',
-    title: 'Ingénieur IoT',
-    place: 'Projet Voiture médicalisée',
-    type: 'pro',
-    description:
-      'Intégration d’un système de géolocalisation et de sécurité embarqué en temps réel.',
-  },
-  {
-    year: '2025-202X',
-    title: 'Développeur API',
-    place: 'Mega-Ique Digital',
-    type: 'pro',
-    description:
-      'Conception d’une API robuste pour la gestion des produits et commandes entre ces deux plateformes.',
-  },
-  {
-    year: '2019-2020',
-    title: 'Développeur',
-    place: 'InterPay',
-    type: 'pro',
-    description:
-      'Application de paiement de tickets en ligne avec génération de QR code, confirmation utilisateur et gestion des abonnements.',
-  },
-  {
-    year: '2018-...',
-    title: 'Fondateur',
-    place: 'INTERACT',
-    type: 'pro',
-    description:
-      'Écosystème technologique pour l’Afrique, démocratisation de la digitalisation et sécurité des données.',
-  },
-];
-
 // Timeline animée pour expériences et formations
-function Timeline() {
+function Timeline({ locale }: { locale: any }) {
+  const timelineData = tr('about.timeline', locale) || [];
+
   return (
     <div className="relative border-l-2 border-cyan-500 dark:border-cyan-400 pl-8">
       {/* Chaque étape de la timeline (expérience ou diplôme) */}
-      {timeline.map((item, idx) => (
+      {timelineData.map((item: any, idx: number) => (
         <motion.div
           key={idx}
           initial={{ opacity: 0, x: -40 }}
@@ -121,58 +69,6 @@ function Timeline() {
   );
 }
 
-// Composant Typewriter : effet d'écriture animée pour la présentation
-function Typewriter({
-  texts,
-  speed = 60,
-  pause = 1200,
-}: {
-  texts: string[];
-  speed?: number;
-  pause?: number;
-}) {
-  // Gestion de l'animation lettre par lettre
-  const [displayed, setDisplayed] = useState('');
-  const [index, setIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(0);
-  const [reverse, setReverse] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
-
-  useEffect(() => {
-    if (index === texts.length) return;
-
-    const currentText = texts[index];
-    if (!currentText) return;
-
-    if (!reverse && subIndex === currentText.length) {
-      timeoutRef.current = setTimeout(() => setReverse(true), pause);
-      return;
-    }
-    if (reverse && subIndex === 0) {
-      setReverse(false);
-      setIndex((prev) => (prev + 1) % texts.length);
-      return;
-    }
-
-    timeoutRef.current = setTimeout(
-      () => {
-        setSubIndex((prev) => prev + (reverse ? -1 : 1));
-      },
-      reverse ? speed / 2 : speed,
-    );
-
-    setDisplayed(currentText.substring(0, subIndex));
-
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, [subIndex, index, reverse, texts, speed, pause]);
-
-  return <span className="text-cyan-600 dark:text-cyan-400 font-bold">{displayed}|</span>;
-}
-
 // Composant About : page principale de présentation du portfolio
 const About = React.memo(function About() {
   // Hook pour l'animation d'apparition de la section
@@ -190,22 +86,21 @@ const About = React.memo(function About() {
         className="max-w-3xl mx-auto text-center mb-16"
       >
         <h2 className="text-3xl md:text-4xl font-bold capitalize mb-4 text-gray-900 dark:text-white">
-          {t('about_heading', locale)}
+          <ScrollReveal>{t('about.heading', locale)}</ScrollReveal>
         </h2>
       </motion.div>
 
       {/* Header section : présentation animée et photo */}
       <header className="text-center mb-12 max-w-3xl mx-auto">
         <p className="mt-2 text-lg">
-          <Typewriter
+          <TypewriterEffect
             texts={[
-              t('about_hi', locale) + ' Gaetan X Ekoro',
-              t('about_job', locale),
-              'Passionné par l’innovation et la tech',
-              'Toujours prêt à relever de nouveaux défis',
+              t('common.hi', locale),
+              t('about.job', locale),
+              t('about.presentation', locale),
             ]}
             speed={55}
-            pause={1200}
+            delay={1200}
           />
         </p>
         <div className="flex justify-center my-6">
@@ -213,7 +108,7 @@ const About = React.memo(function About() {
             src="/profile1.png"
             width={280}
             height={280}
-            alt="Portrait de Gaetan Ekoro"
+            alt={t('intro.name', locale)}
             quality={90}
             loading="lazy"
             className="rounded-full object-cover shadow-xl ring-4 ring-cyan-400/60 hover:scale-105 transition-transform duration-300"
@@ -221,7 +116,7 @@ const About = React.memo(function About() {
         </div>
         <p className="text-sm text-gray-600 dark:text-gray-400">
           <span className="bg-cyan-100 dark:bg-cyan-900 px-2 py-1 rounded font-semibold text-cyan-700 dark:text-cyan-300 shadow">
-            {t('about_job', locale)}
+            {t('about.job', locale)}
           </span>
         </p>
       </header>
@@ -229,17 +124,17 @@ const About = React.memo(function About() {
       {/* Main content : sections thématiques */}
       <article className="max-w-3xl mx-auto space-y-6 text-left">
         {/* Section présentation professionnelle (HTML depuis la traduction) */}
-        <Section title={'🎯 ' + t('about_presentation', locale)}>
-          <div dangerouslySetInnerHTML={{ __html: t('about_presentation_pro', locale) }} />
+        <Section title={'🎯 ' + t('about.presentation', locale)}>
+          <div dangerouslySetInnerHTML={{ __html: t('about.presentation_pro', locale) }} />
         </Section>
 
         {/* Section "What I Do" (HTML depuis la traduction) */}
-        <Section title={'✨ ' + t('about_whatido', locale)}>
-          <div dangerouslySetInnerHTML={{ __html: t('about_whoami', locale) }} />
+        <Section title={'✨ ' + t('about.what_i_do', locale)}>
+          <div dangerouslySetInnerHTML={{ __html: t('about.who_i_am', locale) }} />
         </Section>
 
         {/* Section stack technique */}
-        <Section title={t('about_tech_stack', locale)}>
+        <Section title={t('about.tech_stack', locale)}>
           <div className="flex justify-center">
             <Image
               src="https://skillicons.dev/icons?i=python,java,ts,js,react,nextjs,tailwind,mysql,postgres,linux,figma,raspberrypi"
@@ -252,94 +147,69 @@ const About = React.memo(function About() {
         </Section>
 
         {/* Section projets phares */}
-        <Section title={t('about_featured_projects', locale)}>
+        <Section title={t('about.featured_projects', locale)}>
           <div className="flex flex-col md:flex-row md:justify-center gap-6">
-            <div className="flex flex-col items-center">
-              <a
-                href="https://gaetan-ekoro.onrender.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Voir mon portfolio website"
-                title="Portfolio Website"
-              >
-                <Image
-                  width={80}
-                  height={80}
-                  src="https://img.icons8.com/color/96/monitor--v1.png"
-                  alt="Icône portfolio website"
-                />
-              </a>
-              <b>
-                <a href="https://gaetan-ekoro.onrender.com/">Portfolio Website</a>
-              </b>
-              <span className="text-sm">
-                🎨 Présente mon parcours, mes compétences et mes réalisations.
-              </span>
-            </div>
-            <div className="flex flex-col items-center">
-              <Image
-                width={80}
-                height={80}
-                src="https://img.icons8.com/color/96/car--v1.png"
-                alt="car project"
-              />
-              <b>Medicalized Electric Car Project</b>
-              <span className="text-sm">
-                🚗 Systèmes embarqués & sécurité pour la mobilité médicale.
-              </span>
-            </div>
-            <div className="flex flex-col items-center">
-              <Image
-                width={80}
-                height={80}
-                src="https://img.icons8.com/color/96/qr-code.png"
-                alt="ticket app"
-              />
-              <b>Online Ticket Payment App</b>
-              <span className="text-sm">
-                🎫 QR code, paiements sécurisés et abonnements utilisateurs.
-              </span>
-            </div>
+            {((tr('about.featured_projects_list', locale) as any[]) || []).map(
+              (project: any, idx: number) => (
+                <div key={idx} className="flex flex-col items-center">
+                  {project.url ? (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={project.title}
+                    >
+                      <Image width={80} height={80} src={project.icon} alt={project.title} />
+                    </a>
+                  ) : (
+                    <Image width={80} height={80} src={project.icon} alt={project.title} />
+                  )}
+                  <b>
+                    {project.url ? (
+                      <a href={project.url} target="_blank" rel="noopener noreferrer">
+                        {project.title}
+                      </a>
+                    ) : (
+                      project.title
+                    )}
+                  </b>
+                  <span className="text-sm">{project.description}</span>
+                </div>
+              ),
+            )}
           </div>
         </Section>
 
         {/* Section fun facts */}
-        <Section title={t('about_fun_facts', locale)}>
+        <Section title={t('about.fun_facts', locale)}>
           <ul className="list-disc ml-6 space-y-1 text-left">
-            <li>
-              🔭 En ce moment : Construire l’écosystème INTERACT / IoT pour la santé & la sécurité
-              et toute solution pour Start-up et Entreprise
-            </li>
-            <li>
-              🧑‍💻 J’automatise ma maison avec des microcontrôleurs, Intergre aussi l&apos;IA dans
-              toute solution du quotidien
-            </li>
-            <li>📚 Toujours en veille sur l’IA, le cloud et la cybersécurité</li>
-            <li>🎬 Je dessine des persos manga, je binge du sci-fi et je rêve de robots utiles</li>
+            {ta('about.fun_facts_list', locale).map((fact, idx) => (
+              <li key={idx}>{fact}</li>
+            ))}
           </ul>
         </Section>
 
         {/* Timeline animée (expériences + diplômes) */}
-        <Section title={t('about_experience', locale) + ' & ' + t('about_education', locale)}>
-          <Timeline />
+        <Section title={t('about.experience', locale) + ' & ' + t('about.education', locale)}>
+          <Timeline locale={locale} />
         </Section>
 
         {/* Bouton de téléchargement du CV */}
         <div className="my-8 flex flex-col items-center">
           <a
-            href="/CV-2025_GAETAN EKORO EDOUARD.pdf"
-            download
+            href={personalInfo.cvPath}
+            download={personalInfo.cvFileName}
             className="inline-block px-6 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-700 dark:bg-cyan-400 dark:text-gray-900 dark:hover:bg-cyan-300 transition"
           >
-            {t('about_cv_download', locale)}
+            {t('about.cv_download', locale)}
           </a>
         </div>
 
         {/* Section contact & réseaux sociaux */}
-        <Section title={t('about_contact_networks', locale)}>
+        <Section title={t('about.contact_networks', locale)}>
           <div className="flex flex-wrap justify-center gap-2">
             <a
-              href="https://github.com/Gaetan5"
+              href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visiter mon profil GitHub"
@@ -354,7 +224,7 @@ const About = React.memo(function About() {
               />
             </a>
             <a
-              href="https://www.linkedin.com/in/gaetan-x-ekoro-56z"
+              href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visiter mon profil LinkedIn"
@@ -369,7 +239,7 @@ const About = React.memo(function About() {
               />
             </a>
             <a
-              href="https://x.com/Gaetan5"
+              href={personalInfo.twitter}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visiter mon profil Twitter/X"
@@ -384,7 +254,7 @@ const About = React.memo(function About() {
               />
             </a>
             <a
-              href="mailto:ekorogaetan5@gmail.com"
+              href={`mailto:${personalInfo.email}`}
               aria-label="M'envoyer un email"
               title="Email Contact"
             >
@@ -415,7 +285,7 @@ const About = React.memo(function About() {
               href="https://wa.me/237693813701"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={t('about_whatsapp', locale)}
+              aria-label={t('about.whatsapp', locale)}
             >
               <OptimizedImage
                 src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"

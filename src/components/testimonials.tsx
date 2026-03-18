@@ -3,38 +3,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useSectionInView } from '@/lib/useInView';
+import { useLocaleContext } from '@/containers/LocaleCtx';
+import { tr, t } from '@/lib/i18n';
 import { Quote, Star } from 'lucide-react';
 import Image from 'next/image';
 
-const testimonialsData = [
-  {
-    name: 'Dr. Marie Kouam',
-    role: 'Directrice Médicale, EKOSERX',
-    image: 'https://ui-avatars.com/api/?name=Marie+Kouam&background=06b6d4&color=fff&size=128',
-    content:
-      'Gaetan a développé une plateforme de téléconsultation exceptionnelle. Son expertise technique et sa compréhension des besoins médicaux ont été déterminantes pour notre succès.',
-    rating: 5,
-  },
-  {
-    name: 'Jean-Paul Mbida',
-    role: 'CEO, Mega-Ique Digital',
-    image: 'https://ui-avatars.com/api/?name=Jean+Mbida&background=3b82f6&color=fff&size=128',
-    content:
-      'L’API de synchronisation WooCommerce-Odoo développée par Gaetan a transformé notre workflow. Performance, fiabilité et support excellent.',
-    rating: 5,
-  },
-  {
-    name: 'Sarah Nkolo',
-    role: 'Product Manager, InterPay',
-    image: 'https://ui-avatars.com/api/?name=Sarah+Nkolo&background=8b5cf6&color=fff&size=128',
-    content:
-      'Un développeur passionné et rigoureux. Le système de paiement qu’il a créé est robuste, sécurisé et facile à maintenir. Je recommande vivement !',
-    rating: 5,
-  },
-];
-
 const Testimonials = React.memo(function Testimonials() {
   const { ref } = useSectionInView('#testimonials');
+  const { locale } = useLocaleContext();
+  const testimonialsData = (tr('testimonials.list', locale) as any[]) || [];
 
   return (
     <section ref={ref} id="testimonials" className="scroll-mt-28 mb-28 px-4">
@@ -46,15 +23,15 @@ const Testimonials = React.memo(function Testimonials() {
       >
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Ce que disent mes clients
+            {t('testimonials.heading', locale)}
           </h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Témoignages de professionnels avec qui j&apos;ai eu le plaisir de collaborer
+            {t('testimonials.subtitle', locale)}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonialsData.map((testimonial, index) => (
+          {testimonialsData.map((testimonial: any, index: number) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
@@ -108,14 +85,12 @@ const Testimonials = React.memo(function Testimonials() {
           transition={{ delay: 0.8 }}
           className="text-center mt-12"
         >
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            Vous souhaitez travailler ensemble ?
-          </p>
+          <p className="text-gray-600 dark:text-gray-300 mb-4">{t('testimonials.cta', locale)}</p>
           <a
             href="#contact"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white rounded-lg transition-all duration-300 shadow-lg hover:shadow-cyan-500/50"
           >
-            Contactez-moi
+            {t('testimonials.contact', locale)}
           </a>
         </motion.div>
       </motion.div>

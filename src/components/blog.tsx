@@ -2,15 +2,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useSectionInView } from '@/lib/useInView';
-import { blogData } from '@/lib/data';
 import { useLocaleContext } from '@/containers/LocaleCtx';
-import { t } from '@/lib/i18n';
+import { t, tr } from '@/lib/i18n';
 import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
 import OptimizedImage from './optimized-image';
 
 const Blog = React.memo(function Blog() {
   const { ref } = useSectionInView('#blog');
   const { locale } = useLocaleContext();
+  const articles = tr('blog.list', locale) || [];
 
   return (
     <section ref={ref} id="blog" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
@@ -21,22 +21,22 @@ const Blog = React.memo(function Blog() {
         className="max-w-3xl mx-auto text-center mb-16"
       >
         <h2 className="text-3xl md:text-4xl font-bold capitalize mb-4 text-gray-900 dark:text-white">
-          {t('blog_title', locale)}
+          {t('blog.heading', locale)}
         </h2>
         <p className="text-base md:text-lg text-gray-600 dark:text-gray-400">
-          {t('blog_description', locale)}
+          {t('blog.subtitle', locale)}
         </p>
       </motion.div>
 
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {blogData.map((article, index) => (
+          {articles.map((article: any, index: number) => (
             <motion.article
               key={article.slug}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="group bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 overflow-hidden"
+              className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 overflow-hidden"
             >
               {/* Image */}
               <div className="relative h-48 overflow-hidden">
@@ -51,7 +51,7 @@ const Blog = React.memo(function Blog() {
               </div>
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-6 text-left">
                 {/* Meta */}
                 <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-3">
                   <div className="flex items-center gap-1">
@@ -80,7 +80,7 @@ const Blog = React.memo(function Blog() {
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {article.tags.slice(0, 3).map((tag) => (
+                  {article.tags.slice(0, 3).map((tag: string) => (
                     <span
                       key={tag}
                       className="inline-flex items-center gap-1 px-3 py-1 text-xs font-medium bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 rounded-full"
@@ -93,7 +93,7 @@ const Blog = React.memo(function Blog() {
 
                 {/* Read More */}
                 <button className="inline-flex items-center gap-2 text-cyan-600 dark:text-cyan-400 font-medium hover:text-cyan-700 dark:hover:text-cyan-300 transition-colors">
-                  {t('read_more', locale)}
+                  {t('blog.readMore', locale)}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
@@ -109,7 +109,7 @@ const Blog = React.memo(function Blog() {
           className="text-center mt-12"
         >
           <button className="inline-flex items-center gap-2 px-8 py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-medium rounded-lg transition-colors">
-            {t('view_all_articles', locale)}
+            {t('common.view_all', locale)}
             <ArrowRight className="w-5 h-5" />
           </button>
         </motion.div>

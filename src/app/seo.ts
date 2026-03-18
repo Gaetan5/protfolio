@@ -1,9 +1,9 @@
 export const defaultMeta = {
-  title: 'Gaetan X Ekoro | Software & Data Engineer | IoT Specialist',
+  title: 'Gaëtan Ekoro | Software & Data Engineer | IoT Specialist',
   description:
-    'Portfolio professionnel de Gaetan X Ekoro - Software & Data Engineer spécialisé en Python, FastAPI, Django, IoT et systèmes embarqués. Expertise en développement backend, APIs RESTful, Data Engineering et solutions médicales innovantes.',
+    'Portfolio professionnel de Gaëtan Ekoro - Software & Data Engineer spécialisé en Python, FastAPI, Django, IoT et systèmes embarqués.',
   keywords: [
-    'Gaetan Ekoro',
+    'Gaëtan Ekoro',
     'Software Engineer',
     'Data Engineer',
     'Python Developer',
@@ -19,15 +19,15 @@ export const defaultMeta = {
     'Medical IoT',
     'Data Analytics',
   ],
-  authors: [{ name: 'Gaetan X Ekoro Edouard' }],
-  creator: 'Gaetan X Ekoro',
-  publisher: 'Gaetan X Ekoro',
+  authors: [{ name: 'Gaëtan Ekoro' }],
+  creator: 'Gaëtan Ekoro',
+  publisher: 'Gaëtan Ekoro',
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
     url: 'https://gaetan-ekoro.vercel.app/',
-    site_name: 'Gaetan X Ekoro Portfolio',
-    title: 'Gaetan X Ekoro | Software & Data Engineer',
+    site_name: 'Gaëtan Ekoro Portfolio',
+    title: 'Gaëtan Ekoro | Software & Data Engineer',
     description:
       'Portfolio professionnel - Spécialiste Python, FastAPI, Django, IoT et Data Engineering. Développement de solutions innovantes pour la santé et la sécurité.',
     images: [
@@ -35,7 +35,7 @@ export const defaultMeta = {
         url: 'https://gaetan-ekoro.vercel.app/InteractPhoto1.jpg',
         width: 1200,
         height: 630,
-        alt: 'Gaetan X Ekoro - Software & Data Engineer',
+        alt: 'Gaëtan Ekoro - Software & Data Engineer',
       },
     ],
   },
@@ -43,7 +43,7 @@ export const defaultMeta = {
     card: 'summary_large_image',
     site: '@Gaetan5',
     creator: '@Gaetan5',
-    title: 'Gaetan X Ekoro | Software & Data Engineer',
+    title: 'Gaëtan Ekoro | Software & Data Engineer',
     description:
       'Portfolio professionnel - Spécialiste Python, FastAPI, Django, IoT et Data Engineering.',
     image: 'https://gaetan-ekoro.vercel.app/InteractPhoto1.jpg',

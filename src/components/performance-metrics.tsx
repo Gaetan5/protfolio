@@ -2,12 +2,15 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, Zap, TrendingUp } from 'lucide-react';
+import { useLocaleContext } from '@/containers/LocaleCtx';
+import { t } from '@/lib/i18n';
 
 interface PerformanceMetricsProps {
   className?: string;
 }
 
 const PerformanceMetrics: React.FC<PerformanceMetricsProps> = ({ className = '' }) => {
+  const { locale } = useLocaleContext();
   const [metrics, setMetrics] = useState({
     loadTime: 0,
     memoryUsage: 0,
@@ -81,23 +84,30 @@ const PerformanceMetrics: React.FC<PerformanceMetricsProps> = ({ className = '' 
     }
   }, []);
 
+  const getOptimizationLabel = () => {
+    if (metrics.performanceScore >= 90) return t('performance.excellent', locale);
+    if (metrics.performanceScore >= 70) return t('performance.good', locale);
+    if (metrics.performanceScore >= 50) return t('performance.average', locale);
+    return t('performance.needsImprovement', locale);
+  };
+
   const metricItems = [
     {
       icon: Clock,
-      label: 'Temps de chargement',
+      label: t('performance.loadTime', locale),
       value: `${metrics.loadTime}ms`,
       color: 'text-blue-500',
     },
     {
       icon: Zap,
-      label: 'Score Performance',
+      label: t('performance.performanceScore', locale),
       value: `${metrics.performanceScore}/100`,
       color: 'text-green-500',
     },
     {
       icon: TrendingUp,
-      label: 'Optimisation',
-      value: 'Excellent',
+      label: t('performance.optimization', locale),
+      value: getOptimizationLabel(),
       color: 'text-purple-500',
     },
   ];

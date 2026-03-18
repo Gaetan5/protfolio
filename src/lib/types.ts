@@ -1,12 +1,20 @@
-import { links } from './data';
-
-export type SectionName = (typeof links)[number]['hash'];
-
 export type Link = {
-  nameEng: string;
-  nameFr: string;
+  key: string;
   hash: string;
 };
+
+export type SectionName =
+  | '#home'
+  | '#about'
+  | '#experience'
+  | '#projects'
+  | '#skills'
+  | '#certifications'
+  | '#blog'
+  | '#contact'
+  | '#testimonials'
+  | '#executive-summary'
+  | '#github-stats';
 
 type About = {
   title: string;

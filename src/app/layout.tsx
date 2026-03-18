@@ -9,6 +9,11 @@ import { LocaleProvider } from '@/containers/LocaleCtx';
 import DebugManager from '@/components/debug-manager';
 import ScrollToTop from '@/components/scroll-to-top';
 import SkipToContent from '@/components/skip-to-content';
+import Footer from '@/components/footer';
+import HeroBanner from '@/components/hero-banner';
+import ScrollProgress from '@/components/scroll-progress';
+import AnimatedBackground from '@/components/animated-background';
+import GlowCursor from '@/components/glow-cursor';
 
 const sora = Sora({
   subsets: ['latin'],
@@ -40,21 +45,29 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="!scroll-smooth" data-scroll-behavior="smooth">
+    <html
+      lang="fr"
+      className="!scroll-smooth"
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+      translate="no"
+    >
       <body
-        className={`${sora.variable} font-Sora flex flex-col bg-gray-50 text-gray-950 relative dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
+        className={`${sora.variable} font-Sora flex flex-col bg-gray-50 text-gray-950 dark:bg-transparent dark:text-gray-50 dark:text-opacity-90`}
+        suppressHydrationWarning
       >
-        <div className="bg-[#fbe2e3] absolute top-[-6rem] flex-1 -z-[10] right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#946263]"></div>
-        <div className="bg-[#dbd7fb] absolute top-[-1rem] -z-[10]  flex-1 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#676394]"></div>
         <SkipToContent />
         <DebugManager />
         <Providers>
-          <LocaleProvider>
-            <Navbar />
-            <main id="main-content">{children}</main>
-            <ThemeController />
-            <ScrollToTop />
-          </LocaleProvider>
+          <ScrollProgress />
+          <AnimatedBackground />
+          <GlowCursor />
+          <HeroBanner />
+          <Navbar />
+          <main id="main-content">{children}</main>
+          <Footer />
+          <ThemeController />
+          <ScrollToTop />
         </Providers>
       </body>
     </html>

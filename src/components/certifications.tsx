@@ -2,15 +2,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useSectionInView } from '@/lib/useInView';
-import { certificationsData } from '@/lib/data';
 import { useLocaleContext } from '@/containers/LocaleCtx';
-import { t } from '@/lib/i18n';
+import { t, tr } from '@/lib/i18n';
 import { Award, ExternalLink, Calendar } from 'lucide-react';
 import OptimizedImage from './optimized-image';
 
 const Certifications = React.memo(function Certifications() {
   const { ref } = useSectionInView('#certifications');
   const { locale } = useLocaleContext();
+  const certifications = tr('certifications.list', locale) || [];
 
   return (
     <section ref={ref} id="certifications" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
@@ -21,22 +21,22 @@ const Certifications = React.memo(function Certifications() {
         className="max-w-3xl mx-auto text-center mb-16"
       >
         <h2 className="text-3xl md:text-4xl font-bold capitalize mb-4 text-gray-900 dark:text-white">
-          {t('certifications_title', locale)}
+          {t('certifications.heading', locale)}
         </h2>
         <p className="text-base md:text-lg text-gray-600 dark:text-gray-400">
-          {t('certifications_description', locale)}
+          {t('certifications.subtitle', locale)}
         </p>
       </motion.div>
 
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {certificationsData.map((cert, index) => (
+          {certifications.map((cert: any, index: number) => (
             <motion.div
               key={cert.credentialId}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="group bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 p-6"
+              className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 p-6 flex flex-col items-center"
             >
               {/* Badge */}
               <div className="mb-4">
@@ -51,7 +51,7 @@ const Certifications = React.memo(function Certifications() {
               </div>
 
               {/* Content */}
-              <div className="space-y-3">
+              <div className="space-y-3 w-full text-left">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                   {cert.title}
                 </h3>
@@ -75,7 +75,7 @@ const Certifications = React.memo(function Certifications() {
                   className="inline-flex items-center gap-2 text-sm text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 transition-colors"
                 >
                   <Award className="w-4 h-4" />
-                  {t('verify_certification', locale)}
+                  {t('certifications.verify', locale)}
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
@@ -90,25 +90,27 @@ const Certifications = React.memo(function Certifications() {
           transition={{ delay: 0.5 }}
           className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          <div className="text-center p-6 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 rounded-xl">
+          <div className="text-center p-6 bg-gradient-to-br from-cyan-50/50 to-blue-50/50 dark:from-cyan-900/20 dark:to-blue-900/20 backdrop-blur-sm rounded-xl border border-white/10">
             <div className="text-3xl font-bold text-cyan-600 dark:text-cyan-400 mb-2">
-              {certificationsData.length}
+              {certifications.length}
             </div>
             <div className="text-gray-700 dark:text-gray-300">
-              {t('total_certifications', locale)}
+              {t('certifications.total', locale)}
             </div>
           </div>
 
-          <div className="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl">
+          <div className="text-center p-6 bg-gradient-to-br from-green-50/50 to-emerald-50/50 dark:from-green-900/20 dark:to-emerald-900/20 backdrop-blur-sm rounded-xl border border-white/10">
             <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">2024</div>
             <div className="text-gray-700 dark:text-gray-300">
-              {t('latest_certification', locale)}
+              {t('certifications.latest', locale)}
             </div>
           </div>
 
-          <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-xl">
+          <div className="text-center p-6 bg-gradient-to-br from-purple-50/50 to-indigo-50/50 dark:from-purple-900/20 dark:to-indigo-900/20 backdrop-blur-sm rounded-xl border border-white/10">
             <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">100%</div>
-            <div className="text-gray-700 dark:text-gray-300">{t('verification_rate', locale)}</div>
+            <div className="text-gray-700 dark:text-gray-300">
+              {t('certifications.rate', locale)}
+            </div>
           </div>
         </motion.div>
       </div>
