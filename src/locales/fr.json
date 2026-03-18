@@ -97,11 +97,18 @@
         "description": "Intégration d’un système de géolocalisation et de sécurité embarqué en temps réel."
       },
       {
-        "year": "2025-202X",
-        "title": "Développeur API",
+        "year": "2025 - Présent",
+        "title": "Software Engineer / Développeur API",
         "place": "Mega-Ique Digital",
         "type": "pro",
         "description": "Conception d’une API robuste pour la gestion des produits et commandes."
+      },
+      {
+        "year": "11/2024 - 05/2025",
+        "title": "I. Engineer: Data Engineer (F.O-NOC à MTN)",
+        "place": "MTN (via Mega-Ique Digital)",
+        "type": "pro",
+        "description": "F.O-NOC : Monitoring Wireless/Tx, détection et résolution d'incidents, Troubleshooting et Escalade."
       },
       {
         "year": "2019-2020",
@@ -222,7 +229,10 @@
       "Prisma",
       "Excel",
       "Keycloak",
-      "Agora"
+      "Agora",
+      "Français (Maternel)",
+      "Anglais (Intermédiaire)",
+      "Allemand (Basique)"
     ],
     "frontend": "Frontend",
     "backend": "Backend",
@@ -250,11 +260,32 @@
         "date": "2023 - Présent"
       },
       {
-        "title": "Ingénieur Logiciel (Stage Professionnel)",
+        "title": "Software Engineer / Développeur API",
         "location": "Mega-Ique Digital",
-        "description": "Audit et expertise clientèles. Travail sous environnement Docker et Micro-services. Monitoring et analyse du trafic Wireless/Tx. Investigation et résolution d'incidents.",
-        "icon": "💻",
-        "date": "11/2024 - 05/2025"
+        "description": "Conception et maintenance d'APIs robustes pour la gestion de produits et commandes. Optimisation des processus métier et architectures logicielles.",
+        "icon": "⚙️",
+        "date": "2025 - Présent"
+      },
+      {
+        "title": "I. Engineer: Data Engineer (F.O-NOC à MTN)",
+        "location": "MTN",
+        "description": "F.O-NOC : Monitoring / Surveillance du trafic côté Wireless /Tx. Détection / Analyse / Investigation / Assignation / Fermeture des incidents. Troubleshooting and Escalation Action.",
+        "icon": "📊",
+        "date": "25/11/2024 - 25/05/2025"
+      },
+      {
+        "title": "Développeur Full Stack",
+        "location": "EKOSERX",
+        "description": "Développement d'une plateforme de téléconsultation médicale (API sécurisée, visioconférence, messagerie temps réel, gestion des rendez-vous).",
+        "icon": "🩺",
+        "date": "2022 - 2024"
+      },
+      {
+        "title": "Développeur",
+        "location": "InterPay",
+        "description": "Application de paiement de tickets en ligne avec génération de QR code.",
+        "icon": "🎫",
+        "date": "2019 - 2020"
       },
       {
         "title": "Ingénieur réseau & télécoms",

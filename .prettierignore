@@ -1,0 +1,15 @@
+# Build outputs
+node_modules
+.next
+out
+build
+dist
+
+# Dependencies
+package-lock.json
+
+# Public assets
+public
+
+# Environment files
+.env*
