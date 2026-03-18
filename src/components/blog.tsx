@@ -6,6 +6,7 @@ import { useLocaleContext } from '@/containers/LocaleCtx';
 import { t, tr } from '@/lib/i18n';
 import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
 import OptimizedImage from './optimized-image';
+import ScrollReveal from './scroll-reveal';
 
 const Blog = React.memo(function Blog() {
   const { ref } = useSectionInView('#blog');
@@ -21,7 +22,9 @@ const Blog = React.memo(function Blog() {
         className="max-w-3xl mx-auto text-center mb-16"
       >
         <h2 className="text-3xl md:text-4xl font-bold capitalize mb-4 text-gray-900 dark:text-white">
-          {t('blog.heading', locale)}
+          <ScrollReveal wordClassName="text-gradient font-extrabold">
+            {t('blog.heading', locale)}
+          </ScrollReveal>
         </h2>
         <p className="text-base md:text-lg text-gray-600 dark:text-gray-400">
           {t('blog.subtitle', locale)}
@@ -36,7 +39,7 @@ const Blog = React.memo(function Blog() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 overflow-hidden"
+              className="group glass rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 overflow-hidden"
             >
               {/* Image */}
               <div className="relative h-48 overflow-hidden">

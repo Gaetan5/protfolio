@@ -26,7 +26,9 @@ const Experience = React.memo(function Experience() {
           {t('experience.heading', locale)}
         </span>
         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white tracking-tight">
-          <ScrollReveal>{t('experience.heading', locale)}</ScrollReveal>
+          <ScrollReveal wordClassName="text-gradient font-extrabold">
+            {t('experience.heading', locale)}
+          </ScrollReveal>
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
           {t('experience.subtitle', locale)}

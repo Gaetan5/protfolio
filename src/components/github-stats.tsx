@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useSectionInView } from '@/lib/useInView';
 import { useLocaleContext } from '@/containers/LocaleCtx';
 import { t } from '@/lib/i18n';
@@ -37,20 +38,24 @@ const GitHubStats = React.memo(function GitHubStats() {
             className="space-y-6"
           >
             <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-2 border border-gray-200 dark:border-gray-700 overflow-hidden flex justify-center">
-              <img
+              <Image
                 src={`https://github-readme-stats.vercel.app/api?username=Gaetan5&show_icons=true&theme=${locale === 'fr' ? 'radical' : 'tokyonight'}&hide_border=true&bg_color=00000000`}
                 alt="GitHub Stats"
+                width={495}
+                height={195}
                 className="w-full h-auto max-w-full"
-                loading="lazy"
+                unoptimized
               />
             </div>
 
             <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-2 border border-gray-200 dark:border-gray-700 overflow-hidden flex justify-center">
-              <img
+              <Image
                 src={`https://github-readme-stats.vercel.app/api/top-langs/?username=Gaetan5&layout=compact&theme=${locale === 'fr' ? 'radical' : 'tokyonight'}&hide_border=true&bg_color=00000000`}
                 alt="Top Languages"
+                width={495}
+                height={195}
                 className="w-full h-auto max-w-full"
-                loading="lazy"
+                unoptimized
               />
             </div>
           </motion.div>
@@ -64,11 +69,13 @@ const GitHubStats = React.memo(function GitHubStats() {
             className="space-y-6"
           >
             <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-2 border border-gray-200 dark:border-gray-700 overflow-hidden flex justify-center">
-              <img
+              <Image
                 src={`https://github-readme-streak-stats.herokuapp.com/?user=Gaetan5&theme=${locale === 'fr' ? 'radical' : 'tokyonight'}&hide_border=true&background=00000000`}
                 alt="GitHub Streak"
+                width={495}
+                height={195}
                 className="w-full h-auto max-w-full"
-                loading="lazy"
+                unoptimized
               />
             </div>
 

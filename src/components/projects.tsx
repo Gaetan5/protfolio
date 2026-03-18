@@ -23,7 +23,9 @@ const Projects = React.memo(function Projects() {
         className="max-w-3xl mx-auto text-center mb-16"
       >
         <h2 className="text-3xl md:text-4xl font-bold capitalize mb-4 text-gray-900 dark:text-white">
-          <ScrollReveal>{t('projects.heading', locale)}</ScrollReveal>
+          <ScrollReveal wordClassName="text-gradient font-extrabold">
+            {t('projects.heading', locale)}
+          </ScrollReveal>
         </h2>
         <p className="text-base md:text-lg text-gray-600 dark:text-gray-400">
           {t('projects.subtitle', locale)}
@@ -38,7 +40,7 @@ const Projects = React.memo(function Projects() {
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl hover:shadow-cyan-500/20 dark:hover:shadow-cyan-900/40 transition-all duration-300 overflow-hidden border border-gray-200/50 dark:border-gray-700/50 hover:border-cyan-400/50 dark:hover:border-cyan-600/50 h-full"
+                className="group relative glass rounded-xl shadow-lg hover:shadow-2xl hover:shadow-cyan-500/20 dark:hover:shadow-cyan-900/40 transition-all duration-300 overflow-hidden border border-gray-200/50 dark:border-gray-700/50 hover:border-cyan-400/50 dark:hover:border-cyan-600/50 h-full"
               >
                 {/* Image du projet */}
                 <div className="relative h-48 overflow-hidden">

@@ -5,10 +5,16 @@ import { motion } from 'framer-motion';
 interface ScrollRevealProps {
   children: string;
   className?: string;
+  wordClassName?: string;
   delay?: number;
 }
 
-const ScrollReveal = ({ children, className = '', delay = 0 }: ScrollRevealProps) => {
+const ScrollReveal = ({
+  children,
+  className = '',
+  wordClassName = '',
+  delay = 0,
+}: ScrollRevealProps) => {
   const words = children.split(' ');
 
   const container = {
@@ -53,6 +59,7 @@ const ScrollReveal = ({ children, className = '', delay = 0 }: ScrollRevealProps
         <motion.span
           variants={child}
           style={{ marginRight: '0.25em', display: 'inline-block' }}
+          className={wordClassName}
           key={index}
         >
           {word}

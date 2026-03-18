@@ -44,7 +44,7 @@ const Intro = React.memo(function Intro() {
               duration: 0.2,
             }}
           >
-            <div className="relative w-60 h-60 sm:w-80 sm:h-80 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+            <div className="relative w-60 h-60 sm:w-80 sm:h-80 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-800 ring-4 ring-cyan-400/30 dark:ring-cyan-600/30 shadow-[0_0_50px_rgba(6,182,212,0.3)]">
               <Image
                 src="/InteractPhoto1.jpg"
                 width={400}
@@ -52,7 +52,7 @@ const Intro = React.memo(function Intro() {
                 alt={t('intro.name', locale)}
                 quality={100}
                 priority={true}
-                className="object-cover shadow-xl rounded-full ring-4 ring-cyan-400/60 dark:ring-cyan-600/60 dark:shadow-cyan-900/30"
+                className="object-cover rounded-full group-hover:scale-105 transition-transform duration-500"
               />
             </div>
           </motion.div>
@@ -62,10 +62,8 @@ const Intro = React.memo(function Intro() {
       {/* Titre principal et sous-titre avec gestion du thème */}
       <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce={true}>
         <div className="mb-10 mt-4 px-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-cyan-300 mb-4">
-            <span className="bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent">
-              <ScrollReveal>{t('intro.name', locale)}</ScrollReveal>
-            </span>
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
+            <ScrollReveal wordClassName="text-gradient">{t('intro.name', locale)}</ScrollReveal>
           </h1>
           <div className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-medium mb-4">
             <TypewriterEffect texts={ta('intro.typewriter', locale)} />

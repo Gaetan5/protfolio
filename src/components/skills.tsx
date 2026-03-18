@@ -112,7 +112,9 @@ const Skills = React.memo(function Skills() {
         className="max-w-3xl mx-auto text-center mb-16"
       >
         <h2 className="text-3xl md:text-4xl font-bold capitalize mb-4 text-gray-900 dark:text-white">
-          <ScrollReveal>{t('skills.heading', locale)}</ScrollReveal>
+          <ScrollReveal wordClassName="text-gradient font-extrabold">
+            {t('skills.heading', locale)}
+          </ScrollReveal>
         </h2>
         <p className="text-base md:text-lg text-gray-600 dark:text-gray-400">
           {t('skills.subtitle', locale)}
@@ -151,7 +153,9 @@ const Skills = React.memo(function Skills() {
         className="max-w-4xl mx-auto mt-16 px-4"
       >
         <h3 className="text-2xl font-semibold text-center mb-8 text-gray-900 dark:text-white">
-          <ScrollReveal delay={0.2}>{t('skills.expertise', locale)}</ScrollReveal>
+          <ScrollReveal delay={0.2} wordClassName="text-gradient">
+            {t('skills.expertise', locale)}
+          </ScrollReveal>
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div className="text-center p-6 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 rounded-xl">

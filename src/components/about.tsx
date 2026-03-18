@@ -86,7 +86,9 @@ const About = React.memo(function About() {
         className="max-w-3xl mx-auto text-center mb-16"
       >
         <h2 className="text-3xl md:text-4xl font-bold capitalize mb-4 text-gray-900 dark:text-white">
-          <ScrollReveal>{t('about.heading', locale)}</ScrollReveal>
+          <ScrollReveal wordClassName="text-gradient font-extrabold">
+            {t('about.heading', locale)}
+          </ScrollReveal>
         </h2>
       </motion.div>
 

@@ -20,7 +20,9 @@ const Contact = React.memo(function Contact() {
     <section ref={ref} id="contact" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
       <div className="max-w-3xl mx-auto text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold capitalize mb-4 text-gray-900 dark:text-white">
-          <ScrollReveal>{t('contact.heading', locale)}</ScrollReveal>
+          <ScrollReveal wordClassName="text-gradient font-extrabold">
+            {t('contact.heading', locale)}
+          </ScrollReveal>
         </h2>
         <p className="text-base md:text-lg text-gray-600 dark:text-gray-400">
           {t('contact.subtitle', locale)}{' '}
