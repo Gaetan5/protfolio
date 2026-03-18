@@ -31,7 +31,6 @@ const Intro = React.memo(function Intro() {
       id="home"
       className="text-center sm:mb-0 min-h-screen py-24 flex flex-col justify-center bg-transparent transition-colors duration-300"
     >
-
       {/* Portrait professionnel animé */}
       <div className="flex items-center justify-center">
         <div className="relative">

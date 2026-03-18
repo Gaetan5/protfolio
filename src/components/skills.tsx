@@ -134,9 +134,7 @@ const Skills = React.memo(function Skills() {
                     <div className="p-3 bg-cyan-100 dark:bg-cyan-900 rounded-full text-cyan-600 dark:text-cyan-400 group-hover:scale-110 transition-transform duration-300">
                       {skillIcons[skill] || <Code className="w-6 h-6" />}
                     </div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white text-sm">
-                      {skill}
-                    </h3>
+                    <h3 className="font-semibold text-gray-900 dark:text-white text-sm">{skill}</h3>
                   </div>
                 </div>
               </motion.div>

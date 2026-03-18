@@ -47,10 +47,7 @@ const Footer = React.memo(function Footer() {
             >
               {t('intro.name', locale)}
             </h3>
-            <p
-              className="text-gray-600 dark:text-gray-300 text-sm mb-4"
-              suppressHydrationWarning
-            >
+            <p className="text-gray-600 dark:text-gray-300 text-sm mb-4" suppressHydrationWarning>
               {t('intro.title', locale)}
             </p>
             <p
@@ -173,10 +170,7 @@ const Footer = React.memo(function Footer() {
           <p className="text-sm text-gray-500 dark:text-gray-400" suppressHydrationWarning>
             {t('footer.rights', locale)}
           </p>
-          <p
-            className="text-xs text-gray-400 dark:text-gray-500 mt-2"
-            suppressHydrationWarning
-          >
+          <p className="text-xs text-gray-400 dark:text-gray-500 mt-2" suppressHydrationWarning>
             {t('footer.developer', locale)}
           </p>
         </div>

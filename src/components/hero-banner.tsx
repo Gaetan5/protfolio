@@ -35,7 +35,7 @@ const HeroBanner = () => {
           {t('about.job', locale)}
         </motion.p>
       </div>
-      
+
       {/* Abstract overlay to blend with the rest of the site */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-900 to-transparent" />
     </div>

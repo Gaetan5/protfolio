@@ -11,7 +11,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "a11y:audit": "npx axe http://localhost:3000 --exit --tags wcag2a,wcag2aa",
-    "seo": "lighthouse http://localhost:3000 --output html --output-path ./lighthouse-report.html --quiet --chrome-flags=\"--headless\""
+    "seo": "lighthouse http://localhost:3000 --output html --output-path ./lighthouse-report.html --quiet --chrome-flags=\"--headless\"",
+    "analyze": "ANALYZE=true next build --config next.config.analyze.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

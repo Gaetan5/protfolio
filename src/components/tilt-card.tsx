@@ -56,11 +56,12 @@ const TiltCard = ({ children, className = '' }: TiltCardProps) => {
       >
         {children}
       </div>
-      
+
       {/* Glare Effect */}
       <motion.div
         style={{
-          background: 'radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 80%)',
+          background:
+            'radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 80%)',
           opacity: useTransform(mouseXSpring, [-0.5, 0.5], [0, 0.5]),
         }}
         className="absolute inset-0 pointer-events-none rounded-xl"

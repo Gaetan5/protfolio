@@ -1,8 +1,0 @@
-{
-  "scripts": {
-    "analyze": "ANALYZE=true next build --config next.config.analyze.js"
-  },
-  "devDependencies": {
-    "@next/bundle-analyzer": "^13.1.1"
-  }
-}
