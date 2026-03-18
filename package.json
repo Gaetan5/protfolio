@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
-    "@react-email/components": "^0.0.12",
+    "@react-email/components": "^1.0.10",
     "@vercel/analytics": "^1.1.1",
     "axe-core": "^4.8.0",
     "clsx": "^2.1.1",
