@@ -57,10 +57,10 @@ const CyberWaveLayer = ({
     transition={{
       duration,
       repeat: Infinity,
-      ease: 'easeInOut',
+      ease: 'linear' /* Linear est plus fluide pour des boucles infinies de vagues */,
       delay: delay > 0 ? delay : 0,
     }}
-    className={`absolute left-0 w-[200%] h-[100vh] min-h-[600px] pointer-events-none origin-top ${className}`}
+    className={`absolute left-0 w-[200%] h-[100vh] min-h-[600px] pointer-events-none origin-top will-change-transform ${className}`}
   >
     <svg viewBox="0 0 1200 600" preserveAspectRatio="none" className="w-full h-full">
       <defs>
@@ -69,30 +69,31 @@ const CyberWaveLayer = ({
           <stop offset="50%" stopColor="currentColor" stopOpacity="0.4" />
           <stop offset="100%" stopColor="currentColor" stopOpacity="0.0" />
         </linearGradient>
-        <pattern
-          id={`pattern-${Math.abs(delay)}`}
-          width="200"
-          height="80"
-          patternUnits="userSpaceOnUse"
-        >
-          <text
-            x="10"
-            y="40"
-            fontSize="16"
-            fontFamily="monospace"
-            fill="currentColor"
-            opacity="0.5"
+        {hasBinary && (
+          <pattern
+            id={`pattern-${Math.abs(delay)}`}
+            width="200"
+            height="80"
+            patternUnits="userSpaceOnUse"
           >
-            {hasBinary ? '10110 01101 10101' : ''}
-          </text>
-        </pattern>
+            <text
+              x="10"
+              y="40"
+              fontSize="16"
+              fontFamily="monospace"
+              fill="currentColor"
+              opacity="0.3" /* Réduit l'opacité au lieu de mix-blend-mode plus gourmand */
+            >
+              10110 01101 10101
+            </text>
+          </pattern>
+        )}
       </defs>
 
-      {/* Background Shadow Wave - Starts higher up */}
+      {/* Background Wave - Sans drop-shadow lourd */}
       <path
         d="M0 100 C 300 0 600 200 900 100 C 1200 0 1500 200 1800 100 V 600 H 0 Z"
         fill={`url(#grad-${Math.abs(delay)})`}
-        className="drop-shadow-[0_0_20px_rgba(34,211,238,0.6)]"
       />
 
       {/* Binary Pattern Layer */}
@@ -100,25 +101,16 @@ const CyberWaveLayer = ({
         <path
           d="M0 100 C 300 0 600 200 900 100 C 1200 0 1500 200 1800 100 V 600 H 0 Z"
           fill={`url(#pattern-${Math.abs(delay)})`}
-          className="mix-blend-overlay"
         />
       )}
 
-      {/* Crest Highlight - The glowing Edge */}
+      {/* Crest Highlight */}
       <path
         d="M0 100 C 300 0 600 200 900 100"
         stroke="currentColor"
-        strokeWidth="3"
+        strokeWidth="2"
         fill="none"
-        opacity="0.8"
-        className="blur-[1px]"
-      />
-      <path
-        d="M0 100 C 300 0 600 200 900 100"
-        stroke="white"
-        strokeWidth="1"
-        fill="none"
-        opacity="0.6"
+        opacity="0.5"
       />
     </svg>
   </motion.div>
@@ -140,7 +132,7 @@ const CyberWaves = () => {
       {/* Layered Cyber Waves scaled to fill the entire screen */}
       <CyberWaveLayer
         containerOpacity={0.6}
-        duration={12}
+        duration={20} /* Plus lent pour moins solliciter le CPU */
         className="text-cyan-400"
         yOffset={-10}
         delay={0}
@@ -149,7 +141,7 @@ const CyberWaves = () => {
       />
       <CyberWaveLayer
         containerOpacity={0.4}
-        duration={16}
+        duration={25}
         className="text-blue-400"
         yOffset={10}
         delay={-5}
@@ -158,28 +150,20 @@ const CyberWaves = () => {
       />
       <CyberWaveLayer
         containerOpacity={0.25}
-        duration={22}
+        duration={30}
         className="text-cyan-300"
         yOffset={30}
         delay={-10}
         scaleY={1.2}
       />
-      <CyberWaveLayer
-        containerOpacity={0.15}
-        duration={28}
-        className="text-purple-500"
-        yOffset={50}
-        delay={-15}
-        scaleY={0.9}
-      />
 
-      {/* Full screen floating bits */}
-      {[...Array(50)].map((_, i) => (
-        <BinaryBit key={i} delay={i * 0.3} x={Math.random() * 100} y={Math.random() * 100} />
+      {/* Réduction drastique des noeuds DOM: 15 bits au lieu de 50 */}
+      {[...Array(15)].map((_, i) => (
+        <BinaryBit key={i} delay={i * 0.5} x={Math.random() * 100} y={Math.random() * 100} />
       ))}
 
-      {/* Subtle vertical scanlines to act as a complete background */}
-      <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(rgba(0,255,255,0.1)_1px,transparent_1px)] bg-[length:100%_4px]" />
+      {/* Subtle vertical scanlines */}
+      <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(0,255,255,0.1)_1px,transparent_1px)] bg-[length:100%_4px]" />
     </div>
   );
 };

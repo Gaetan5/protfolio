@@ -8,11 +8,6 @@ const PerformanceMetrics = dynamic(() => import('@/components/performance-metric
   ssr: false,
 });
 
-const AccessibilityManager = dynamic(() => import('@/components/accessibility-manager'), {
-  loading: () => null,
-  ssr: false,
-});
-
 const Loading = dynamic(() => import('@/components/loading'), {
   ssr: false,
 });
@@ -21,7 +16,7 @@ interface ClientFeaturesProps {
   showPerformanceMetrics?: boolean;
 }
 
-const ClientFeatures: React.FC<ClientFeaturesProps> = ({ showPerformanceMetrics = true }) => {
+const ClientFeatures: React.FC<ClientFeaturesProps> = ({ showPerformanceMetrics = false }) => {
   return (
     <>
       {/* Métriques de performance (optionnel) */}
@@ -32,9 +27,6 @@ const ClientFeatures: React.FC<ClientFeaturesProps> = ({ showPerformanceMetrics 
           </div>
         </section>
       )}
-
-      {/* Gestionnaire d'accessibilité */}
-      <AccessibilityManager />
     </>
   );
 };

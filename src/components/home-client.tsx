@@ -83,14 +83,14 @@ export default function HomeClient() {
         {/* À propos */}
         <About />
 
-        {/* Compétences */}
-        <Skills />
+        {/* Expérience */}
+        <Experience />
 
         {/* Projets */}
         <Projects />
 
-        {/* Expérience */}
-        <Experience />
+        {/* Compétences */}
+        <Skills />
 
         {/* Blog */}
         <Blog />
