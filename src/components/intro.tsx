@@ -36,7 +36,8 @@ const Intro = React.memo(function Intro() {
         <div className="relative">
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '100px' }}
             transition={{
               type: 'spring',
               stiffness: 125,
@@ -78,7 +79,8 @@ const Intro = React.memo(function Intro() {
       <motion.div
         className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 text-lg font-medium"
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '100px' }}
         transition={{
           delay: 0.1,
         }}

@@ -15,7 +15,8 @@ const GitHubStats = React.memo(function GitHubStats() {
     <section ref={ref} id="github-stats" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '100px' }}
         transition={{ delay: 0.175 }}
         className="max-w-3xl mx-auto text-center mb-16"
       >

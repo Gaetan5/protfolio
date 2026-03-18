@@ -58,7 +58,8 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
                 className="w-full"
                 key={link.hash}
                 initial={{ y: -100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, margin: '100px' }}
               >
                 <NextLink
                   className={clsx(

@@ -15,7 +15,8 @@ const ExecutiveSummary = React.memo(function ExecutiveSummary() {
     <section ref={ref} id="executive-summary" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '100px' }}
         transition={{ delay: 0.175 }}
         className="max-w-3xl mx-auto text-center mb-16"
       >
@@ -32,7 +33,8 @@ const ExecutiveSummary = React.memo(function ExecutiveSummary() {
           {/* Value Proposition */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '100px' }}
             transition={{ delay: 0.2 }}
             className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-200 dark:border-gray-700"
           >
@@ -68,7 +70,8 @@ const ExecutiveSummary = React.memo(function ExecutiveSummary() {
           {/* Key Achievements */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '100px' }}
             transition={{ delay: 0.4 }}
             className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-200 dark:border-gray-700"
           >
@@ -122,7 +125,8 @@ const ExecutiveSummary = React.memo(function ExecutiveSummary() {
         {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '100px' }}
           transition={{ delay: 0.6 }}
           className="text-center"
         >

@@ -1,9 +1,19 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import CyberWaves from './cyber-waves';
 
 const AnimatedBackground = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <div className="fixed top-0 left-0 w-[100vw] h-[100vh] pointer-events-none -z-[100] overflow-hidden bg-gradient-to-br from-gray-950 via-blue-950 to-gray-950">
       {/* Premium Cyber Wave Background Layer */}

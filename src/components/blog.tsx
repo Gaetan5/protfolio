@@ -17,7 +17,8 @@ const Blog = React.memo(function Blog() {
     <section ref={ref} id="blog" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '100px' }}
         transition={{ delay: 0.175 }}
         className="max-w-3xl mx-auto text-center mb-16"
       >
@@ -37,7 +38,8 @@ const Blog = React.memo(function Blog() {
             <motion.article
               key={article.slug}
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '100px' }}
               transition={{ delay: index * 0.1 }}
               className="group glass rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 overflow-hidden"
             >
@@ -107,7 +109,8 @@ const Blog = React.memo(function Blog() {
         {/* View All Articles Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '100px' }}
           transition={{ delay: 0.5 }}
           className="text-center mt-12"
         >

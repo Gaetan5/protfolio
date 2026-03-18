@@ -18,7 +18,8 @@ const Projects = React.memo(function Projects() {
     <section ref={ref} id="projects" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '100px' }}
         transition={{ delay: 0.175 }}
         className="max-w-3xl mx-auto text-center mb-16"
       >
@@ -38,7 +39,8 @@ const Projects = React.memo(function Projects() {
             <TiltCard key={index} className="h-full">
               <motion.div
                 initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '100px' }}
                 transition={{ delay: index * 0.1 }}
                 className="group relative glass rounded-xl shadow-lg hover:shadow-2xl hover:shadow-cyan-500/20 dark:hover:shadow-cyan-900/40 transition-all duration-300 overflow-hidden border border-gray-200/50 dark:border-gray-700/50 hover:border-cyan-400/50 dark:hover:border-cyan-600/50 h-full"
               >

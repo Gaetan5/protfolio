@@ -17,7 +17,8 @@ const Testimonials = React.memo(function Testimonials() {
     <section ref={ref} id="testimonials" className="scroll-mt-28 mb-28 px-4">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '100px' }}
         transition={{ delay: 0.175 }}
         className="max-w-6xl mx-auto"
       >
@@ -35,7 +36,8 @@ const Testimonials = React.memo(function Testimonials() {
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '100px' }}
               transition={{ delay: index * 0.2 }}
               className="group relative"
             >
@@ -81,7 +83,8 @@ const Testimonials = React.memo(function Testimonials() {
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '100px' }}
           transition={{ delay: 0.8 }}
           className="text-center mt-12"
         >

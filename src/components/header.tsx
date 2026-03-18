@@ -23,7 +23,8 @@ export default function Header({ links }: HeaderProps) {
       <motion.div
         className="flex p-1  rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
         initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, margin: '100px' }}
       >
         <ul className="flex flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500">
           {links.map((link) => (
@@ -31,7 +32,8 @@ export default function Header({ links }: HeaderProps) {
               className="flex items-center justify-center relative"
               key={link.hash}
               initial={{ y: -100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, margin: '100px' }}
             >
               <NextLink
                 className={clsx(

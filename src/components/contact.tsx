@@ -69,7 +69,8 @@ const Contact = React.memo(function Contact() {
           }
         }}
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '100px' }}
         transition={{ delay: 0.175 }}
       >
         <input
@@ -97,7 +98,8 @@ const Contact = React.memo(function Contact() {
       {/* CV Download Section */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '100px' }}
         transition={{ delay: 0.4 }}
         className="mt-16 text-center"
       >

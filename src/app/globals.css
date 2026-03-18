@@ -96,11 +96,11 @@
   transition-duration: 0.01ms !important;
 }
 
-.reduced-motion .motion-safe\:animate-* {
+.reduced-motion [class*='motion-safe:animate-'] {
   animation: none !important;
 }
 
-.reduced-motion .motion-safe\:transition-* {
+.reduced-motion [class*='motion-safe:transition-'] {
   transition: none !important;
 }
 

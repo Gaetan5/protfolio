@@ -107,7 +107,8 @@ const Skills = React.memo(function Skills() {
     >
       <motion.div
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '100px' }}
         transition={{ delay: 0.175 }}
         className="max-w-3xl mx-auto text-center mb-16"
       >
@@ -127,7 +128,8 @@ const Skills = React.memo(function Skills() {
             <TiltCard key={skill} className="h-full">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: '100px' }}
                 transition={{ delay: index * 0.05 }}
                 className="group relative h-full"
               >
@@ -148,7 +150,8 @@ const Skills = React.memo(function Skills() {
       {/* Section expertise */}
       <motion.div
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '100px' }}
         transition={{ delay: 0.5 }}
         className="max-w-4xl mx-auto mt-16 px-4"
       >

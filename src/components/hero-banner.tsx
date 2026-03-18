@@ -20,7 +20,8 @@ const HeroBanner = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-gray-900/10 flex flex-col items-center justify-center text-center px-4">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '100px' }}
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-2xl"
         >
@@ -28,7 +29,8 @@ const HeroBanner = () => {
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '100px' }}
           transition={{ delay: 0.4, duration: 0.8 }}
           className="text-lg md:text-xl text-cyan-200 font-medium drop-shadow-lg"
         >

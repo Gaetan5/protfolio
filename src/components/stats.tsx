@@ -44,7 +44,8 @@ const Stats = React.memo(function Stats() {
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '100px' }}
           transition={{ delay: 0.175 }}
           className="text-center mb-12"
         >
@@ -61,7 +62,8 @@ const Stats = React.memo(function Stats() {
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: '100px' }}
               transition={{ delay: index * 0.1 }}
               className="text-center group"
             >

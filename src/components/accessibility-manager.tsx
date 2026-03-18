@@ -86,7 +86,8 @@ const AccessibilityManager: React.FC<AccessibilityManagerProps> = ({ className =
         {isVisible && (
           <motion.div
             initial={{ opacity: 0, x: 300 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '100px' }}
             exit={{ opacity: 0, x: 300 }}
             className={`fixed top-0 right-0 h-full w-80 bg-white/95 backdrop-blur-md shadow-xl z-40 p-6 overflow-y-auto ${className}`}
           >

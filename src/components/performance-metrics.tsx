@@ -115,7 +115,8 @@ const PerformanceMetrics: React.FC<PerformanceMetricsProps> = ({ className = '' 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '100px' }}
       transition={{ duration: 0.6 }}
       className={`grid grid-cols-1 md:grid-cols-3 gap-4 ${className}`}
     >
@@ -123,7 +124,8 @@ const PerformanceMetrics: React.FC<PerformanceMetricsProps> = ({ className = '' 
         <motion.div
           key={index}
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: '100px' }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
           className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10"
         >

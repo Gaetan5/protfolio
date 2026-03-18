@@ -16,7 +16,8 @@ const Certifications = React.memo(function Certifications() {
     <section ref={ref} id="certifications" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '100px' }}
         transition={{ delay: 0.175 }}
         className="max-w-3xl mx-auto text-center mb-16"
       >
@@ -34,7 +35,8 @@ const Certifications = React.memo(function Certifications() {
             <motion.div
               key={cert.credentialId}
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '100px' }}
               transition={{ delay: index * 0.1 }}
               className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 p-6 flex flex-col items-center"
             >
@@ -86,7 +88,8 @@ const Certifications = React.memo(function Certifications() {
         {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '100px' }}
           transition={{ delay: 0.5 }}
           className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8"
         >
