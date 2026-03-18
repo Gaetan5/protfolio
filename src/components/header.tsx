@@ -54,9 +54,7 @@ export default function Header({ links }: HeaderProps) {
                   />
                 )}
                 {/* Affichage dynamique selon la langue */}
-                {typeof window !== 'undefined' && window.localStorage.getItem('locale') === 'fr'
-                  ? link.nameFr
-                  : link.nameEng}
+                {locale === 'fr' ? link.nameFr : link.nameEng}
               </NextLink>
             </motion.li>
           ))}

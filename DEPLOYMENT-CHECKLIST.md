@@ -316,6 +316,7 @@
 ### **Option 1 : Vercel (Recommandé)**
 
 1. **Connecter le repository GitHub**
+
    ```bash
    # Le repository est déjà sur GitHub
    git push origin master
@@ -361,6 +362,7 @@ docker run -p 3000:3000 portfolio
 ## 📊 **Métriques Attendues en Production**
 
 ### **Performance**
+
 ```
 Lighthouse Score : 95+
 First Contentful Paint : < 1.5s
@@ -370,6 +372,7 @@ Cumulative Layout Shift : < 0.1
 ```
 
 ### **SEO**
+
 ```
 SEO Score : 100
 Accessibility Score : 95+
@@ -377,6 +380,7 @@ Best Practices : 100
 ```
 
 ### **Bundle Size**
+
 ```
 First Load JS : 102 kB
 Page Size : ~1.93 kB
@@ -389,21 +393,21 @@ Total Assets : < 500 kB
 
 ### **Checklist Globale**
 
-| Catégorie | Items | Validés | Status |
-|-----------|-------|---------|--------|
-| **Build** | 5 | 5 | ✅ 100% |
-| **Configuration** | 2 | 2 | ✅ 100% |
-| **Variables Env** | 4 | 4 | ✅ 100% |
-| **Traductions** | 12 | 12 | ✅ 100% |
-| **Assets** | 3 | 3 | ✅ 100% |
-| **UI/UX** | 4 | 4 | ✅ 100% |
-| **Fonctionnalités** | 4 | 4 | ✅ 100% |
-| **Performance** | 2 | 2 | ✅ 100% |
-| **SEO** | 4 | 4 | ✅ 100% |
-| **Sécurité** | 3 | 3 | ✅ 100% |
-| **Documentation** | 3 | 3 | ✅ 100% |
-| **Git** | 2 | 2 | ✅ 100% |
-| **Tests** | 2 | 1 | ⚠️ 50% |
+| Catégorie           | Items | Validés | Status  |
+| ------------------- | ----- | ------- | ------- |
+| **Build**           | 5     | 5       | ✅ 100% |
+| **Configuration**   | 2     | 2       | ✅ 100% |
+| **Variables Env**   | 4     | 4       | ✅ 100% |
+| **Traductions**     | 12    | 12      | ✅ 100% |
+| **Assets**          | 3     | 3       | ✅ 100% |
+| **UI/UX**           | 4     | 4       | ✅ 100% |
+| **Fonctionnalités** | 4     | 4       | ✅ 100% |
+| **Performance**     | 2     | 2       | ✅ 100% |
+| **SEO**             | 4     | 4       | ✅ 100% |
+| **Sécurité**        | 3     | 3       | ✅ 100% |
+| **Documentation**   | 3     | 3       | ✅ 100% |
+| **Git**             | 2     | 2       | ✅ 100% |
+| **Tests**           | 2     | 1       | ⚠️ 50%  |
 
 **TOTAL : 50/51 (98%)** ✅
 

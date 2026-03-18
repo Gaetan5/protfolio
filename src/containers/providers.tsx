@@ -4,7 +4,7 @@ import ActiveSectionContextProvider from './active-section';
 import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from 'react-hot-toast';
 import dynamic from 'next/dynamic';
-import ThemeContextProvider from './Theme-context';
+import ThemeContextProvider from './theme-context';
 import { LocaleProvider } from './LocaleCtx';
 
 type ProvidersProps = {

@@ -3,7 +3,7 @@ import { Sora } from 'next/font/google';
 import './globals.css';
 import Providers from '@/containers/providers';
 import Navbar from '@/components/navbar';
-import ThemeController from '@/components/theme-controlle';
+import ThemeController from '@/components/theme-controller';
 import { defaultMeta } from './seo';
 import { LocaleProvider } from '@/containers/LocaleCtx';
 import DebugManager from '@/components/debug-manager';

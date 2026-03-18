@@ -20,7 +20,7 @@ jest.mock('next/image', () => ({
   __esModule: true,
   default: ({ priority, fill, ...props }) => {
     // eslint-disable-next-line @next/next/no-img-element
-    return <img {...props} />;
+    return <img alt="" {...props} />;
   },
 }));
 
@@ -33,20 +33,141 @@ jest.mock('react-dom', () => ({
 // Mock framer-motion
 jest.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, whileInView, whileHover, whileTap, initial, animate, transition, ...props }) => <div {...props}>{children}</div>,
-    section: ({ children, whileInView, whileHover, whileTap, initial, animate, transition, ...props }) => <section {...props}>{children}</section>,
-    button: ({ children, whileInView, whileHover, whileTap, initial, animate, transition, ...props }) => <button {...props}>{children}</button>,
-    span: ({ children, whileInView, whileHover, whileTap, initial, animate, transition, ...props }) => <span {...props}>{children}</span>,
-    article: ({ children, whileInView, whileHover, whileTap, initial, animate, transition, ...props }) => <article {...props}>{children}</article>,
-    form: ({ children, whileInView, whileHover, whileTap, initial, animate, transition, action, ...props }) => <form {...props}>{children}</form>,
-    h1: ({ children, whileInView, whileHover, whileTap, initial, animate, transition, ...props }) => <h1 {...props}>{children}</h1>,
-    h2: ({ children, whileInView, whileHover, whileTap, initial, animate, transition, ...props }) => <h2 {...props}>{children}</h2>,
-    h3: ({ children, whileInView, whileHover, whileTap, initial, animate, transition, ...props }) => <h3 {...props}>{children}</h3>,
-    p: ({ children, whileInView, whileHover, whileTap, initial, animate, transition, ...props }) => <p {...props}>{children}</p>,
-    ul: ({ children, whileInView, whileHover, whileTap, initial, animate, transition, ...props }) => <ul {...props}>{children}</ul>,
-    li: ({ children, whileInView, whileHover, whileTap, initial, animate, transition, ...props }) => <li {...props}>{children}</li>,
-    a: ({ children, whileInView, whileHover, whileTap, initial, animate, transition, ...props }) => <a {...props}>{children}</a>,
-    img: ({ whileInView, whileHover, whileTap, initial, animate, transition, ...props }) => <img {...props} />,
+    div: ({
+      children,
+      whileInView,
+      whileHover,
+      whileTap,
+      initial,
+      animate,
+      transition,
+      ...props
+    }) => <div {...props}>{children}</div>,
+    section: ({
+      children,
+      whileInView,
+      whileHover,
+      whileTap,
+      initial,
+      animate,
+      transition,
+      ...props
+    }) => <section {...props}>{children}</section>,
+    button: ({
+      children,
+      whileInView,
+      whileHover,
+      whileTap,
+      initial,
+      animate,
+      transition,
+      ...props
+    }) => <button {...props}>{children}</button>,
+    span: ({
+      children,
+      whileInView,
+      whileHover,
+      whileTap,
+      initial,
+      animate,
+      transition,
+      ...props
+    }) => <span {...props}>{children}</span>,
+    article: ({
+      children,
+      whileInView,
+      whileHover,
+      whileTap,
+      initial,
+      animate,
+      transition,
+      ...props
+    }) => <article {...props}>{children}</article>,
+    form: ({
+      children,
+      whileInView,
+      whileHover,
+      whileTap,
+      initial,
+      animate,
+      transition,
+      action,
+      ...props
+    }) => <form {...props}>{children}</form>,
+    h1: ({
+      children,
+      whileInView,
+      whileHover,
+      whileTap,
+      initial,
+      animate,
+      transition,
+      ...props
+    }) => <h1 {...props}>{children}</h1>,
+    h2: ({
+      children,
+      whileInView,
+      whileHover,
+      whileTap,
+      initial,
+      animate,
+      transition,
+      ...props
+    }) => <h2 {...props}>{children}</h2>,
+    h3: ({
+      children,
+      whileInView,
+      whileHover,
+      whileTap,
+      initial,
+      animate,
+      transition,
+      ...props
+    }) => <h3 {...props}>{children}</h3>,
+    p: ({
+      children,
+      whileInView,
+      whileHover,
+      whileTap,
+      initial,
+      animate,
+      transition,
+      ...props
+    }) => <p {...props}>{children}</p>,
+    ul: ({
+      children,
+      whileInView,
+      whileHover,
+      whileTap,
+      initial,
+      animate,
+      transition,
+      ...props
+    }) => <ul {...props}>{children}</ul>,
+    li: ({
+      children,
+      whileInView,
+      whileHover,
+      whileTap,
+      initial,
+      animate,
+      transition,
+      ...props
+    }) => <li {...props}>{children}</li>,
+    a: ({
+      children,
+      whileInView,
+      whileHover,
+      whileTap,
+      initial,
+      animate,
+      transition,
+      ...props
+    }) => <a {...props}>{children}</a>,
+    img: ({ whileInView, whileHover, whileTap, initial, animate, transition, ...props }) => (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img alt="" {...props} />
+    ),
   },
   AnimatePresence: ({ children }) => children,
 }));

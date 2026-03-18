@@ -2,7 +2,7 @@ import React from 'react';
 import { render as originalRender, screen, waitFor } from '@testing-library/react';
 import { LocaleProvider } from '@/containers/LocaleCtx';
 import ActiveSectionContextProvider from '@/containers/active-section';
-import ThemeContextProvider from '@/containers/Theme-context';
+import ThemeContextProvider from '@/containers/theme-context';
 
 // Wrapper personnalisé avec tous les providers
 const AllTheProviders: React.FC<{ children: React.ReactNode }> = ({ children }) => {
