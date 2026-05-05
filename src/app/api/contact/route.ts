@@ -28,10 +28,8 @@ export async function POST(request: Request) {
         user: process.env.EMAIL_USER?.trim(),
         pass: process.env.EMAIL_PASS?.trim(),
       },
-      // Force IPv4 (important pour Render)
-      // @ts-ignore
       family: 4,
-    });
+    } as any);
 
     // Vérification de la connexion avant l'envoi
     try {
