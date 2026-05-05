@@ -15,6 +15,8 @@ const Contact = React.memo(function Contact() {
   const { ref } = useSectionInView('#contact');
   const { locale } = useLocaleContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
   return (
     <section ref={ref} id="contact" className="scroll-mt-28 mb-28 max-w-7xl mx-auto px-4">
@@ -40,25 +42,27 @@ const Contact = React.memo(function Contact() {
         className="mt-16 flex flex-col max-w-4xl mx-auto space-y-6"
         onSubmit={async (e) => {
           e.preventDefault();
-          const form = e.currentTarget;
-          setIsSubmitting(true);
+          
+          if (!email || !message) {
+            toast.error(t('common.error', locale));
+            return;
+          }
 
-          const formData = new FormData(form);
-          const email = formData.get('senderEmail') as string;
-          const message = formData.get('message') as string;
+          setIsSubmitting(true);
 
           try {
             const response = await fetch('/api/contact', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ email, message }),
+              body: JSON.stringify({ email: email.trim(), message: message.trim() }),
             });
 
             const data = await response.json();
 
             if (response.ok) {
               toast.success(t('common.success', locale));
-              form.reset();
+              setEmail('');
+              setMessage('');
             } else {
               toast.error(data.error || t('common.error', locale));
             }
@@ -83,6 +87,8 @@ const Contact = React.memo(function Contact() {
             maxLength={500}
             placeholder={t('contact.email_placeholder', locale)}
             disabled={isSubmitting}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-600 scale-x-0 group-focus-within:scale-x-100 transition-transform duration-500 rounded-full" />
         </div>
@@ -95,6 +101,8 @@ const Contact = React.memo(function Contact() {
             required
             maxLength={5000}
             disabled={isSubmitting}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           />
           <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-600 scale-x-0 group-focus-within:scale-x-100 transition-transform duration-500 rounded-full" />
         </div>

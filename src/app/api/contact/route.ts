@@ -6,8 +6,11 @@ export async function POST(request: Request) {
     const { email, message } = await request.json();
 
     // Validation
-    if (!email || !message) {
-      return NextResponse.json({ error: 'Email et message requis' }, { status: 400 });
+    if (!email) {
+      return NextResponse.json({ error: "L'adresse email est manquante" }, { status: 400 });
+    }
+    if (!message) {
+      return NextResponse.json({ error: "Le message est vide" }, { status: 400 });
     }
 
     // Validation email format
