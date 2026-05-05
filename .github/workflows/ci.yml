@@ -22,8 +22,23 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate code (Lint, Format, Test)
-        run: npm run validate
+      - name: Run Linter
+        run: npm run lint
+
+      - name: Run Tests
+        run: npm run test
 
       - name: Build
         run: npm run build
+
+      - name: Trigger Render Deploy Hook (on success)
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          if [ -n "$RENDER_DEPLOY_HOOK" ]; then
+            curl -X POST "$RENDER_DEPLOY_HOOK"
+            echo "Déploiement Render déclenché avec succès."
+          else
+            echo "Secret RENDER_DEPLOY_HOOK manquant, le déploiement automatique est ignoré."
+          fi

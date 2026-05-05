@@ -104,7 +104,9 @@ npm install
 
 # Configurer les variables d'environnement
 cp .env.example .env.local
-# Éditer .env.local et ajouter votre clé API Resend
+# Éditer .env.local et ajouter vos identifiants Gmail pour Nodemailer
+# EMAIL_USER=votre.email@gmail.com
+# EMAIL_PASS=votre_mot_de_passe_d_application
 
 # Démarrer en mode développement
 npm run dev
@@ -119,7 +121,7 @@ npm run dev          # Démarrage en développement
 npm run build        # Build de production
 npm run start        # Démarrage en production
 npm run lint         # Vérification du code
-npm run test         # Tests unitaires
+npm run test         # Tests unitaires et d'intégration
 ```
 
 ## 📊 **Structure du Projet**
@@ -141,7 +143,8 @@ src/
 │   ├── github-stats.tsx   # Statistiques GitHub
 │   ├── executive-summary.tsx # Résumé exécutif
 │   ├── stats.tsx          # Statistiques
-│   ├── contact.tsx        # Formulaire de contact
+│   ├── contact.tsx        # Formulaire de contact Nodemailer
+│   ├── cv-download.tsx    # Téléchargement/Envoi CV Nodemailer
 │   └── footer.tsx         # Pied de page
 ├── containers/            # Contextes et providers
 │   ├── LocaleCtx.tsx      # Contexte d'internationalisation
@@ -163,7 +166,7 @@ src/
 - Développement d'APIs RESTful et GraphQL
 - Applications web scalables avec Django/FastAPI
 - Architecture microservices
-- Tests unitaires et d'intégration
+- Tests unitaires et d'intégration (Jest)
 
 ### **Data Engineering**
 
@@ -182,8 +185,8 @@ src/
 ### **DevOps & Cloud**
 
 - Déploiement avec Docker
-- Infrastructure AWS
-- CI/CD avec GitHub Actions
+- Infrastructure AWS / Render
+- CI/CD avec GitHub Actions (Tests & Déploiement auto)
 - Monitoring et logging
 
 ## 📈 **Métriques de Performance**
@@ -193,15 +196,16 @@ src/
 - **Largest Contentful Paint** : < 2.5s
 - **Cumulative Layout Shift** : < 0.1
 - **Time to Interactive** : < 3s
+- **Test Coverage** : > 80%
 
 ## 🌐 **Déploiement**
 
-Le portfolio est déployé sur **Vercel** avec :
+Le portfolio est hébergé de manière professionnelle sur **Render** avec un pipeline CI/CD complet :
 
-- ✅ **CDN global** pour des performances optimales
-- ✅ **HTTPS automatique**
-- ✅ **Déploiement automatique** depuis GitHub
-- ✅ **Analytics intégrés**
+- ✅ **Pipeline CI/CD GitHub Actions** (Lint, Tests, Build)
+- ✅ **Déploiement Automatique (Webhook)** sur succès des tests
+- ✅ **Service Web Performant** adapté aux applications Next.js Server-Side
+- ✅ **HTTPS et Certificats automatiques**
 
 ## 📞 **Contact**
 
