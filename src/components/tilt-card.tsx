@@ -49,6 +49,7 @@ const TiltCard = ({ children, className = '' }: TiltCardProps) => {
       className={`relative ${className}`}
     >
       <div
+        className="h-full w-full"
         style={{
           transform: 'translateZ(50px)',
           transformStyle: 'preserve-3d',

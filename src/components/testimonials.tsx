@@ -72,7 +72,22 @@ const Testimonials = React.memo(function Testimonials() {
                     <h4 className="font-semibold text-gray-900 dark:text-white">
                       {testimonial.name}
                     </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{testimonial.role}</p>
+                    <div className="flex items-center gap-2">
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{testimonial.role}</p>
+                      {testimonial.companyLogo && (
+                        <>
+                          <span className="text-gray-300 dark:text-gray-600">|</span>
+                          <div className="relative w-16 h-6">
+                            <Image
+                              src={testimonial.companyLogo}
+                              alt="Company logo"
+                              fill
+                              className="object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                            />
+                          </div>
+                        </>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

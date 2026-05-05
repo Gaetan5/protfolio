@@ -6,6 +6,7 @@ import { useLocaleContext } from '@/containers/LocaleCtx';
 import { t } from '@/lib/i18n';
 import { ArrowRight, Target, Zap, Users, TrendingUp } from 'lucide-react';
 import CVDownload from './cv-download';
+import ScrollReveal from './scroll-reveal';
 
 const ExecutiveSummary = React.memo(function ExecutiveSummary() {
   const { ref } = useSectionInView('#executive-summary');
@@ -20,49 +21,47 @@ const ExecutiveSummary = React.memo(function ExecutiveSummary() {
         transition={{ delay: 0.175 }}
         className="max-w-3xl mx-auto text-center mb-16"
       >
-        <h2 className="text-3xl md:text-4xl font-bold capitalize mb-4 text-gray-900 dark:text-white">
-          {t('executive-summary.heading', locale)}
+        <h2 className="text-4xl md:text-5xl font-black mb-6 text-slate-900 dark:text-white tracking-tight">
+          <ScrollReveal wordClassName="text-gradient font-extrabold">
+            {t('executive-summary.heading', locale)}
+          </ScrollReveal>
         </h2>
-        <p className="text-base md:text-lg text-gray-600 dark:text-gray-400">
+        <p className="text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
           {t('executive-summary.subtitle', locale)}
         </p>
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
           {/* Value Proposition */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '100px' }}
+            viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-200 dark:border-gray-700"
+            className="glass p-10 rounded-3xl border border-white/20 dark:border-white/5 shadow-2xl transition-all duration-500 group"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <Target className="w-8 h-8 text-cyan-600" />
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-4 rounded-2xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 group-hover:scale-110 transition-transform">
+                <Target className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
                 {t('executive-summary.valueProposition', locale)}
               </h3>
             </div>
 
-            <div className="space-y-4 text-gray-700 dark:text-gray-300">
-              <p className="text-lg leading-relaxed">
+            <div className="space-y-6 text-slate-600 dark:text-slate-300">
+              <p className="text-xl leading-relaxed font-bold italic">
                 {t('executive-summary.valuePropositionText', locale)}
               </p>
 
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2">
-                  <ArrowRight className="w-4 h-4 text-cyan-600" />
-                  {t('executive-summary.valuePoint1', locale)}
-                </li>
-                <li className="flex items-center gap-2">
-                  <ArrowRight className="w-4 h-4 text-cyan-600" />
-                  {t('executive-summary.valuePoint2', locale)}
-                </li>
-                <li className="flex items-center gap-2">
-                  <ArrowRight className="w-4 h-4 text-cyan-600" />
-                  {t('executive-summary.valuePoint3', locale)}
-                </li>
+              <ul className="space-y-3">
+                {[1, 2, 3].map((i) => (
+                  <li key={i} className="flex items-center gap-3 font-medium">
+                    <div className="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
+                    {t(`executive-summary.valuePoint${i}`, locale)}
+                  </li>
+                ))}
               </ul>
             </div>
           </motion.div>
@@ -71,74 +70,61 @@ const ExecutiveSummary = React.memo(function ExecutiveSummary() {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '100px' }}
+            viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-gray-200 dark:border-gray-700"
+            className="glass p-10 rounded-3xl border border-white/20 dark:border-white/5 shadow-2xl transition-all duration-500 group"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <TrendingUp className="w-8 h-8 text-green-600" />
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-4 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform">
+                <TrendingUp className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
                 {t('executive-summary.keyAchievements', locale)}
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 gap-4">
-              <div className="flex items-center gap-3 p-3 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg">
-                <Zap className="w-6 h-6 text-cyan-600" />
-                <div>
-                  <div className="font-semibold text-gray-900 dark:text-white">
-                    {t('executive-summary.achievement1Title', locale)}
-                  </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">
-                    {t('executive-summary.achievement1Desc', locale)}
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                <Users className="w-6 h-6 text-green-600" />
-                <div>
-                  <div className="font-semibold text-gray-900 dark:text-white">
-                    {t('executive-summary.achievement2Title', locale)}
-                  </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">
-                    {t('executive-summary.achievement2Desc', locale)}
+            <div className="grid grid-cols-1 gap-6">
+              {[
+                { icon: Zap, color: 'text-cyan-500', bg: 'bg-cyan-500/10', titleKey: 'achievement1Title', descKey: 'achievement1Desc' },
+                { icon: Users, color: 'text-emerald-500', bg: 'bg-emerald-500/10', titleKey: 'achievement2Title', descKey: 'achievement2Desc' },
+                { icon: Target, color: 'text-purple-500', bg: 'bg-purple-500/10', titleKey: 'achievement3Title', descKey: 'achievement3Desc' }
+              ].map((ach, idx) => (
+                <div key={idx} className={`flex items-center gap-5 p-5 rounded-2xl ${ach.bg} border border-white/10 group-hover:translate-x-2 transition-transform duration-300`}>
+                  <ach.icon className={`w-8 h-8 ${ach.color}`} />
+                  <div>
+                    <div className="font-black text-slate-900 dark:text-white tracking-tight">
+                      {t(`executive-summary.${ach.titleKey}`, locale)}
+                    </div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400 font-bold">
+                      {t(`executive-summary.${ach.descKey}`, locale)}
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="flex items-center gap-3 p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-                <Target className="w-6 h-6 text-purple-600" />
-                <div>
-                  <div className="font-semibold text-gray-900 dark:text-white">
-                    {t('executive-summary.achievement3Title', locale)}
-                  </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">
-                    {t('executive-summary.achievement3Desc', locale)}
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </motion.div>
         </div>
 
         {/* Call to Action */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '100px' }}
+          viewport={{ once: true }}
           transition={{ delay: 0.6 }}
           className="text-center"
         >
-          <div className="bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-500 dark:to-blue-500 rounded-xl p-8 text-white">
-            <h3 className="text-2xl font-semibold mb-4">
+          <div className="relative overflow-hidden bg-slate-900 dark:bg-white rounded-3xl p-12 text-white dark:text-slate-900 shadow-2xl">
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/20 to-blue-600/20 opacity-50" />
+            <h3 className="text-3xl font-black mb-4 relative z-10 tracking-tight uppercase">
               {t('executive-summary.ctaTitle', locale)}
             </h3>
-            <p className="text-cyan-100 mb-6 max-w-2xl mx-auto">
+            <p className="text-slate-400 dark:text-slate-500 mb-8 max-w-2xl mx-auto font-bold text-lg relative z-10">
               {t('executive-summary.ctaDescription', locale)}
             </p>
 
-            <CVDownload />
+            <div className="relative z-10">
+              <CVDownload />
+            </div>
           </div>
         </motion.div>
       </div>

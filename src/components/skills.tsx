@@ -6,6 +6,7 @@ import { useLocaleContext } from '@/containers/LocaleCtx';
 import { t, ta, tr } from '@/lib/i18n';
 import TiltCard from './tilt-card';
 import ScrollReveal from './scroll-reveal';
+import TechRadar from './tech-radar';
 import {
   Code,
   Database,
@@ -92,12 +93,64 @@ const skillIcons: { [key: string]: React.ReactNode } = {
   Excel: <BarChart3 className="w-6 h-6" />,
   Keycloak: <Lock className="w-6 h-6" />,
   Agora: <Wifi className="w-6 h-6" />,
+  'PDS (Power Systems)': <Zap className="w-6 h-6" />,
+  'TGBT (Switchboards)': <Settings className="w-6 h-6" />,
+  'Security+': <Shield className="w-6 h-6" />,
+  'ISO 27001': <Lock className="w-6 h-6" />,
+  'Agile/Scrum': <Activity className="w-6 h-6" />,
+  'HSE Management': <Shield className="w-6 h-6" />,
 };
 
 const Skills = React.memo(function Skills() {
   const { ref } = useSectionInView('#skills');
   const { locale } = useLocaleContext();
   const skills = ta('skills.list', locale);
+  const radarData = tr('skills.radar', locale);
+
+  const categoryStyles: { [key: string]: { bg: string, text: string, shadow: string, border: string, bar: string } } = {
+    software: { 
+      bg: 'bg-[hsl(var(--skill-software)/0.1)]', 
+      text: 'text-[hsl(var(--skill-software))]', 
+      shadow: 'hover:shadow-[hsl(var(--skill-software)/0.2)]',
+      border: 'hover:border-[hsl(var(--skill-software)/0.5)]',
+      bar: 'from-[hsl(var(--skill-software))] to-blue-500'
+    },
+    cloud: { 
+      bg: 'bg-[hsl(var(--skill-cloud)/0.1)]', 
+      text: 'text-[hsl(var(--skill-cloud))]', 
+      shadow: 'hover:shadow-[hsl(var(--skill-cloud)/0.2)]',
+      border: 'hover:border-[hsl(var(--skill-cloud)/0.5)]',
+      bar: 'from-[hsl(var(--skill-cloud))] to-indigo-500'
+    },
+    data: { 
+      bg: 'bg-[hsl(var(--skill-data)/0.1)]', 
+      text: 'text-[hsl(var(--skill-data))]', 
+      shadow: 'hover:shadow-[hsl(var(--skill-data)/0.2)]',
+      border: 'hover:border-[hsl(var(--skill-data)/0.5)]',
+      bar: 'from-[hsl(var(--skill-data))] to-pink-500'
+    },
+    electrical: { 
+      bg: 'bg-[hsl(var(--skill-electrical)/0.1)]', 
+      text: 'text-[hsl(var(--skill-electrical))]', 
+      shadow: 'hover:shadow-[hsl(var(--skill-electrical)/0.2)]',
+      border: 'hover:border-[hsl(var(--skill-electrical)/0.5)]',
+      bar: 'from-[hsl(var(--skill-electrical))] to-teal-500'
+    },
+    security: { 
+      bg: 'bg-[hsl(var(--skill-security)/0.1)]', 
+      text: 'text-[hsl(var(--skill-security))]', 
+      shadow: 'hover:shadow-[hsl(var(--skill-security)/0.2)]',
+      border: 'hover:border-[hsl(var(--skill-security)/0.5)]',
+      bar: 'from-[hsl(var(--skill-security))] to-red-500'
+    },
+    methods: { 
+      bg: 'bg-[hsl(var(--skill-methods)/0.1)]', 
+      text: 'text-[hsl(var(--skill-methods))]', 
+      shadow: 'hover:shadow-[hsl(var(--skill-methods)/0.2)]',
+      border: 'hover:border-[hsl(var(--skill-methods)/0.5)]',
+      bar: 'from-[hsl(var(--skill-methods))] to-orange-500'
+    },
+  };
 
   return (
     <section
@@ -122,28 +175,74 @@ const Skills = React.memo(function Skills() {
         </p>
       </motion.div>
 
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {skills.map((skill: string, index: number) => (
-            <TiltCard key={skill} className="h-full">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: '100px' }}
-                transition={{ delay: index * 0.05 }}
-                className="group relative h-full"
-              >
-                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-cyan-500/20 dark:hover:shadow-cyan-900/40 transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 hover:border-cyan-400/50 dark:hover:border-cyan-600/50 h-full">
-                  <div className="flex flex-col items-center text-center space-y-3">
-                    <div className="p-3 bg-cyan-100 dark:bg-cyan-900 rounded-full text-cyan-600 dark:text-cyan-400 group-hover:scale-110 transition-transform duration-300">
-                      {skillIcons[skill] || <Code className="w-6 h-6" />}
+      {/* Tech Radar Visualization */}
+      {radarData && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="mb-20"
+        >
+          <TechRadar axes={radarData.axes} values={radarData.values} />
+        </motion.div>
+      )}
+
+      <div className="max-w-5xl mx-auto px-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {skills.map((skill: any, index: number) => {
+            const style = categoryStyles[skill.category] || categoryStyles.software;
+            return (
+              <TiltCard key={skill.name} className="h-full">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: '100px' }}
+                  transition={{ delay: index * 0.05 }}
+                  className="group relative h-full"
+                >
+                  <div className={`glass p-5 rounded-2xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 ${style.shadow} ${style.border} h-full flex flex-col justify-between`}>
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className={`p-3 ${style.bg} rounded-2xl ${style.text} group-hover:scale-110 transition-transform duration-300`}>
+                        {skillIcons[skill.name] || <Code className="w-6 h-6" />}
+                      </div>
+                      <div className="space-y-1">
+                        <h3 className="font-bold text-gray-900 dark:text-white text-xs md:text-sm">{skill.name}</h3>
+                        <div className="flex flex-col items-center gap-1.5">
+                          <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${style.bg} ${style.text}`}>
+                            {skill.level}%
+                          </span>
+                          <div className="w-12 h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                            <motion.div 
+                              initial={{ width: 0 }}
+                              whileInView={{ width: `${skill.level}%` }}
+                              className={`h-full bg-gradient-to-r ${style.bar}`}
+                            />
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white text-sm">{skill}</h3>
+                    
+                    {/* Progress Bar */}
+                    <div className="mt-4 w-full h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        transition={{ duration: 1, delay: 0.5 + index * 0.05 }}
+                        className={`h-full bg-gradient-to-r ${
+                          skill.category === 'software' ? 'from-cyan-500 to-blue-500' :
+                          skill.category === 'cloud' ? 'from-blue-500 to-indigo-500' :
+                          skill.category === 'data' ? 'from-purple-500 to-pink-500' :
+                          skill.category === 'electrical' ? 'from-emerald-500 to-teal-500' :
+                          skill.category === 'security' ? 'from-rose-500 to-red-500' :
+                          'from-amber-500 to-orange-500'
+                        }`}
+                      />
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            </TiltCard>
-          ))}
+                </motion.div>
+              </TiltCard>
+            );
+          })}
         </div>
       </div>
 
@@ -160,39 +259,39 @@ const Skills = React.memo(function Skills() {
             {t('skills.expertise', locale)}
           </ScrollReveal>
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div className="text-center p-6 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 rounded-xl">
-            <div className="w-16 h-16 mx-auto mb-4 bg-cyan-100 dark:bg-cyan-900 rounded-full flex items-center justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="group p-8 bg-white/50 dark:bg-gray-800/50 backdrop-blur-xl rounded-3xl border border-gray-200/50 dark:border-gray-700/50 hover:border-cyan-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10">
+            <div className="w-16 h-16 mx-auto mb-6 bg-cyan-100 dark:bg-cyan-900/50 rounded-2xl flex items-center justify-center group-hover:rotate-6 transition-transform duration-300">
               <Code className="w-8 h-8 text-cyan-600 dark:text-cyan-400" />
             </div>
-            <h4 className="font-semibold mb-2 text-gray-900 dark:text-white">
+            <h4 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
               {t('skills.backend', locale)}
             </h4>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
               {t('skills.backend_desc', locale)}
             </p>
           </div>
 
-          <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl">
-            <div className="w-16 h-16 mx-auto mb-4 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center">
-              <Palette className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+          <div className="group p-8 bg-white/50 dark:bg-gray-800/50 backdrop-blur-xl rounded-3xl border border-gray-200/50 dark:border-gray-700/50 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10">
+            <div className="w-16 h-16 mx-auto mb-6 bg-purple-100 dark:bg-purple-900/50 rounded-2xl flex items-center justify-center group-hover:rotate-6 transition-transform duration-300">
+              <Database className="w-8 h-8 text-purple-600 dark:text-purple-400" />
             </div>
-            <h4 className="font-semibold mb-2 text-gray-900 dark:text-white">
+            <h4 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
               {t('skills.design', locale)}
             </h4>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
               {t('skills.design_desc', locale)}
             </p>
           </div>
 
-          <div className="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl">
-            <div className="w-16 h-16 mx-auto mb-4 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
-              <Cpu className="w-8 h-8 text-green-600 dark:text-green-400" />
+          <div className="group p-8 bg-white/50 dark:bg-gray-800/50 backdrop-blur-xl rounded-3xl border border-gray-200/50 dark:border-gray-700/50 hover:border-emerald-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/10">
+            <div className="w-16 h-16 mx-auto mb-6 bg-emerald-100 dark:bg-emerald-900/50 rounded-2xl flex items-center justify-center group-hover:rotate-6 transition-transform duration-300">
+              <Cpu className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
             </div>
-            <h4 className="font-semibold mb-2 text-gray-900 dark:text-white">
+            <h4 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
               {t('skills.iot', locale)}
             </h4>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
               {t('skills.iot_desc', locale)}
             </p>
           </div>

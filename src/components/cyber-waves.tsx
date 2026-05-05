@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '@/containers/theme-context';
 
 const BinaryBit = ({ delay = 0, x = 0, y = 0 }: { delay?: number; x?: number; y?: number }) => {
   const [randomX] = useState(() => (Math.random() - 0.5) * 60);
@@ -117,6 +118,7 @@ const CyberWaveLayer = ({
 );
 
 const CyberWaves = () => {
+  const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -127,43 +129,47 @@ const CyberWaves = () => {
     return null;
   }
 
+  const isDark = theme === 'dark';
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Layered Cyber Waves scaled to fill the entire screen */}
       <CyberWaveLayer
-        containerOpacity={0.6}
-        duration={20} /* Plus lent pour moins solliciter le CPU */
-        className="text-cyan-400"
+        containerOpacity={isDark ? 0.6 : 0.2}
+        duration={20}
+        className={isDark ? 'text-cyan-400' : 'text-slate-300'}
         yOffset={-10}
         delay={0}
-        hasBinary={true}
+        hasBinary={isDark}
         scaleY={1}
       />
       <CyberWaveLayer
-        containerOpacity={0.4}
+        containerOpacity={isDark ? 0.4 : 0.15}
         duration={25}
-        className="text-blue-400"
+        className={isDark ? 'text-blue-400' : 'text-blue-200'}
         yOffset={10}
         delay={-5}
-        hasBinary={true}
+        hasBinary={isDark}
         scaleY={1.1}
       />
       <CyberWaveLayer
-        containerOpacity={0.25}
+        containerOpacity={isDark ? 0.25 : 0.1}
         duration={30}
-        className="text-cyan-300"
+        className={isDark ? 'text-cyan-300' : 'text-cyan-100'}
         yOffset={30}
         delay={-10}
         scaleY={1.2}
       />
 
-      {/* Réduction drastique des noeuds DOM: 15 bits au lieu de 50 */}
-      {[...Array(15)].map((_, i) => (
+      {/* Binary Bits - Only visible in Dark Mode */}
+      {isDark && [...Array(15)].map((_, i) => (
         <BinaryBit key={i} delay={i * 0.5} x={Math.random() * 100} y={Math.random() * 100} />
       ))}
 
-      {/* Subtle vertical scanlines */}
-      <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(0,255,255,0.1)_1px,transparent_1px)] bg-[length:100%_4px]" />
+      {/* Subtle scanlines - Hidden in light mode */}
+      {isDark && (
+        <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(0,255,255,0.1)_1px,transparent_1px)] bg-[length:100%_4px]" />
+      )}
     </div>
   );
 };

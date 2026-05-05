@@ -2,8 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import CyberWaves from './cyber-waves';
+import { useTheme } from '@/containers/theme-context';
 
 const AnimatedBackground = () => {
+  const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -14,12 +16,16 @@ const AnimatedBackground = () => {
     return null;
   }
 
+  const isDark = theme === 'dark';
+
   return (
-    <div className="fixed top-0 left-0 w-[100vw] h-[100vh] pointer-events-none -z-[100] overflow-hidden bg-gradient-to-br from-gray-950 via-blue-950 to-gray-950">
+    <div className={`fixed top-0 left-0 w-[100vw] h-[100vh] pointer-events-none -z-[100] overflow-hidden transition-colors duration-700 ${
+      isDark ? 'bg-gradient-to-br from-gray-950 via-blue-950 to-gray-950' : 'bg-slate-50'
+    }`}>
       {/* Premium Cyber Wave Background Layer */}
       <CyberWaves />
 
-      {/* Blob 1 - Cyber Cyan (Optimisé avec radial-gradient au lieu de blur) */}
+      {/* Blobs animés adaptés au thème */}
       <motion.div
         animate={{
           x: [-20, 120, -20],
@@ -31,10 +37,13 @@ const AnimatedBackground = () => {
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="absolute top-1/4 -left-32 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.15)_0%,transparent_60%)] will-change-transform"
+        className={`absolute top-1/4 -left-32 w-[600px] h-[600px] rounded-full will-change-transform ${
+          isDark 
+            ? 'bg-[radial-gradient(circle,rgba(6,182,212,0.15)_0%,transparent_60%)]' 
+            : 'bg-[radial-gradient(circle,rgba(6,182,212,0.05)_0%,transparent_60%)]'
+        }`}
       />
 
-      {/* Blob 2 - Deep Blue (Optimisé) */}
       <motion.div
         animate={{
           x: [20, -120, 20],
@@ -46,29 +55,22 @@ const AnimatedBackground = () => {
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="absolute top-1/2 -right-32 w-[700px] h-[700px] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.12)_0%,transparent_60%)] will-change-transform"
+        className={`absolute top-1/2 -right-32 w-[700px] h-[700px] rounded-full will-change-transform ${
+          isDark 
+            ? 'bg-[radial-gradient(circle,rgba(37,99,235,0.12)_0%,transparent_60%)]' 
+            : 'bg-[radial-gradient(circle,rgba(37,99,235,0.04)_0%,transparent_60%)]'
+        }`}
       />
 
-      {/* Blob 3 - Tech Purple (Optimisé) */}
-      <motion.div
-        animate={{
-          x: [0, 100, 0],
-          y: [0, -150, 0],
-          scale: [1, 1.3, 1],
-        }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-        className="absolute bottom-0 left-1/3 w-[550px] h-[550px] rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.12)_0%,transparent_60%)] will-change-transform"
-      />
+      {/* Dynamic Scanline Effect - Hidden in Light mode for cleaner look */}
+      {isDark && (
+        <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,255,255,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]" />
+      )}
 
-      {/* Dynamic Scanline Effect - Lightweight */}
-      <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,255,255,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]" />
-
-      {/* Fine-grained Star Effect */}
-      <div className="absolute inset-0 opacity-[0.08] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
+      {/* Fine-grained Star Effect - Subtle in Light mode */}
+      <div className={`absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] ${
+        isDark ? 'opacity-[0.08]' : 'opacity-[0.03]'
+      }`} />
     </div>
   );
 };

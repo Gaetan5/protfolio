@@ -18,9 +18,9 @@ import GlowCursor from '@/components/glow-cursor';
 const sora = Sora({
   subsets: ['latin'],
   variable: '--font-sora',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
+  weight: ['400', '600', '700'],
   display: 'swap',
-  preload: false,
+  preload: true,
 });
 
 export const metadata: Metadata = {

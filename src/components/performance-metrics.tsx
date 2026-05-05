@@ -34,43 +34,53 @@ const PerformanceMetrics: React.FC<PerformanceMetricsProps> = ({ className = '' 
 
       if (typeof window !== 'undefined' && 'performance' in window) {
         try {
-          // Vérifier si getEntriesByType est disponible (pas dans jsdom)
-          if (performance.getEntriesByType && typeof performance.getEntriesByType === 'function') {
-            const navigationEntries = performance.getEntriesByType('navigation');
-            if (navigationEntries.length > 0) {
-              const navigation = navigationEntries[0] as PerformanceNavigationTiming;
-              const loadTime = navigation.loadEventEnd - navigation.loadEventStart;
-
-              // Simuler les métriques de mémoire (non disponible dans tous les navigateurs)
-              const memoryUsage = Math.random() * 100;
-              const performanceScore = Math.max(0, 100 - loadTime / 100);
-
-              setMetrics({
-                loadTime: Math.round(loadTime),
-                memoryUsage: Math.round(memoryUsage),
-                performanceScore: Math.round(performanceScore),
-              });
-            }
-          } else {
-            // Fallback pour les navigateurs sans support
-            const loadTime = Math.random() * 2000 + 500; // 500-2500ms
-            const memoryUsage = Math.random() * 100;
-            const performanceScore = Math.max(0, 100 - loadTime / 100);
-
-            setMetrics({
-              loadTime: Math.round(loadTime),
-              memoryUsage: Math.round(memoryUsage),
-              performanceScore: Math.round(performanceScore),
+          // Utilisation de l'API PerformanceObserver pour des mesures précises
+          const observer = new PerformanceObserver((list) => {
+            const entries = list.getEntries();
+            entries.forEach((entry) => {
+              if (entry.entryType === 'navigation') {
+                const navEntry = entry as PerformanceNavigationTiming;
+                setMetrics((prev) => ({
+                  ...prev,
+                  loadTime: Math.round(navEntry.loadEventEnd),
+                  performanceScore: Math.max(
+                    0,
+                    Math.min(100, Math.round(100 - navEntry.loadEventEnd / 50)),
+                  ),
+                }));
+              }
             });
+          });
+
+          observer.observe({ entryTypes: ['navigation'] });
+
+          // Fallback immédiat si l'événement est déjà passé
+          const navEntries = performance.getEntriesByType('navigation');
+          if (navEntries.length > 0) {
+            const navEntry = navEntries[0] as PerformanceNavigationTiming;
+            setMetrics((prev) => ({
+              ...prev,
+              loadTime: Math.round(navEntry.loadEventEnd),
+              performanceScore: Math.max(
+                0,
+                Math.min(100, Math.round(100 - navEntry.loadEventEnd / 50)),
+              ),
+            }));
+          }
+
+          // Simulation de l'usage mémoire (si disponible)
+          if ((performance as any).memory) {
+            setMetrics((prev) => ({
+              ...prev,
+              memoryUsage: Math.round(
+                ((performance as any).memory.usedJSHeapSize /
+                  (performance as any).memory.jsHeapSizeLimit) *
+                  100,
+              ),
+            }));
           }
         } catch (error) {
-          // Gestion d'erreur pour les environnements de test
-          console.warn('Performance metrics not available:', error);
-          setMetrics({
-            loadTime: 1200,
-            memoryUsage: 45,
-            performanceScore: 85,
-          });
+          console.warn('Performance metrics error:', error);
         }
       }
     };

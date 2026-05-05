@@ -21,25 +21,23 @@ export default function Header({ links }: HeaderProps) {
       translate="no"
     >
       <motion.div
-        className="flex p-1  rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
+        className="flex p-1.5 rounded-full border border-white/20 dark:border-white/5 glass shadow-2xl transition-all duration-500"
         initial={{ y: -100, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, margin: '100px' }}
+        animate={{ y: 0, opacity: 1 }}
       >
-        <ul className="flex flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500">
+        <ul className="flex flex-wrap items-center justify-center gap-1 text-sm font-bold tracking-tight text-slate-500">
           {links.map((link) => (
             <motion.li
               className="flex items-center justify-center relative"
               key={link.hash}
               initial={{ y: -100, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, margin: '100px' }}
+              animate={{ y: 0, opacity: 1 }}
             >
               <NextLink
                 className={clsx(
-                  'flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300',
+                  'flex w-full items-center justify-center px-4 py-2 hover:text-slate-900 dark:hover:text-white transition-all duration-300 rounded-full',
                   {
-                    'text-gray-950 dark:text-gray-200': activeSection === link.hash,
+                    'text-slate-900 dark:text-white': activeSection === link.hash,
                   },
                 )}
                 href={link.hash}
@@ -50,7 +48,7 @@ export default function Header({ links }: HeaderProps) {
               >
                 {link.hash === activeSection && (
                   <motion.span
-                    className="bg-gray-100 rounded-full absolute inset-0 -z-10 dark:bg-gray-800"
+                    className="bg-slate-100 dark:bg-slate-800 rounded-full absolute inset-0 -z-10 shadow-sm border border-slate-200 dark:border-slate-700"
                     layoutId="activeSection"
                     transition={{
                       type: 'spring',
@@ -59,7 +57,7 @@ export default function Header({ links }: HeaderProps) {
                     }}
                   />
                 )}
-                <span suppressHydrationWarning>{t(`nav.${link.key}`, locale)}</span>
+                <span suppressHydrationWarning className="relative z-10">{t(`nav.${link.key}`, locale)}</span>
               </NextLink>
             </motion.li>
           ))}

@@ -19,6 +19,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
       <Image
         {...props}
         className={`${className} w-auto h-auto`}
+        style={{ width: 'auto', height: 'auto' }}
         sizes="(max-width: 768px) 120px, 120px"
         alt={props.alt || 'Badge'}
         loading="lazy"

@@ -28,7 +28,7 @@ const GitHubStats = React.memo(function GitHubStats() {
         </p>
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* GitHub Stats Left */}
           <motion.div
@@ -36,26 +36,28 @@ const GitHubStats = React.memo(function GitHubStats() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-8"
           >
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-2 border border-gray-200 dark:border-gray-700 overflow-hidden flex justify-center">
+            <div className="group relative bg-white/5 dark:bg-gray-800/20 backdrop-blur-xl rounded-3xl p-4 border border-white/10 hover:border-cyan-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10 overflow-hidden flex justify-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <Image
-                src={`https://github-readme-stats.vercel.app/api?username=Gaetan5&show_icons=true&theme=${locale === 'fr' ? 'radical' : 'tokyonight'}&hide_border=true&bg_color=00000000`}
+                src="https://github-readme-stats-sigma-five.vercel.app/api?username=Gaetan5&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117"
                 alt="GitHub Stats"
                 width={495}
                 height={195}
-                className="w-full h-auto max-w-full"
+                className="w-full h-auto max-w-full relative z-10"
                 unoptimized
               />
             </div>
 
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-2 border border-gray-200 dark:border-gray-700 overflow-hidden flex justify-center">
+            <div className="group relative bg-white/5 dark:bg-gray-800/20 backdrop-blur-xl rounded-3xl p-4 border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10 overflow-hidden flex justify-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <Image
-                src={`https://github-readme-stats.vercel.app/api/top-langs/?username=Gaetan5&layout=compact&theme=${locale === 'fr' ? 'radical' : 'tokyonight'}&hide_border=true&bg_color=00000000`}
+                src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Gaetan5&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117"
                 alt="Top Languages"
                 width={495}
                 height={195}
-                className="w-full h-auto max-w-full"
+                className="w-full h-auto max-w-full relative z-10"
                 unoptimized
               />
             </div>
@@ -67,20 +69,19 @@ const GitHubStats = React.memo(function GitHubStats() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="space-y-6"
+            className="flex items-stretch"
           >
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-2 border border-gray-200 dark:border-gray-700 overflow-hidden flex justify-center">
+            <div className="group relative w-full bg-white/5 dark:bg-gray-800/20 backdrop-blur-xl rounded-3xl p-4 border border-white/10 hover:border-rose-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-rose-500/10 overflow-hidden flex flex-col justify-center items-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-rose-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <Image
-                src={`https://github-readme-streak-stats.herokuapp.com/?user=Gaetan5&theme=${locale === 'fr' ? 'radical' : 'tokyonight'}&hide_border=true&background=00000000`}
+                src={`https://github-readme-streak-stats.herokuapp.com/?user=Gaetan5&theme=transparent&stroke=f43f5e&fire=f43f5e&ring=f43f5e&sideNums=94a3b8&currStreakNum=94a3b8&currStreakLabel=f43f5e&sideLabels=94a3b8&dates=64748b&hide_border=true`}
                 alt="GitHub Streak"
                 width={495}
                 height={195}
-                className="w-full h-auto max-w-full"
+                className="w-full h-auto max-w-full relative z-10"
                 unoptimized
               />
             </div>
-
-            {/* Vous pouvez ajouter d'autres cartes ici si nécessaire */}
           </motion.div>
         </div>
 

@@ -36,13 +36,13 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
       translate="no"
     >
       <motion.button
-        className="bg-white w-[3rem] h-[3rem] drop-shadow backdrop-blur-[0.5rem] border border-slate-400 dark:border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center dark:bg-gray-950"
+        className="w-[3.5rem] h-[3.5rem] glass border border-white/20 dark:border-white/10 shadow-2xl rounded-2xl flex items-center justify-center"
         variants={menuTrigger}
         initial="visible"
         whileTap="tap"
         whileHover="hover"
       >
-        <Hamburger toggled={isOpen} toggle={setIsOpen} size={20} />
+        <Hamburger toggled={isOpen} toggle={setIsOpen} size={24} color="currentColor" />
       </motion.button>
 
       <AnimatePresence>
@@ -51,24 +51,24 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
             variants={menuList}
             initial="start"
             animate="visible"
-            className=" w-full bg-white drop-shadow  border border-slate-400 dark:border-white border-opacity-60 shadow-2xl rounded-2xl flex flex-col items-center justify-center dark:bg-gray-950 p-1"
+            className="w-full glass border border-white/20 dark:border-white/10 shadow-2xl rounded-3xl flex flex-col items-center justify-center p-2 backdrop-blur-2xl"
           >
             {links.map((link, index) => (
               <motion.div
                 className="w-full"
                 key={link.hash}
-                initial={{ y: -100, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, margin: '100px' }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.05 }}
               >
                 <NextLink
                   className={clsx(
-                    'flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300 cursor-pointer',
+                    'flex w-full items-center justify-center px-4 py-4 text-sm font-black tracking-widest uppercase transition-all duration-300 cursor-pointer',
                     {
-                      'text-gray-950 bg-slate-200 dark:text-gray-200 dark:bg-gray-700 rounded':
+                      'text-cyan-600 bg-cyan-500/10 dark:text-cyan-400 dark:bg-cyan-500/10 rounded-2xl':
                         activeSection === link.hash,
-                      'rounded-t-xl round': index === 0,
-                      'rounded-b-xl round': index === links.length - 1,
+                      'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white':
+                        activeSection !== link.hash,
                     },
                   )}
                   href={link.hash}

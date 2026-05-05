@@ -20,47 +20,44 @@ interface SectionProps {
 
 function Section({ title, children }: SectionProps) {
   return (
-    <div className="mb-8">
-      {/* Titre de section avec gestion du thème */}
-      <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-cyan-200 transition-colors duration-300">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="mb-12 glass p-8 rounded-3xl border border-white/20 dark:border-white/5 shadow-xl transition-all duration-500"
+    >
+      <h3 className="text-2xl font-black mb-6 text-slate-900 dark:text-white flex items-center gap-3">
         <ScrollReveal>{title}</ScrollReveal>
       </h3>
-      {/* Contenu de la section (texte, listes, timeline, etc.) */}
-      <div className="text-gray-700 dark:text-gray-300 space-y-3 transition-colors duration-300">
+      <div className="text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed font-medium">
         {children}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
-// Timeline animée pour expériences et formations
 function Timeline({ locale }: { locale: any }) {
   const timelineData = tr('about.timeline', locale) || [];
 
   return (
-    <div className="relative border-l-2 border-cyan-500 dark:border-cyan-400 pl-8">
-      {/* Chaque étape de la timeline (expérience ou diplôme) */}
+    <div className="relative border-l-4 border-slate-200 dark:border-slate-800 pl-8 ml-2">
       {timelineData.map((item: any, idx: number) => (
         <motion.div
           key={idx}
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ delay: idx * 0.15 }}
-          className="mb-10"
+          transition={{ delay: idx * 0.1 }}
+          className="mb-12 relative"
         >
-          {/* Icône (pro ou académique) */}
-          <div className="absolute -left-4 top-2 w-6 h-6 rounded-full bg-cyan-500 dark:bg-cyan-400 flex items-center justify-center text-white dark:text-gray-900 font-bold shadow dark:shadow-cyan-900/30">
-            {item.type === 'pro' ? '💼' : '🎓'}
-          </div>
-          <div>
-            {/* Année, titre, lieu, description */}
-            <div className="text-sm text-gray-500 dark:text-cyan-300">{item.year}</div>
-            <div className="font-bold text-gray-900 dark:text-cyan-200 transition-colors duration-300">
+          <div className="absolute -left-[42px] top-1 w-5 h-5 rounded-full bg-white dark:bg-slate-950 border-4 border-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.5)] z-10" />
+          <div className="flex flex-col gap-1">
+            <div className="text-xs font-black text-cyan-600 dark:text-cyan-400 uppercase tracking-widest">{item.year}</div>
+            <div className="text-lg font-black text-slate-900 dark:text-white tracking-tight">
               {item.title}
             </div>
-            <div className="italic text-cyan-700 dark:text-cyan-400">{item.place}</div>
+            <div className="text-sm font-bold text-slate-500 dark:text-slate-400 italic mb-2">{item.place}</div>
             {item.description && (
-              <div className="mt-1 text-gray-700 dark:text-gray-300">{item.description}</div>
+              <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{item.description}</div>
             )}
           </div>
         </motion.div>
@@ -94,8 +91,8 @@ const About = React.memo(function About() {
       </motion.div>
 
       {/* Header section : présentation animée et photo */}
-      <header className="text-center mb-12 max-w-3xl mx-auto">
-        <p className="mt-2 text-lg">
+      <header className="text-center mb-16 max-w-3xl mx-auto">
+        <p className="mt-2 text-xl md:text-2xl font-bold text-slate-700 dark:text-slate-300 italic">
           <TypewriterEffect
             texts={[
               t('common.hi', locale),
@@ -106,77 +103,91 @@ const About = React.memo(function About() {
             delay={1200}
           />
         </p>
-        <div className="flex justify-center my-6">
-          <Image
-            src="/profile1.png"
-            width={280}
-            height={280}
-            alt={t('intro.name', locale)}
-            quality={90}
-            loading="lazy"
-            className="rounded-full object-cover shadow-xl ring-4 ring-cyan-400/60 hover:scale-105 transition-transform duration-300"
-          />
+        <div className="flex justify-center my-10">
+          <div className="relative p-2 rounded-full glass border border-white/20 dark:border-white/5 shadow-2xl">
+            <Image
+              src="/InteractPhoto1.jpg"
+              width={220}
+              height={220}
+              style={{ width: 'auto', height: 'auto' }}
+              alt={t('intro.name', locale)}
+              quality={90}
+              loading="lazy"
+              className="rounded-full object-cover ring-4 ring-cyan-500/20 hover:scale-105 transition-transform duration-500"
+            />
+          </div>
         </div>
-        <p className="text-sm text-gray-600 dark:text-gray-400">
-          <span className="bg-cyan-100 dark:bg-cyan-900 px-2 py-1 rounded font-semibold text-cyan-700 dark:text-cyan-300 shadow">
+        <div className="flex justify-center">
+          <span className="inline-block px-4 py-1.5 rounded-2xl bg-cyan-500/10 dark:bg-cyan-900/30 font-black text-xs uppercase tracking-widest text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
             {t('about.job', locale)}
           </span>
-        </p>
+        </div>
       </header>
 
       {/* Main content : sections thématiques */}
-      <article className="max-w-3xl mx-auto space-y-6 text-left">
-        {/* Section présentation professionnelle (HTML depuis la traduction) */}
+      <article className="max-w-4xl mx-auto text-left">
+        {/* Section présentation professionnelle */}
         <Section title={'🎯 ' + t('about.presentation', locale)}>
-          <div dangerouslySetInnerHTML={{ __html: t('about.presentation_pro', locale) }} />
+          <div className="prose dark:prose-invert max-w-none text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.presentation_pro', locale) }} />
         </Section>
 
-        {/* Section "What I Do" (HTML depuis la traduction) */}
+        {/* Workspace Section */}
+        <Section title={'🖥️ Mon Espace d\'Innovation'}>
+          <div className="relative w-full h-[400px] rounded-3xl overflow-hidden shadow-2xl border border-white/20 dark:border-white/5 group">
+            <OptimizedImage
+              src="/assets/projects/about-hero.jpeg"
+              alt="Mon espace de travail"
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-1000"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-8">
+              <p className="text-white text-lg font-black italic tracking-tight">
+                "C'est ici que les idées deviennent des solutions durables."
+              </p>
+            </div>
+          </div>
+        </Section>
+
+        {/* Section "What I Do" */}
         <Section title={'✨ ' + t('about.what_i_do', locale)}>
-          <div dangerouslySetInnerHTML={{ __html: t('about.who_i_am', locale) }} />
+          <div className="prose dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: t('about.who_i_am', locale) }} />
         </Section>
 
         {/* Section stack technique */}
-        <Section title={t('about.tech_stack', locale)}>
-          <div className="flex justify-center">
+        <Section title={'🛠️ ' + t('about.tech_stack', locale)}>
+          <div className="flex justify-center p-6 bg-white/50 dark:bg-slate-900/50 rounded-2xl backdrop-blur-sm border border-white/10">
             <Image
               src="https://skillicons.dev/icons?i=python,java,ts,js,react,nextjs,tailwind,mysql,postgres,linux,figma,raspberrypi"
               alt="Tech Stack"
-              width={400}
-              height={40}
+              width={500}
+              height={50}
+              style={{ width: 'auto', height: 'auto' }}
               className="max-w-full w-auto h-auto"
             />
           </div>
         </Section>
 
         {/* Section projets phares */}
-        <Section title={t('about.featured_projects', locale)}>
-          <div className="flex flex-col md:flex-row md:justify-center gap-6">
+        <Section title={'🚀 ' + t('about.featured_projects', locale)}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {((tr('about.featured_projects_list', locale) as any[]) || []).map(
               (project: any, idx: number) => (
-                <div key={idx} className="flex flex-col items-center">
-                  {project.url ? (
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={project.title}
-                    >
-                      <Image width={80} height={80} src={project.icon} alt={project.title} />
-                    </a>
-                  ) : (
-                    <Image width={80} height={80} src={project.icon} alt={project.title} />
-                  )}
-                  <b>
-                    {project.url ? (
-                      <a href={project.url} target="_blank" rel="noopener noreferrer">
-                        {project.title}
-                      </a>
-                    ) : (
-                      project.title
-                    )}
-                  </b>
-                  <span className="text-sm">{project.description}</span>
+                <div key={idx} className="flex items-center gap-6 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+                  <div className="w-16 h-16 shrink-0 rounded-2xl glass p-2 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Image width={48} height={48} style={{ width: 'auto', height: 'auto' }} src={project.icon} alt={project.title} className="object-contain" />
+                  </div>
+                  <div className="flex flex-col">
+                    <b className="text-lg text-slate-900 dark:text-white">
+                      {project.url ? (
+                        <a href={project.url} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-500 transition-colors">
+                          {project.title}
+                        </a>
+                      ) : (
+                        project.title
+                      )}
+                    </b>
+                    <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">{project.description}</span>
+                  </div>
                 </div>
               ),
             )}
@@ -184,26 +195,30 @@ const About = React.memo(function About() {
         </Section>
 
         {/* Section fun facts */}
-        <Section title={t('about.fun_facts', locale)}>
-          <ul className="list-disc ml-6 space-y-1 text-left">
+        <Section title={'💡 ' + t('about.fun_facts', locale)}>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {ta('about.fun_facts_list', locale).map((fact, idx) => (
-              <li key={idx}>{fact}</li>
+              <li key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/30 text-sm font-medium">
+                <span className="text-cyan-500 mt-1">▹</span>
+                {fact}
+              </li>
             ))}
           </ul>
         </Section>
 
-        {/* Timeline animée (expériences + diplômes) */}
-        <Section title={t('about.experience', locale) + ' & ' + t('about.education', locale)}>
+        {/* Timeline animée */}
+        <Section title={'🏛️ ' + t('about.experience', locale) + ' & ' + t('about.education', locale)}>
           <Timeline locale={locale} />
         </Section>
 
         {/* Bouton de téléchargement du CV */}
-        <div className="my-8 flex flex-col items-center">
+        <div className="my-16 flex flex-col items-center">
           <a
             href={personalInfo.cvPath}
             download={personalInfo.cvFileName}
-            className="inline-block px-6 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-700 dark:bg-cyan-400 dark:text-gray-900 dark:hover:bg-cyan-300 transition"
+            className="group relative px-10 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black uppercase tracking-widest text-sm rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/20 active:scale-95"
           >
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-600 opacity-0 group-hover:opacity-10 transition-opacity" />
             {t('about.cv_download', locale)}
           </a>
         </div>

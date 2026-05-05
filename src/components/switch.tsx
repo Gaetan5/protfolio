@@ -28,15 +28,15 @@ export default function Switch({ activeButton, hiddenButton, setActiveButton }: 
             exit="hidden"
             variants={switchVariants}
             transition={{ duration: 0.3 }}
-            className="hidden md:flex items-center justify-center w-[2rem] h-[2rem] bg-white drop-shadow backdrop-blur-[0.5rem] border border-slate-400 dark:border-white border-opacity-40 shadow-2xl rounded-full dark:bg-gray-950"
+            className="hidden md:flex items-center justify-center w-[2.5rem] h-[2.5rem] glass border border-white/20 dark:border-white/10 shadow-xl rounded-xl"
           >
-            <p className="text-sm font-semibold">{hiddenButton}</p>
+            <div className="text-slate-500 dark:text-slate-400">{hiddenButton}</div>
           </motion.button>
         )}
       </AnimatePresence>
 
       <motion.button
-        className="bg-white w-[3rem] h-[3rem] drop-shadow backdrop-blur-[0.5rem] border border-slate-400 dark:border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center dark:bg-gray-950"
+        className="w-[3.5rem] h-[3.5rem] glass border border-white/20 dark:border-white/10 shadow-2xl rounded-2xl flex items-center justify-center group"
         variants={switchVariants}
         initial="visible"
         whileHover="hover"
@@ -44,7 +44,9 @@ export default function Switch({ activeButton, hiddenButton, setActiveButton }: 
         onMouseLeave={() => setIsHovered(false)}
         onClick={setActiveButton}
       >
-        <p className="font-semibold">{activeButton}</p>
+        <div className="text-slate-900 dark:text-white group-hover:text-cyan-500 transition-colors">
+          {activeButton}
+        </div>
       </motion.button>
     </div>
   );
