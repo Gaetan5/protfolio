@@ -36,8 +36,8 @@ export async function POST(request: Request) {
     } catch (verifyError: any) {
       console.error('Erreur de vérification SMTP:', verifyError);
       return NextResponse.json(
-        { error: "Configuration email invalide", details: verifyError.message },
-        { status: 500 }
+        { error: 'Configuration email invalide', details: verifyError.message },
+        { status: 500 },
       );
     }
 
