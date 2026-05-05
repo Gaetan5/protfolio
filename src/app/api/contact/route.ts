@@ -19,7 +19,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Format email invalide' }, { status: 400 });
     }
 
-    // Configuration du transporteur (Gmail) avec des paramètres explicites et nettoyage
+    // Configuration du transporteur (Gmail) en forçant IPv4 pour éviter ENETUNREACH
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
       port: 465,
@@ -28,6 +28,9 @@ export async function POST(request: Request) {
         user: process.env.EMAIL_USER?.trim(),
         pass: process.env.EMAIL_PASS?.trim(),
       },
+      // Force IPv4 (important pour Render)
+      // @ts-ignore
+      family: 4,
     });
 
     // Vérification de la connexion avant l'envoi
