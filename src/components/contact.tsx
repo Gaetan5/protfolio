@@ -37,12 +37,13 @@ const Contact = React.memo(function Contact() {
       </div>
 
       <motion.form
-        className="mt-10 flex flex-col dark:text-black"
+        className="mt-16 flex flex-col max-w-4xl mx-auto space-y-6"
         onSubmit={async (e) => {
           e.preventDefault();
+          const form = e.currentTarget;
           setIsSubmitting(true);
 
-          const formData = new FormData(e.currentTarget);
+          const formData = new FormData(form);
           const email = formData.get('senderEmail') as string;
           const message = formData.get('message') as string;
 
@@ -57,7 +58,7 @@ const Contact = React.memo(function Contact() {
 
             if (response.ok) {
               toast.success(t('common.success', locale));
-              e.currentTarget.reset();
+              form.reset();
             } else {
               toast.error(data.error || t('common.error', locale));
             }
@@ -70,43 +71,53 @@ const Contact = React.memo(function Contact() {
         }}
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '100px' }}
+        viewport={{ once: true }}
         transition={{ delay: 0.175 }}
       >
-        <input
-          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
-          name="senderEmail"
-          type="email"
-          required
-          maxLength={500}
-          placeholder={t('contact.email_placeholder', locale)}
-          disabled={isSubmitting}
-        />
-        <textarea
-          className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none resize-none"
-          name="message"
-          placeholder={t('contact.message_placeholder', locale)}
-          required
-          maxLength={5000}
-          disabled={isSubmitting}
-        />
-        <SubmitBtn
-          text={isSubmitting ? t('common.sending', locale) : t('contact.submit', locale)}
-        />
+        <div className="group relative">
+          <input
+            className="w-full h-16 px-6 glass rounded-2xl border-white/20 dark:border-white/5 dark:text-white outline-none focus:border-cyan-500/50 transition-all duration-300 placeholder:text-slate-400 dark:placeholder:text-slate-500 font-medium"
+            name="senderEmail"
+            type="email"
+            required
+            maxLength={500}
+            placeholder={t('contact.email_placeholder', locale)}
+            disabled={isSubmitting}
+          />
+          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-600 scale-x-0 group-focus-within:scale-x-100 transition-transform duration-500 rounded-full" />
+        </div>
+
+        <div className="group relative">
+          <textarea
+            className="w-full h-64 p-6 glass rounded-3xl border-white/20 dark:border-white/5 dark:text-white outline-none focus:border-cyan-500/50 transition-all duration-300 placeholder:text-slate-400 dark:placeholder:text-slate-500 font-medium resize-none"
+            name="message"
+            placeholder={t('contact.message_placeholder', locale)}
+            required
+            maxLength={5000}
+            disabled={isSubmitting}
+          />
+          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-600 scale-x-0 group-focus-within:scale-x-100 transition-transform duration-500 rounded-full" />
+        </div>
+
+        <div className="flex justify-center pt-4">
+          <SubmitBtn
+            text={isSubmitting ? t('common.sending', locale) : t('contact.submit', locale)}
+          />
+        </div>
       </motion.form>
 
       {/* CV Download Section */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '100px' }}
+        viewport={{ once: true }}
         transition={{ delay: 0.4 }}
-        className="mt-16 text-center"
+        className="mt-24 text-center glass p-10 rounded-3xl border border-white/20 dark:border-white/5 max-w-4xl mx-auto"
       >
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+        <h3 className="text-3xl font-black text-slate-900 dark:text-white mb-6 tracking-tight">
           {t('contact.cv_download_title', locale)}
         </h3>
-        <p className="text-gray-700 dark:text-gray-300 mb-8">
+        <p className="text-slate-600 dark:text-slate-300 mb-10 max-w-2xl mx-auto font-medium">
           {t('contact.cv_download_description', locale)}
         </p>
         <CVDownload />

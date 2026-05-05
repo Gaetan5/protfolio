@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
-
-const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   try {
@@ -18,44 +16,41 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Format email invalide' }, { status: 400 });
     }
 
-    // Validation longueur
-    if (message.length > 5000) {
-      return NextResponse.json({ error: 'Message trop long' }, { status: 400 });
-    }
+    // Configuration du transporteur (Gmail)
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
 
-    // Vérifier si Resend est configuré
-    if (!resend) {
-      return NextResponse.json(
-        {
-          error:
-            'Service email non configuré. Veuillez contacter directement à gaetan.ekoro@gmail.com',
-        },
-        { status: 503 },
-      );
-    }
-
-    // Envoi de l'email
-    const data = await resend.emails.send({
-      from: 'Portfolio Contact <onboarding@resend.dev>', // Remplacer par votre domaine vérifié
-      to: ['gaetan.ekoro@gmail.com'],
+    // Envoi de l'email à vous-même
+    await transporter.sendMail({
+      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,
       replyTo: email,
-      subject: `Nouveau message de ${email} via Portfolio`,
+      subject: `🚀 Nouveau message de ${email}`,
+      text: `Nouveau message depuis votre portfolio\n\nDe: ${email}\n\nMessage:\n${message}`,
       html: `
-        <h2>Nouveau message depuis votre portfolio</h2>
-        <p><strong>De:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
+        <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+          <h2 style="color: #06b6d4;">Nouveau message depuis votre portfolio</h2>
+          <p><strong>De:</strong> ${email}</p>
+          <div style="background-color: #f9fafb; padding: 15px; border-radius: 8px; margin-top: 10px;">
+            <p style="white-space: pre-wrap;">${message}</p>
+          </div>
+        </div>
       `,
     });
 
     return NextResponse.json(
-      { success: true, message: 'Email envoyé avec succès', data },
+      { success: true, message: 'Email envoyé avec succès' },
       { status: 200 },
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error('Erreur envoi email:', error);
     return NextResponse.json(
-      { error: "Erreur lors de l'envoi de l'email", details: error },
+      { error: "Erreur lors de l'envoi de l'email", details: error.message },
       { status: 500 },
     );
   }
