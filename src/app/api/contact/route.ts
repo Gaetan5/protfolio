@@ -19,14 +19,27 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Format email invalide' }, { status: 400 });
     }
 
-    // Configuration du transporteur (Gmail)
+    // Configuration du transporteur (Gmail) avec des paramètres explicites
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true, // Use SSL
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
     });
+
+    // Vérification de la connexion avant l'envoi
+    try {
+      await transporter.verify();
+    } catch (verifyError: any) {
+      console.error('Erreur de vérification SMTP:', verifyError);
+      return NextResponse.json(
+        { error: "Configuration email invalide", details: verifyError.message },
+        { status: 500 }
+      );
+    }
 
     // Envoi de l'email à vous-même
     await transporter.sendMail({
