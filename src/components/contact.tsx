@@ -42,7 +42,7 @@ const Contact = React.memo(function Contact() {
         className="mt-16 flex flex-col max-w-4xl mx-auto space-y-6"
         onSubmit={async (e) => {
           e.preventDefault();
-          
+
           if (!email || !message) {
             toast.error(t('common.error', locale));
             return;

@@ -10,7 +10,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "L'adresse email est manquante" }, { status: 400 });
     }
     if (!message) {
-      return NextResponse.json({ error: "Le message est vide" }, { status: 400 });
+      return NextResponse.json({ error: 'Le message est vide' }, { status: 400 });
     }
 
     // Validation email format
