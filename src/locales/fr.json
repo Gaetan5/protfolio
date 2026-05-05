@@ -137,31 +137,42 @@
         "title": "INTERACT (Startup)",
         "description": "Écosystème IoT visionnaire pour la digitalisation, la sécurité des données et l’autonomisation technologique. Solution complète pour startups et entreprises.",
         "tags": ["IoT", "Python", "Microcontrôleurs", "Sécurité", "Digitalization"],
-        "imageUrl": "/image2.png"
+        "imageUrl": "/projects/Apercu_interact.png",
+        "logoUrl": "/assets/logos/interact.png",
+        "featured": true
+      },
+      {
+        "title": "YouDI (Enterprise Platform)",
+        "description": "Plateforme d'entreprise industrialisée avec authentification JWT sécurisée, micro-services et pipeline CI/CD automatisé.",
+        "tags": ["Next.js", "Docker", "Node.js", "CI/CD", "PostgreSQL", "JWT"],
+        "imageUrl": "/projects/Apercu_YouDi.png",
+        "featured": true
       },
       {
         "title": "EKOSE-RX (Digital Solution)",
         "description": "Plateforme de téléconsultation avec API sécurisée, visioconférence (Agora), messagerie en temps réel et gestion médicale.",
         "tags": ["Python", "FastAPI", "Agora", "WebRTC", "PostgreSQL", "WebSockets"],
-        "imageUrl": "/image1.png"
+        "imageUrl": "/projects/Apercu_ekose-rx.png",
+        "logoUrl": "/assets/logos/ekose.svg"
       },
       {
         "title": "CoStudia (Digital Solution)",
         "description": "Solution digitale collaborative pour l’éducation et le partage de connaissances.",
         "tags": ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL"],
-        "imageUrl": "/image3.png"
+        "imageUrl": "/assets/projects/sync-tools-hero.png",
+        "logoUrl": "/assets/logos/costudia.png"
       },
       {
         "title": "Geolocation KIT",
         "description": "Intégration d'un système de géolocalisation et de sécurité en temps réel pour véhicules médicalisés.",
         "tags": ["IoT", "GPS", "Python", "Raspberry Pi", "Security"],
-        "imageUrl": "/image4.png"
+        "imageUrl": "/assets/projects/geolocation-hero.png"
       },
       {
         "title": "Synchronization Tools",
         "description": "API robuste pour la synchronisation de données entre plateformes e-commerce (WooCommerce ↔ Odoo) et services tiers.",
         "tags": ["Python", "Django", "REST API", "MySQL", "Automation"],
-        "imageUrl": "/image3.png"
+        "imageUrl": "/assets/projects/costudia-hero.png"
       },
       {
         "title": "Portfolio Professionnel",
@@ -174,76 +185,42 @@
     ]
   },
   "skills": {
-    "heading": "Compétences Techniques",
-    "subtitle": "Un aperçu des technologies et outils que j'utilise pour donner vie aux projets",
+    "heading": "Expertise Technique",
+    "subtitle": "Une synergie unique entre Génie Électrique et Software Engineering pour des solutions industrielles robustes.",
     "list": [
-      "Python",
-      "Django",
-      "FastAPI",
-      "Node.js",
-      "Java",
-      "Spring Boot",
-      "Micro-services",
-      "JavaScript",
-      "TypeScript",
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "PostgreSQL",
-      "MySQL",
-      "MongoDB",
-      "Redis",
-      "Apache Kafka",
-      "Apache Spark",
-      "ELK Stack",
-      "Docker",
-      "Git",
-      "CI/CD",
-      "AWS",
-      "Linux",
-      "CyberSecurity",
-      "CompTIA Security+",
-      "API Pentesting",
-      "Audit Internet-ISMS",
-      "OAuth2",
-      "JWT",
-      "WebRTC",
-      "WebSockets",
-      "REST API",
-      "GraphQL",
-      "Raspberry Pi",
-      "Arduino",
-      "Microcontrôleurs",
-      "GPS",
-      "Sensors",
-      "Monitoring & Supervision",
-      "Pandas",
-      "NumPy",
-      "Matplotlib",
-      "Plotly",
-      "Dash",
-      "Jupyter",
-      "Figma",
-      "Postman",
-      "Swagger",
-      "Prisma",
-      "Excel",
-      "Keycloak",
-      "Agora",
-      "Français (Maternel)",
-      "Anglais (Intermédiaire)",
-      "Allemand (Basique)"
+      { "name": "Next.js", "level": 95, "category": "software" },
+      { "name": "TypeScript", "level": 90, "category": "software" },
+      { "name": "Python", "level": 95, "category": "software" },
+      { "name": "Node.js", "level": 85, "category": "software" },
+      { "name": "FastAPI", "level": 90, "category": "software" },
+      { "name": "Docker", "level": 85, "category": "cloud" },
+      { "name": "Micro-services", "level": 80, "category": "cloud" },
+      { "name": "PostgreSQL", "level": 90, "category": "data" },
+      { "name": "REST API", "level": 95, "category": "software" },
+      { "name": "PDS (Power Systems)", "level": 90, "category": "electrical" },
+      { "name": "TGBT (Switchboards)", "level": 85, "category": "electrical" },
+      { "name": "Security+", "level": 80, "category": "security" },
+      { "name": "ISO 27001", "level": 75, "category": "security" },
+      { "name": "Agile/Scrum", "level": 90, "category": "methods" },
+      { "name": "HSE Management", "level": 85, "category": "methods" }
     ],
-    "frontend": "Frontend",
-    "backend": "Backend",
-    "database": "Base de données",
-    "devops": "DevOps",
-    "tools": "Outils",
-    "expertise": "Domaines d'expertise",
-    "software": "Ingénierie Logicielle",
-    "data": "Ingénierie des Données",
-    "cloud": "Cloud Computing",
-    "ai": "Intelligence Artificielle"
+    "radar": {
+      "axes": [
+        "SOFTWARE ENGINEERING",
+        "DATA ENGINEERING",
+        "ELECTRICAL & POWER",
+        "CLOUD & DEVOPS",
+        "CYBERSECURITY"
+      ],
+      "values": [95, 80, 90, 85, 85]
+    },
+    "expertise": "Expertises Métiers",
+    "backend": "Génie Logiciel & Full Stack",
+    "backend_desc": "Architecture micro-services, APIs REST sécurisées et applications web haute performance avec Next.js et Python.",
+    "design": "Data, Cloud & DevOps",
+    "design_desc": "Gestion de bases de données (SQL/PostgreSQL), conteneurisation Docker et automatisation des déploiements.",
+    "iot": "Génie Électrique & Telecoms",
+    "iot_desc": "Supervision NOC, maintenance d'infrastructures critiques (PDS/TGBT) et réseaux de télécommunication."
   },
   "experience": {
     "heading": "Expérience Professionnelle",
@@ -257,56 +234,64 @@
         "location": "INTERACT",
         "description": "Direction technique et stratégique de l'écosystème INTERACT. Développement de solutions innovantes et impactantes. Projets phares : CoStudia (Éducation), Ekose-RX (Santé), Miss Cameroun Allemagne.",
         "icon": "🚀",
-        "date": "2023 - Présent"
+        "date": "2023 - Présent",
+        "tags": ["Management", "IoT", "Digitalization", "Strategy"]
       },
       {
         "title": "Software Engineer / Développeur API",
         "location": "Mega-Ique Digital",
         "description": "Conception et maintenance d'APIs robustes pour la gestion de produits et commandes. Optimisation des processus métier et architectures logicielles.",
         "icon": "⚙️",
-        "date": "2025 - Présent"
+        "date": "2025 - Présent",
+        "tags": ["Python", "Django", "PostgreSQL", "REST API"]
       },
       {
         "title": "I. Engineer: Data Engineer (F.O-NOC à MTN)",
         "location": "MTN",
         "description": "F.O-NOC : Monitoring / Surveillance du trafic côté Wireless /Tx. Détection / Analyse / Investigation / Assignation / Fermeture des incidents. Troubleshooting and Escalation Action.",
         "icon": "📊",
-        "date": "25/11/2024 - 25/05/2025"
+        "date": "25/11/2024 - 25/05/2025",
+        "tags": ["Data Analysis", "Monitoring", "Wireless", "Troubleshooting"]
       },
       {
         "title": "Développeur Full Stack",
         "location": "EKOSERX",
         "description": "Développement d'une plateforme de téléconsultation médicale (API sécurisée, visioconférence, messagerie temps réel, gestion des rendez-vous).",
         "icon": "🩺",
-        "date": "2022 - 2024"
+        "date": "2022 - 2024",
+        "tags": ["React", "FastAPI", "WebRTC", "Agora", "WebSockets"]
       },
       {
         "title": "Développeur",
         "location": "InterPay",
         "description": "Application de paiement de tickets en ligne avec génération de QR code.",
         "icon": "🎫",
-        "date": "2019 - 2020"
+        "date": "2019 - 2020",
+        "tags": ["JavaScript", "QR Code", "Fintech", "Payment Gateway"]
       },
       {
         "title": "Ingénieur réseau & télécoms",
         "location": "VisionTelecoms",
         "description": "Installation de systèmes SDI et caméras de surveillance. Maintenance et installation réseau (téléphonie, audio, télévision). Installation de baies et locaux techniques.",
         "icon": "🔧",
-        "date": "2022 - 2024"
+        "date": "2022 - 2024",
+        "tags": ["Networking", "Surveillance", "SDI", "Telecom"]
       },
       {
         "title": "Développeur Full-stack (Stage Académique)",
         "location": "PB Telecom",
         "description": "Développement web et mobile. Maintenance informatique. Déploiement et installation de réseaux en environnements professionnels.",
         "icon": "⚙️",
-        "date": "2019 - 2021"
+        "date": "2019 - 2021",
+        "tags": ["Full-stack", "IT Maintenance", "Deployment"]
       },
       {
         "title": "Ingénieur Logiciel & Data (Freelance)",
         "location": "Projets Divers / INTERACT",
         "description": "Développement d'applications robustes, pipelines de données et solutions IoT. Spécialisation en transformation d'idées ambitieuses en solutions durables.",
         "icon": "📊",
-        "date": "2023 - Présent"
+        "date": "2023 - Présent",
+        "tags": ["Freelance", "Python", "Data Engineering", "IoT"]
       }
     ]
   },
@@ -416,7 +401,9 @@
     "download": "Télécharger CV",
     "requestEmail": "Recevoir par Email",
     "emailSubject": "Demande de CV - Gaëtan Ekoro",
-    "emailBody": "Bonjour Gaëtan, j'aimerais recevoir votre CV pour une opportunité de collaboration."
+    "emailBody": "Bonjour Gaëtan, j'aimerais recevoir votre CV pour une opportunité de collaboration.",
+    "success": "CV envoyé avec succès ! 🎉",
+    "sending": "Envoi en cours..."
   },
   "footer": {
     "description": "Data & Software Engineer passionné par la création de solutions digitales innovantes et durables.",
@@ -483,21 +470,24 @@
         "name": "Dr. Marie Kouam",
         "role": "Directrice Médicale, EKOSERX",
         "image": "https://ui-avatars.com/api/?name=Marie+Kouam&background=06b6d4&color=fff&size=128",
-        "content": "Gaetan a développé une plateforme de téléconsultation exceptionnelle. Son expertise technique et sa compréhension des besoins médicaux ont été déterminantes pour notre succès.",
+        "companyLogo": "/assets/logos/ekose.svg",
+        "content": "Gaetan a développé une plateforme de téléconsultation exceptionnelle. Son expertise technique et sa compréhension des besoins médicaux ont été décisives pour notre succès.",
         "rating": 5
       },
       {
         "name": "Jean-Paul Mbida",
         "role": "CEO, Mega-Ique Digital",
         "image": "https://ui-avatars.com/api/?name=Jean+Mbida&background=3b82f6&color=fff&size=128",
-        "content": "L’API de synchronisation WooCommerce-Odoo développée par Gaetan a transformé notre workflow. Performance, fiabilité et support excellent.",
+        "companyLogo": "/assets/logos/partner-generic.svg",
+        "content": "L'API de synchronisation WooCommerce-Odoo développée par Gaetan a transformé notre flux de travail. Performance, fiabilité et un support excellent.",
         "rating": 5
       },
       {
         "name": "Sarah Nkolo",
         "role": "Product Manager, InterPay",
         "image": "https://ui-avatars.com/api/?name=Sarah+Nkolo&background=8b5cf6&color=fff&size=128",
-        "content": "Un développeur passionné et rigoureux. Le système de paiement qu’il a créé est robuste, sécurisé et facile à maintenir. Je recommande vivement !",
+        "companyLogo": "/assets/logos/partner-generic.svg",
+        "content": "Un développeur passionné et rigoureux. Le système de paiement qu'il a conçu est robuste, sécurisé et facile à maintenir. Je le recommande vivement !",
         "rating": 5
       }
     ]
