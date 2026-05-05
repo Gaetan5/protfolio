@@ -57,7 +57,9 @@ export default function Header({ links }: HeaderProps) {
                     }}
                   />
                 )}
-                <span suppressHydrationWarning className="relative z-10">{t(`nav.${link.key}`, locale)}</span>
+                <span suppressHydrationWarning className="relative z-10">
+                  {t(`nav.${link.key}`, locale)}
+                </span>
               </NextLink>
             </motion.li>
           ))}

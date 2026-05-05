@@ -51,7 +51,10 @@ const Footer = React.memo(function Footer() {
             >
               {t('intro.name', locale)}
             </h3>
-            <p className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 text-sm font-black uppercase tracking-widest" suppressHydrationWarning>
+            <p
+              className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 text-sm font-black uppercase tracking-widest"
+              suppressHydrationWarning
+            >
               {t('intro.title', locale)}
             </p>
             <p
@@ -72,7 +75,7 @@ const Footer = React.memo(function Footer() {
                 { hash: '#home', key: 'home' },
                 { hash: '#about', key: 'about' },
                 { hash: '#projects', key: 'projects' },
-                { hash: '#contact', key: 'contact' }
+                { hash: '#contact', key: 'contact' },
               ].map((link) => (
                 <li key={link.hash}>
                   <a
@@ -154,10 +157,16 @@ const Footer = React.memo(function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-slate-200 dark:border-slate-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest" suppressHydrationWarning>
+          <p
+            className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest"
+            suppressHydrationWarning
+          >
             {t('footer.rights', locale)}
           </p>
-          <p className="text-[10px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-[0.2em]" suppressHydrationWarning>
+          <p
+            className="text-[10px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-[0.2em]"
+            suppressHydrationWarning
+          >
             {t('footer.developer', locale)}
           </p>
         </div>

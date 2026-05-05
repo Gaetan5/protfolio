@@ -107,48 +107,50 @@ const Skills = React.memo(function Skills() {
   const skills = ta('skills.list', locale);
   const radarData = tr('skills.radar', locale);
 
-  const categoryStyles: { [key: string]: { bg: string, text: string, shadow: string, border: string, bar: string } } = {
-    software: { 
-      bg: 'bg-[hsl(var(--skill-software)/0.1)]', 
-      text: 'text-[hsl(var(--skill-software))]', 
+  const categoryStyles: {
+    [key: string]: { bg: string; text: string; shadow: string; border: string; bar: string };
+  } = {
+    software: {
+      bg: 'bg-[hsl(var(--skill-software)/0.1)]',
+      text: 'text-[hsl(var(--skill-software))]',
       shadow: 'hover:shadow-[hsl(var(--skill-software)/0.2)]',
       border: 'hover:border-[hsl(var(--skill-software)/0.5)]',
-      bar: 'from-[hsl(var(--skill-software))] to-blue-500'
+      bar: 'from-[hsl(var(--skill-software))] to-blue-500',
     },
-    cloud: { 
-      bg: 'bg-[hsl(var(--skill-cloud)/0.1)]', 
-      text: 'text-[hsl(var(--skill-cloud))]', 
+    cloud: {
+      bg: 'bg-[hsl(var(--skill-cloud)/0.1)]',
+      text: 'text-[hsl(var(--skill-cloud))]',
       shadow: 'hover:shadow-[hsl(var(--skill-cloud)/0.2)]',
       border: 'hover:border-[hsl(var(--skill-cloud)/0.5)]',
-      bar: 'from-[hsl(var(--skill-cloud))] to-indigo-500'
+      bar: 'from-[hsl(var(--skill-cloud))] to-indigo-500',
     },
-    data: { 
-      bg: 'bg-[hsl(var(--skill-data)/0.1)]', 
-      text: 'text-[hsl(var(--skill-data))]', 
+    data: {
+      bg: 'bg-[hsl(var(--skill-data)/0.1)]',
+      text: 'text-[hsl(var(--skill-data))]',
       shadow: 'hover:shadow-[hsl(var(--skill-data)/0.2)]',
       border: 'hover:border-[hsl(var(--skill-data)/0.5)]',
-      bar: 'from-[hsl(var(--skill-data))] to-pink-500'
+      bar: 'from-[hsl(var(--skill-data))] to-pink-500',
     },
-    electrical: { 
-      bg: 'bg-[hsl(var(--skill-electrical)/0.1)]', 
-      text: 'text-[hsl(var(--skill-electrical))]', 
+    electrical: {
+      bg: 'bg-[hsl(var(--skill-electrical)/0.1)]',
+      text: 'text-[hsl(var(--skill-electrical))]',
       shadow: 'hover:shadow-[hsl(var(--skill-electrical)/0.2)]',
       border: 'hover:border-[hsl(var(--skill-electrical)/0.5)]',
-      bar: 'from-[hsl(var(--skill-electrical))] to-teal-500'
+      bar: 'from-[hsl(var(--skill-electrical))] to-teal-500',
     },
-    security: { 
-      bg: 'bg-[hsl(var(--skill-security)/0.1)]', 
-      text: 'text-[hsl(var(--skill-security))]', 
+    security: {
+      bg: 'bg-[hsl(var(--skill-security)/0.1)]',
+      text: 'text-[hsl(var(--skill-security))]',
       shadow: 'hover:shadow-[hsl(var(--skill-security)/0.2)]',
       border: 'hover:border-[hsl(var(--skill-security)/0.5)]',
-      bar: 'from-[hsl(var(--skill-security))] to-red-500'
+      bar: 'from-[hsl(var(--skill-security))] to-red-500',
     },
-    methods: { 
-      bg: 'bg-[hsl(var(--skill-methods)/0.1)]', 
-      text: 'text-[hsl(var(--skill-methods))]', 
+    methods: {
+      bg: 'bg-[hsl(var(--skill-methods)/0.1)]',
+      text: 'text-[hsl(var(--skill-methods))]',
       shadow: 'hover:shadow-[hsl(var(--skill-methods)/0.2)]',
       border: 'hover:border-[hsl(var(--skill-methods)/0.5)]',
-      bar: 'from-[hsl(var(--skill-methods))] to-orange-500'
+      bar: 'from-[hsl(var(--skill-methods))] to-orange-500',
     },
   };
 
@@ -200,19 +202,27 @@ const Skills = React.memo(function Skills() {
                   transition={{ delay: index * 0.05 }}
                   className="group relative h-full"
                 >
-                  <div className={`glass p-5 rounded-2xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 ${style.shadow} ${style.border} h-full flex flex-col justify-between`}>
+                  <div
+                    className={`glass p-5 rounded-2xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 ${style.shadow} ${style.border} h-full flex flex-col justify-between`}
+                  >
                     <div className="flex flex-col items-center text-center space-y-4">
-                      <div className={`p-3 ${style.bg} rounded-2xl ${style.text} group-hover:scale-110 transition-transform duration-300`}>
+                      <div
+                        className={`p-3 ${style.bg} rounded-2xl ${style.text} group-hover:scale-110 transition-transform duration-300`}
+                      >
                         {skillIcons[skill.name] || <Code className="w-6 h-6" />}
                       </div>
                       <div className="space-y-1">
-                        <h3 className="font-bold text-gray-900 dark:text-white text-xs md:text-sm">{skill.name}</h3>
+                        <h3 className="font-bold text-gray-900 dark:text-white text-xs md:text-sm">
+                          {skill.name}
+                        </h3>
                         <div className="flex flex-col items-center gap-1.5">
-                          <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${style.bg} ${style.text}`}>
+                          <span
+                            className={`text-[10px] font-black px-2 py-0.5 rounded-full ${style.bg} ${style.text}`}
+                          >
                             {skill.level}%
                           </span>
                           <div className="w-12 h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                            <motion.div 
+                            <motion.div
                               initial={{ width: 0 }}
                               whileInView={{ width: `${skill.level}%` }}
                               className={`h-full bg-gradient-to-r ${style.bar}`}
@@ -221,7 +231,7 @@ const Skills = React.memo(function Skills() {
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Progress Bar */}
                     <div className="mt-4 w-full h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                       <motion.div
@@ -229,12 +239,17 @@ const Skills = React.memo(function Skills() {
                         whileInView={{ width: `${skill.level}%` }}
                         transition={{ duration: 1, delay: 0.5 + index * 0.05 }}
                         className={`h-full bg-gradient-to-r ${
-                          skill.category === 'software' ? 'from-cyan-500 to-blue-500' :
-                          skill.category === 'cloud' ? 'from-blue-500 to-indigo-500' :
-                          skill.category === 'data' ? 'from-purple-500 to-pink-500' :
-                          skill.category === 'electrical' ? 'from-emerald-500 to-teal-500' :
-                          skill.category === 'security' ? 'from-rose-500 to-red-500' :
-                          'from-amber-500 to-orange-500'
+                          skill.category === 'software'
+                            ? 'from-cyan-500 to-blue-500'
+                            : skill.category === 'cloud'
+                              ? 'from-blue-500 to-indigo-500'
+                              : skill.category === 'data'
+                                ? 'from-purple-500 to-pink-500'
+                                : skill.category === 'electrical'
+                                  ? 'from-emerald-500 to-teal-500'
+                                  : skill.category === 'security'
+                                    ? 'from-rose-500 to-red-500'
+                                    : 'from-amber-500 to-orange-500'
                         }`}
                       />
                     </div>

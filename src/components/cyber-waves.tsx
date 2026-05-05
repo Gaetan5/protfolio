@@ -162,9 +162,10 @@ const CyberWaves = () => {
       />
 
       {/* Binary Bits - Only visible in Dark Mode */}
-      {isDark && [...Array(15)].map((_, i) => (
-        <BinaryBit key={i} delay={i * 0.5} x={Math.random() * 100} y={Math.random() * 100} />
-      ))}
+      {isDark &&
+        [...Array(15)].map((_, i) => (
+          <BinaryBit key={i} delay={i * 0.5} x={Math.random() * 100} y={Math.random() * 100} />
+        ))}
 
       {/* Subtle scanlines - Hidden in light mode */}
       {isDark && (

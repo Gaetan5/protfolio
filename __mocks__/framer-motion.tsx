@@ -5,25 +5,41 @@ const componentCache: Record<string, React.ForwardRefExoticComponent<any>> = {};
 
 const getMotionComponent = (element: string) => {
   if (!componentCache[element]) {
-    componentCache[element] = React.forwardRef(({ children, ...props }: any, ref: any) => {
+    const Component = React.forwardRef(({ children, ...props }: any, ref: any) => {
       // Filtrer les props spécifiques à framer-motion
       const {
-        initial, animate, exit, variants, whileHover, whileTap,
-        whileInView, viewport, transition, layout, layoutId,
-        onViewportEnter, onViewportLeave, drag, dragConstraints,
+        initial,
+        animate,
+        exit,
+        variants,
+        whileHover,
+        whileTap,
+        whileInView,
+        viewport,
+        transition,
+        layout,
+        layoutId,
+        onViewportEnter,
+        onViewportLeave,
+        drag,
+        dragConstraints,
         ...htmlProps
       } = props;
       return React.createElement(element, { ...htmlProps, ref }, children);
     });
-    componentCache[element].displayName = `motion.${element}`;
+    Component.displayName = `motion.${element}`;
+    componentCache[element] = Component;
   }
   return componentCache[element];
 };
 
 // Proxy stable avec cache
-const motion = new Proxy({}, {
-  get: (_target, prop: string) => getMotionComponent(prop),
-});
+const motion = new Proxy(
+  {},
+  {
+    get: (_target, prop: string) => getMotionComponent(prop),
+  },
+);
 
 // Mock de useMotionValue
 const useMotionValue = (initial: any) => ({

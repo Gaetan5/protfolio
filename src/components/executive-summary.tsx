@@ -85,11 +85,32 @@ const ExecutiveSummary = React.memo(function ExecutiveSummary() {
 
             <div className="grid grid-cols-1 gap-6">
               {[
-                { icon: Zap, color: 'text-cyan-500', bg: 'bg-cyan-500/10', titleKey: 'achievement1Title', descKey: 'achievement1Desc' },
-                { icon: Users, color: 'text-emerald-500', bg: 'bg-emerald-500/10', titleKey: 'achievement2Title', descKey: 'achievement2Desc' },
-                { icon: Target, color: 'text-purple-500', bg: 'bg-purple-500/10', titleKey: 'achievement3Title', descKey: 'achievement3Desc' }
+                {
+                  icon: Zap,
+                  color: 'text-cyan-500',
+                  bg: 'bg-cyan-500/10',
+                  titleKey: 'achievement1Title',
+                  descKey: 'achievement1Desc',
+                },
+                {
+                  icon: Users,
+                  color: 'text-emerald-500',
+                  bg: 'bg-emerald-500/10',
+                  titleKey: 'achievement2Title',
+                  descKey: 'achievement2Desc',
+                },
+                {
+                  icon: Target,
+                  color: 'text-purple-500',
+                  bg: 'bg-purple-500/10',
+                  titleKey: 'achievement3Title',
+                  descKey: 'achievement3Desc',
+                },
               ].map((ach, idx) => (
-                <div key={idx} className={`flex items-center gap-5 p-5 rounded-2xl ${ach.bg} border border-white/10 group-hover:translate-x-2 transition-transform duration-300`}>
+                <div
+                  key={idx}
+                  className={`flex items-center gap-5 p-5 rounded-2xl ${ach.bg} border border-white/10 group-hover:translate-x-2 transition-transform duration-300`}
+                >
                   <ach.icon className={`w-8 h-8 ${ach.color}`} />
                   <div>
                     <div className="font-black text-slate-900 dark:text-white tracking-tight">

@@ -20,7 +20,7 @@ interface SectionProps {
 
 function Section({ title, children }: SectionProps) {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -51,13 +51,19 @@ function Timeline({ locale }: { locale: any }) {
         >
           <div className="absolute -left-[42px] top-1 w-5 h-5 rounded-full bg-white dark:bg-slate-950 border-4 border-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.5)] z-10" />
           <div className="flex flex-col gap-1">
-            <div className="text-xs font-black text-cyan-600 dark:text-cyan-400 uppercase tracking-widest">{item.year}</div>
+            <div className="text-xs font-black text-cyan-600 dark:text-cyan-400 uppercase tracking-widest">
+              {item.year}
+            </div>
             <div className="text-lg font-black text-slate-900 dark:text-white tracking-tight">
               {item.title}
             </div>
-            <div className="text-sm font-bold text-slate-500 dark:text-slate-400 italic mb-2">{item.place}</div>
+            <div className="text-sm font-bold text-slate-500 dark:text-slate-400 italic mb-2">
+              {item.place}
+            </div>
             {item.description && (
-              <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{item.description}</div>
+              <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                {item.description}
+              </div>
             )}
           </div>
         </motion.div>
@@ -128,11 +134,14 @@ const About = React.memo(function About() {
       <article className="max-w-4xl mx-auto text-left">
         {/* Section présentation professionnelle */}
         <Section title={'🎯 ' + t('about.presentation', locale)}>
-          <div className="prose dark:prose-invert max-w-none text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.presentation_pro', locale) }} />
+          <div
+            className="prose dark:prose-invert max-w-none text-lg leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: t('about.presentation_pro', locale) }}
+          />
         </Section>
 
         {/* Workspace Section */}
-        <Section title={'🖥️ Mon Espace d\'Innovation'}>
+        <Section title={"🖥️ Mon Espace d'Innovation"}>
           <div className="relative w-full h-[400px] rounded-3xl overflow-hidden shadow-2xl border border-white/20 dark:border-white/5 group">
             <OptimizedImage
               src="/assets/projects/about-hero.jpeg"
@@ -142,7 +151,7 @@ const About = React.memo(function About() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-8">
               <p className="text-white text-lg font-black italic tracking-tight">
-                "C'est ici que les idées deviennent des solutions durables."
+                &quot;C&apos;est ici que les idées deviennent des solutions durables.&quot;
               </p>
             </div>
           </div>
@@ -150,7 +159,10 @@ const About = React.memo(function About() {
 
         {/* Section "What I Do" */}
         <Section title={'✨ ' + t('about.what_i_do', locale)}>
-          <div className="prose dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: t('about.who_i_am', locale) }} />
+          <div
+            className="prose dark:prose-invert max-w-none"
+            dangerouslySetInnerHTML={{ __html: t('about.who_i_am', locale) }}
+          />
         </Section>
 
         {/* Section stack technique */}
@@ -172,21 +184,38 @@ const About = React.memo(function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {((tr('about.featured_projects_list', locale) as any[]) || []).map(
               (project: any, idx: number) => (
-                <div key={idx} className="flex items-center gap-6 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+                <div
+                  key={idx}
+                  className="flex items-center gap-6 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group"
+                >
                   <div className="w-16 h-16 shrink-0 rounded-2xl glass p-2 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Image width={48} height={48} style={{ width: 'auto', height: 'auto' }} src={project.icon} alt={project.title} className="object-contain" />
+                    <Image
+                      width={48}
+                      height={48}
+                      style={{ width: 'auto', height: 'auto' }}
+                      src={project.icon}
+                      alt={project.title}
+                      className="object-contain"
+                    />
                   </div>
                   <div className="flex flex-col">
                     <b className="text-lg text-slate-900 dark:text-white">
                       {project.url ? (
-                        <a href={project.url} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-500 transition-colors">
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-cyan-500 transition-colors"
+                        >
                           {project.title}
                         </a>
                       ) : (
                         project.title
                       )}
                     </b>
-                    <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">{project.description}</span>
+                    <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+                      {project.description}
+                    </span>
                   </div>
                 </div>
               ),
@@ -198,7 +227,10 @@ const About = React.memo(function About() {
         <Section title={'💡 ' + t('about.fun_facts', locale)}>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {ta('about.fun_facts_list', locale).map((fact, idx) => (
-              <li key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/30 text-sm font-medium">
+              <li
+                key={idx}
+                className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/30 text-sm font-medium"
+              >
                 <span className="text-cyan-500 mt-1">▹</span>
                 {fact}
               </li>
@@ -207,7 +239,9 @@ const About = React.memo(function About() {
         </Section>
 
         {/* Timeline animée */}
-        <Section title={'🏛️ ' + t('about.experience', locale) + ' & ' + t('about.education', locale)}>
+        <Section
+          title={'🏛️ ' + t('about.experience', locale) + ' & ' + t('about.education', locale)}
+        >
           <Timeline locale={locale} />
         </Section>
 

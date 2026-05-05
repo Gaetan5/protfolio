@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
     });
 
     const cvPath = path.join(process.cwd(), 'public', 'Gaetan Ekoro CV 1.pdf');
-    
+
     // Vérifier si le fichier existe
     if (!fs.existsSync(cvPath)) {
       console.error('CV file not found at:', cvPath);
@@ -31,12 +31,12 @@ export async function POST(req: NextRequest) {
     const messages = {
       fr: {
         subject: 'Mon CV - Gaëtan Ekoro',
-        text: 'Bonjour,\n\nMerci d\'avoir consulté mon portfolio et d\'avoir téléchargé mon CV. Vous le trouverez en pièce jointe de cet e-mail.\n\nN\'hésitez pas à me recontacter pour toute opportunité.\n\nCordialement,\n\nGaëtan Ekoro',
+        text: "Bonjour,\n\nMerci d'avoir consulté mon portfolio et d'avoir téléchargé mon CV. Vous le trouverez en pièce jointe de cet e-mail.\n\nN'hésitez pas à me recontacter pour toute opportunité.\n\nCordialement,\n\nGaëtan Ekoro",
       },
       en: {
         subject: 'My CV - Gaëtan Ekoro',
         text: 'Hello,\n\nThank you for visiting my portfolio and downloading my CV. You will find it attached to this email.\n\nFeel free to contact me for any opportunities.\n\nBest regards,\n\nGaëtan Ekoro',
-      }
+      },
     };
 
     const currentMessage = messages[locale as keyof typeof messages] || messages.fr;

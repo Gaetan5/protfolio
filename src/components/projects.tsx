@@ -48,8 +48,8 @@ const Projects = React.memo(function Projects() {
               className={`group relative overflow-hidden rounded-3xl border border-slate-200/50 dark:border-slate-800/50 hover:border-cyan-400/50 transition-all duration-500 shadow-xl hover:shadow-cyan-500/10 h-full ${
                 isFeatured
                   ? 'md:col-span-2 md:row-span-2 lg:col-span-3'
-                  : index >= 5 
-                    ? 'md:col-span-2 lg:col-span-3' 
+                  : index >= 5
+                    ? 'md:col-span-2 lg:col-span-3'
                     : 'md:col-span-2 lg:col-span-2'
               }`}
             >
@@ -94,15 +94,20 @@ const Projects = React.memo(function Projects() {
                   </div>
 
                   {/* Content Layer */}
-                  <div className={`relative z-30 mt-auto p-6 flex flex-col justify-end transition-all duration-500 ${
-                    isFeatured ? 'bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent' : 'bg-gradient-to-t from-white/90 dark:from-slate-950/90 via-white/40 dark:via-slate-950/40 to-transparent'
-                  }`}>
+                  <div
+                    className={`relative z-30 mt-auto p-6 flex flex-col justify-end transition-all duration-500 ${
+                      isFeatured
+                        ? 'bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent'
+                        : 'bg-gradient-to-t from-white/90 dark:from-slate-950/90 via-white/40 dark:via-slate-950/40 to-transparent'
+                    }`}
+                  >
                     <div className="flex items-center justify-between mb-2">
                       <h3
-                        className={`font-black transition-colors duration-300 tracking-tight ${isFeatured
-                          ? 'text-3xl text-white'
-                          : 'text-2xl text-slate-900 dark:text-white group-hover:text-cyan-500'
-                          }`}
+                        className={`font-black transition-colors duration-300 tracking-tight ${
+                          isFeatured
+                            ? 'text-3xl text-white'
+                            : 'text-2xl text-slate-900 dark:text-white group-hover:text-cyan-500'
+                        }`}
                       >
                         {project.title}
                       </h3>
@@ -119,8 +124,9 @@ const Projects = React.memo(function Projects() {
                     </div>
 
                     <p
-                      className={`text-sm mb-4 line-clamp-2 transition-colors duration-300 font-medium ${isFeatured ? 'text-slate-200' : 'text-slate-600 dark:text-slate-400'
-                        }`}
+                      className={`text-sm mb-4 line-clamp-2 transition-colors duration-300 font-medium ${
+                        isFeatured ? 'text-slate-200' : 'text-slate-600 dark:text-slate-400'
+                      }`}
                     >
                       {project.description}
                     </p>
@@ -129,10 +135,11 @@ const Projects = React.memo(function Projects() {
                       {project.tags.map((tag: string, i: number) => (
                         <span
                           key={i}
-                          className={`text-[10px] px-2.5 py-1 rounded-lg font-black tracking-widest uppercase border transition-all duration-300 ${isFeatured
-                            ? 'bg-cyan-500/20 border-cyan-500/40 text-cyan-400'
-                            : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 group-hover:border-cyan-500/50 group-hover:text-cyan-500'
-                            }`}
+                          className={`text-[10px] px-2.5 py-1 rounded-lg font-black tracking-widest uppercase border transition-all duration-300 ${
+                            isFeatured
+                              ? 'bg-cyan-500/20 border-cyan-500/40 text-cyan-400'
+                              : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 group-hover:border-cyan-500/50 group-hover:text-cyan-500'
+                          }`}
                         >
                           {tag}
                         </span>

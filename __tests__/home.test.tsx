@@ -27,7 +27,9 @@ jest.mock('@/components/submit-btn', () => ({
 jest.mock('hamburger-react', () => ({
   __esModule: true,
   default: ({ toggled, toggle }: any) => (
-    <button onClick={() => toggle(!toggled)} aria-label="Menu">☰</button>
+    <button onClick={() => toggle(!toggled)} aria-label="Menu">
+      ☰
+    </button>
   ),
 }));
 
@@ -51,10 +53,17 @@ jest.mock('react-hot-toast', () => ({
 
 // Mock lucide-react
 jest.mock('lucide-react', () => {
-  const createIcon = (name: string) => (props: any) => <span data-testid={`icon-${name}`} {...props} />;
-  return new Proxy({}, {
-    get: (_target, prop: string) => createIcon(prop),
-  });
+  const createIcon = (name: string) => {
+    const Icon = (props: any) => <span data-testid={`icon-${name}`} {...props} />;
+    Icon.displayName = `Icon(${name})`;
+    return Icon;
+  };
+  return new Proxy(
+    {},
+    {
+      get: (_target, prop: string) => createIcon(prop),
+    },
+  );
 });
 
 // Mock react-icons

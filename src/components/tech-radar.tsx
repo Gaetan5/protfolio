@@ -37,7 +37,7 @@ const TechRadar: React.FC<TechRadarProps> = ({ axes, values, size = 400 }) => {
     <div className="relative flex justify-center items-center py-12">
       {/* Background Glow */}
       <div className="absolute inset-0 bg-cyan-500/5 blur-[100px] rounded-full pointer-events-none" />
-      
+
       <svg width={size} height={size} className="overflow-visible filter drop-shadow-2xl">
         <defs>
           <linearGradient id="radarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -56,12 +56,14 @@ const TechRadar: React.FC<TechRadarProps> = ({ axes, values, size = 400 }) => {
 
         {/* Web Grid (Polygons) */}
         {[0.2, 0.4, 0.6, 0.8, 1].map((scale, i) => {
-          const gridPoints = axes.map((_, j) => {
-            const r = radius * scale;
-            const angle = j * angleStep - Math.PI / 2;
-            return `${center + r * Math.cos(angle)},${center + r * Math.sin(angle)}`;
-          }).join(' ');
-          
+          const gridPoints = axes
+            .map((_, j) => {
+              const r = radius * scale;
+              const angle = j * angleStep - Math.PI / 2;
+              return `${center + r * Math.cos(angle)},${center + r * Math.sin(angle)}`;
+            })
+            .join(' ');
+
           return (
             <polygon
               key={i}
@@ -112,7 +114,7 @@ const TechRadar: React.FC<TechRadarProps> = ({ axes, values, size = 400 }) => {
           initial={{ pathLength: 0, opacity: 0, scale: 0.8 }}
           whileInView={{ pathLength: 1, opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 2, ease: "circOut" }}
+          transition={{ duration: 2, ease: 'circOut' }}
           fill="url(#radarGradient)"
           stroke="white"
           strokeWidth="2"

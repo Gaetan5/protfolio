@@ -29,7 +29,7 @@ const CVDownload = React.memo(function CVDownload() {
 
     setIsSending(true);
     setError('');
-    
+
     try {
       const response = await fetch('/api/send-cv', {
         method: 'POST',
@@ -63,7 +63,9 @@ const CVDownload = React.memo(function CVDownload() {
           className="flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-black rounded-2xl transition-all shadow-2xl hover:shadow-cyan-500/20 active:scale-95 group"
         >
           <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
-          <span className="uppercase tracking-widest text-sm">{t('cv-download.download', locale)}</span>
+          <span className="uppercase tracking-widest text-sm">
+            {t('cv-download.download', locale)}
+          </span>
         </motion.button>
       </div>
 
@@ -84,8 +86,8 @@ const CVDownload = React.memo(function CVDownload() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className={`px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-sm flex items-center justify-center gap-2 transition-all shadow-xl ${
-              sent 
-                ? 'bg-emerald-500 text-white' 
+              sent
+                ? 'bg-emerald-500 text-white'
                 : 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white hover:shadow-cyan-500/30'
             } disabled:opacity-50 disabled:cursor-not-allowed`}
           >
@@ -108,7 +110,11 @@ const CVDownload = React.memo(function CVDownload() {
           </motion.button>
         </form>
         {error && <p className="text-red-500 text-xs font-bold mt-2 text-center">{error}</p>}
-        {sent && <p className="text-emerald-500 text-xs font-bold mt-2 text-center">{t('cv-download.success', locale)}</p>}
+        {sent && (
+          <p className="text-emerald-500 text-xs font-bold mt-2 text-center">
+            {t('cv-download.success', locale)}
+          </p>
+        )}
       </div>
     </div>
   );

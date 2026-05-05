@@ -87,7 +87,9 @@ const Experience = React.memo(function Experience() {
                     <div
                       className={`flex flex-col gap-5 ${index % 2 === 1 ? 'md:items-end' : 'md:items-start'}`}
                     >
-                      <div className={`flex items-center gap-4 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+                      <div
+                        className={`flex items-center gap-4 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
+                      >
                         <div className="p-4 rounded-2xl bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 group-hover:rotate-6 transition-transform duration-300">
                           <span className="text-2xl">{experience.icon}</span>
                         </div>
@@ -95,7 +97,9 @@ const Experience = React.memo(function Experience() {
                           <h3 className="text-2xl font-black text-slate-900 dark:text-white group-hover:text-cyan-500 transition-colors tracking-tight">
                             {experience.title}
                           </h3>
-                          <div className={`flex items-center gap-2 text-sm font-bold text-slate-500 dark:text-slate-400 ${index % 2 === 1 ? 'md:justify-end' : ''}`}>
+                          <div
+                            className={`flex items-center gap-2 text-sm font-bold text-slate-500 dark:text-slate-400 ${index % 2 === 1 ? 'md:justify-end' : ''}`}
+                          >
                             <Building className="w-4 h-4 text-cyan-500" />
                             {experience.location}
                           </div>
