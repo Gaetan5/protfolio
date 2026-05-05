@@ -6,6 +6,7 @@ const customJestConfig = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '^framer-motion$': '<rootDir>/__mocks__/framer-motion.tsx',
   },
   testEnvironment: 'jsdom',
 };
