@@ -21,7 +21,7 @@
     "@react-email/components": "^0.0.12",
     "@types/nodemailer": "^8.0.0",
     "@vercel/analytics": "^1.1.1",
-    "axe-core": "^4.8.0",
+    "axe-core": "^4.11.4",
     "clsx": "^2.1.1",
     "framer-motion": "^10.16.16",
     "hamburger-react": "^2.5.0",
