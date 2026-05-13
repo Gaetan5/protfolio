@@ -33,7 +33,7 @@
     "react-dom": "^18",
     "react-hot-toast": "^2.3.0",
     "react-icons": "^5.4.0",
-    "resend": "^6.2.0",
+    "resend": "^6.12.3",
     "zustand": "^4.0.0"
   },
   "devDependencies": {
